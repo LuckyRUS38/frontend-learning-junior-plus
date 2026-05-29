@@ -1,0 +1,8 @@
+div {
+    width: 400px;
+    height: 300px;
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.gastronom.ru%2F0zrAX9LGqhjC0uCr6_fr8cQEfzgunqD3VFDOOM2pI6g%2Fpr%3Arecipe-cover-image%2Fg%3Ace%2Frs%3Aauto%3A0%3A0%3A0%2FL2Ntcy9hbGwtaW1hZ2VzLzUwZmFkNGEwLTE5YzktNGQxMC1iZTI0LTA5ZTk0Mjk2OTk1My5qcGc.webp&f=1&nofb=1&ipt=ddcc404c7e8f285231c5c3da67656b501c42e886625df05717898a346304e3a7");
+    background-size: contain; /* С полями, cover - без */
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -1,0 +1,11 @@
+h1 {
+    font-variant: small-caps;
+}
+
+p {
+    word-spacing: 10px;
+}
+
+.spaced {
+    text-indent: 2em;
+}

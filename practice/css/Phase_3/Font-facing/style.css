@@ -1,0 +1,14 @@
+body {
+    font-family: system-ui, sans-serif;
+}
+
+@font-face {
+    font-family: "MyFont";
+    src: url("fonts/megrim-v18-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+p {
+    font-family: "MyFont", sans-serif;
+}

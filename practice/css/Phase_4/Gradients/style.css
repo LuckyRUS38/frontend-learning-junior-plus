@@ -1,0 +1,16 @@
+div {
+    width: 300px;
+    height: 300px;
+}
+
+.gradient-1 {
+    background: linear-gradient(to right bottom, green, red);
+}
+
+.gradient-2 {
+    background: linear-gradient(45deg, #fff987 15%, red 70%, orange);
+}
+
+.gradient-3 {
+    background: radial-gradient(circle, yellow 10%, orange 50%, red 80%);
+}
