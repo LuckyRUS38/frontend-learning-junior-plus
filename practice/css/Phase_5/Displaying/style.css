@@ -1,0 +1,17 @@
+span {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+#first {
+    background-color: red;
+}
+
+#second {
+    background-color: cyan;
+}
+
+#third {
+    background-color: violet;
+}

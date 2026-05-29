@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box; /* Обычно вешают на все элементы сразу, а не только на один. Повсеместная практика */
+}
+
+.box {
+    width: 300px;
+    padding: 10px;
+    border: 5px solid red;
+    margin: 10px;
+}

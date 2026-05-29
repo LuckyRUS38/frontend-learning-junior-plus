@@ -101,6 +101,9 @@ frontend-learning-junior-plus/
 │   ├── react/
 │   └── mini-projects/
 │
+├── templates/
+│   └── clearest-html.html
+│
 └── README.md
 ```
 
