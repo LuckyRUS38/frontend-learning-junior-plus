@@ -5,7 +5,7 @@
 ![Status](https://img.shields.io/badge/status-in%20progress-blue)
 ![Frontend](https://img.shields.io/badge/frontend-learning-orange)
 ![React](https://img.shields.io/badge/react-roadmap-61DAFB)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-view--only-lightgrey)
 
 ---
 ## О проекте
