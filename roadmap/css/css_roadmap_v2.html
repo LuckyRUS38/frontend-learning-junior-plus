@@ -1,0 +1,331 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+#wrap{padding:1rem 0}
+#prog-row{display:flex;justify-content:space-between;margin-bottom:7px}
+#prog-lbl{font-size:13px;color:var(--color-text-secondary)}
+#prog-num{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+#prog-track{height:5px;background:var(--color-border-tertiary);border-radius:3px;overflow:hidden;margin-bottom:1.5rem}
+#prog-fill{height:100%;width:0;background:#1D9E75;border-radius:3px;transition:width .4s}
+#pnav{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.75rem}
+#pnav button{padding:4px 11px;border-radius:999px;font-size:11px;cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);font-family:var(--font-sans);transition:all .15s}
+#pnav button:hover{background:var(--color-background-secondary)}
+.ph-sec{margin-bottom:2.5rem}
+.ph-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--border-radius-md);margin-bottom:12px;border-left:3px solid}
+.ph-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.ph-name{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.ph-desc{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.ph-dur{margin-left:auto;font-size:11px;color:var(--color-text-tertiary);background:var(--color-background-secondary);padding:3px 8px;border-radius:999px;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--color-border-secondary)}
+.card.done .card-head{opacity:.45}
+.card-head{padding:12px 14px;display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.chk{width:17px;height:17px;border:1.5px solid var(--color-border-secondary);border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;cursor:pointer}
+.chk.on{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.ci{flex:1}
+.ct{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px;line-height:1.3}
+.cd{font-size:12px;color:var(--color-text-secondary)}
+.cm{display:flex;gap:8px;margin-top:7px}
+.ctime{font-size:11px;color:var(--color-text-tertiary)}
+.ccnt{font-size:11px;padding:2px 7px;background:var(--color-background-secondary);border-radius:4px;color:var(--color-text-tertiary)}
+.cbody{display:none;border-top:0.5px solid var(--color-border-tertiary);padding:10px 14px 12px}
+.cbody.open{display:block}
+.subs{list-style:none;margin-bottom:10px}
+.subs li{font-size:12px;color:var(--color-text-secondary);padding:4px 0 4px 12px;border-left:1.5px solid var(--color-border-tertiary);margin-bottom:3px;line-height:1.55}
+.askbtn{width:100%;padding:7px 12px;font-size:12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-secondary);cursor:pointer;color:var(--color-text-secondary);text-align:left;font-family:var(--font-sans);transition:all .15s}
+.askbtn:hover{background:var(--color-background-tertiary);color:var(--color-text-primary)}
+</style>
+<h2 class="sr-only">CSS Roadmap — 17 фаз обучения CSS от нуля до джуна</h2>
+<div id="wrap">
+<div id="prog-row"><span id="prog-lbl">Мой прогресс</span><span id="prog-num">0</span></div>
+<div id="prog-track"><div id="prog-fill"></div></div>
+<div id="pnav"></div>
+<div id="phases"></div>
+</div>
+<script>
+var DONE=new Set();
+var P=[
+{n:0,c:"#888780",title:"Как работает CSS",desc:"Синтаксис, подключение, DevTools",days:"2-3 дня",T:[
+{id:"a0",t:"Синтаксис CSS",d:"Правила, свойства, значения",time:"день 1",
+s:["selector { property: value; } — базовая структура правила","Одно объявление = одно свойство + одно значение","Блок { } содержит любое количество объявлений","Точка с запятой ; после каждого объявления обязательна","Комментарии: /* этот текст браузер игнорирует */","CSS нечувствителен к регистру — принято писать строчными","Пробелы и переносы строк для браузера не важны"],
+ask:"Объясни синтаксис CSS с 5 примерами правил — я только начинаю"},
+{id:"a1",t:"Подключение CSS к HTML",d:"Три способа добавить стили",time:"день 1",
+s:["Inline стиль — атрибут style прямо в теге: самый высокий приоритет","Тег style внутри HTML — блок стилей прямо в документе","Тег link в секции head — подключение внешнего .css файла","Внешний файл — правильный способ для любого проекта","Приоритет: inline стиль > тег style > внешний файл","Принцип: HTML = структура, CSS = внешний вид","Несколько файлов CSS — каждый подключается отдельным тегом link"],
+ask:"Объясни три способа подключить CSS с плюсами и минусами"},
+{id:"a2",t:"DevTools браузера",d:"Главный инструмент разработчика",time:"день 2",
+s:["F12 или Ctrl+Shift+I — открыть DevTools","Курсор-стрелка в DevTools — клик на элемент на странице","Вкладка Elements — HTML слева, примнённые стили справа","Вкладка Styles — все CSS правила для элемента","Вкладка Computed — итоговые вычисленные значения","Можно редактировать CSS прямо в DevTools — изменения временные","Box Model схема внизу справа — видны margin, padding, content"],
+ask:"Научи пользоваться DevTools для изучения CSS на практике"},
+]},
+{n:1,c:"#1D9E75",title:"Селекторы",desc:"Как выбрать нужный элемент",days:"5-7 дней",T:[
+{id:"b0",t:"Базовые селекторы",d:"Тег, класс, id, универсальный",time:"день 1",
+s:["p {} — по тегу: применится ко всем параграфам","Точка .btn {} — по классу: атрибут class в HTML","Решётка #hero {} — по id: атрибут id в HTML (один на страницу)","Звёздочка * {} — универсальный: все элементы","Один тег = много элементов; один id = ровно один элемент","Классов у одного элемента может быть несколько через пробел","Два класса вместе .card.featured — оба одновременно (слитно)"],
+ask:"Объясни базовые CSS селекторы с задачками для новичка"},
+{id:"b1",t:"Комбинаторы",d:"Выбор по отношениям между тегами",time:"день 2-3",
+s:["Пробел: div p — потомок любой глубины вложенности","Больше: div > p — только прямой дочерний элемент","Плюс: h1 + p — соседний элемент сразу после h1","Тильда: h1 ~ p — все братья после h1 в том же родителе","nav a — ссылки внутри навигации (очень частый паттерн)","Можно цеплять: ul > li > a — цепочка прямых детей","Правило: не делать цепочки глубже 3 уровней"],
+ask:"Объясни CSS комбинаторы с реальными HTML примерами"},
+{id:"b2",t:"Атрибутные селекторы",d:"Выбор по HTML атрибутам",time:"день 3",
+s:["[href] — любой элемент с атрибутом href","[type=text] — элемент с точным значением атрибута","[href^=https] — значение начинается с https","[href$=.pdf] — значение заканчивается на .pdf","[class*=btn] — значение содержит слово btn","img[alt] — картинки у которых задан атрибут alt","input[required] — обязательные поля формы"],
+ask:"Покажи практические применения атрибутных селекторов"},
+{id:"b3",t:"Специфичность и каскад",d:"Как браузер выбирает победителя",time:"день 4-5",
+s:["Специфичность = три числа: id, class, tag","id даёт вес 1,0,0 — самый сильный обычный селектор","class, псевдокласс, атрибут — вес 0,1,0","тег, псевдоэлемент — вес 0,0,1","!important перебивает всё (антипаттерн, избегать)","При одинаковой специфичности побеждает последний по порядку","Каскад: стили браузера < твои стили < !important"],
+ask:"Объясни специфичность CSS с задачками — угадай чей стиль победит"},
+]},
+{n:2,c:"#BA7517",title:"Box Model",desc:"Как браузер считает размер элемента",days:"3-4 дня",T:[
+{id:"c0",t:"Что такое Box Model",d:"Каждый элемент — прямоугольник",time:"день 1",
+s:["Каждый HTML элемент = прямоугольник из четырёх слоёв","Слои снаружи внутрь: margin, border, padding, content","Content — само содержимое: текст, картинки","Padding — внутренний отступ между контентом и рамкой","Border — рамка вокруг padding","Margin — внешний отступ от других элементов","DevTools > Elements > Box Model — наглядная схема всех слоёв"],
+ask:"Объясни box model с визуальным примером и упражнением"},
+{id:"c1",t:"Padding и Margin",d:"Внутренние и внешние отступы",time:"день 1-2",
+s:["padding: 16px — все четыре стороны одинаково","padding: 8px 16px — верх/низ = 8, лево/право = 16","padding: 5px 10px 15px 20px — top right bottom left по часовой","margin: auto — центрирует блочный элемент горизонтально","margin: 0 auto — нет верхнего отступа и по центру","Margin collapsing: вертикальные margin соседей сливаются в один","Отрицательный margin допустим и сдвигает элемент"],
+ask:"Объясни padding vs margin с упражнениями — в чём разница"},
+{id:"c2",t:"Border и border-radius",d:"Рамки и скруглённые углы",time:"день 2",
+s:["border: 2px solid #333 — ширина, тип, цвет","Типы рамки: solid, dashed, dotted, double, none","border-top / right / bottom / left — только одна сторона","border-radius: 8px — скруглить все углы","border-radius: 50% — сделать круг при равных width и height","border-radius: 20px 5px — разные углы","outline — как border, но не влияет на размер и поток"],
+ask:"Покажи примеры border и border-radius для кнопок и карточек"},
+{id:"c3",t:"box-sizing: border-box",d:"Ставь в каждый проект — это стандарт",time:"день 3",
+s:["По умолчанию (content-box): width — только контент","width:200px + padding:20px = фактически 240px — сюрприз!","border-box: width включает padding и border внутрь","width:200px + padding:20px = фактически 200px — как ожидаешь","Первая строка любого CSS: * { box-sizing: border-box; }","Это стандарт — 100% реальных проектов используют border-box","Рядом обычно: html { font-size: 16px } и body { margin: 0 }"],
+ask:"Объясни разницу content-box vs border-box на числовом примере"},
+]},
+{n:3,c:"#185FA5",title:"Текст и типографика",desc:"Шрифты, размеры, читаемость",days:"3-4 дня",T:[
+{id:"d0",t:"font-family и подключение",d:"Выбор и загрузка шрифтов",time:"день 1",
+s:["font-family: Arial, Helvetica, sans-serif — список резервных шрифтов","Семейства: serif (с засечками), sans-serif (без), monospace (код)","Google Fonts — скопируй тег link и правило font-family","system-ui — использовать системный шрифт пользователя (быстро)","@font-face — подключить свой файл шрифта","Не подключай больше 2-3 шрифтов — замедляет загрузку","Всегда указывай резервное семейство в конце: sans-serif"],
+ask:"Как правильно подключить шрифт с Google Fonts?"},
+{id:"d1",t:"font-size, weight, style",d:"Размер, жирность, наклон",time:"день 1-2",
+s:["font-size: 16px — стандартный базовый размер","rem — от корневого html: 1rem = 16px, 2rem = 32px","em — от font-size текущего элемента (опасно при вложенности)","font-weight: 400 = обычный, 700 = жирный, диапазон 100-900","font-style: italic — курсив","Правило: шрифты в rem, border/shadow в px","font-variant: small-caps — маленькие заглавные буквы"],
+ask:"Объясни разницу rem vs em vs px с практическими примерами"},
+{id:"d2",t:"line-height и интервалы",d:"Читаемость и ритм текста",time:"день 2",
+s:["line-height: 1.5 — без единиц = множитель от font-size","Для основного текста: 1.5-1.7 — комфортное чтение","line-height: 1 — строки вплотную (плохо для длинных текстов)","letter-spacing: 0.05em — между буквами","letter-spacing: 0.1em — хорошо для заголовков в uppercase","word-spacing — расстояние между словами","text-indent: 20px — отступ первой строки абзаца"],
+ask:"Как настроить читаемую типографику с нуля?"},
+{id:"d3",t:"text-align, decoration, transform",d:"Выравнивание и оформление",time:"день 3",
+s:["text-align: left, center, right, justify","text-decoration: underline, line-through, overline, none","a { text-decoration: none } — убрать подчёркивание ссылок","text-transform: uppercase, lowercase, capitalize","Паттерн обрезки текста с многоточием — три свойства вместе:","overflow: hidden + white-space: nowrap + text-overflow: ellipsis","word-break: break-all — переносить где угодно"],
+ask:"Покажи паттерн text-overflow ellipsis с полным кодом"},
+]},
+{n:4,c:"#993C1D",title:"Цвет и фон",desc:"Форматы цвета, background, градиенты",days:"2-3 дня",T:[
+{id:"e0",t:"Форматы цвета",d:"hex, rgb, hsl — всё о цвете",time:"день 1",
+s:["Named: red, blue, coral, transparent — 140+ именованных","Hex: #ff0000 = красный, #fff = белый (сокращение)","rgb(255, 0, 0) — три канала 0-255","rgba(255, 0, 0, 0.5) — с прозрачностью 0-1","hsl(120, 100%, 50%) — оттенок 0-360, насыщенность, светлота","hsla — hsl с прозрачностью","currentColor — наследует значение свойства color"],
+ask:"Объясни все форматы цвета CSS — когда что использовать"},
+{id:"e1",t:"Background свойства",d:"Фон, изображение, позиция, размер",time:"день 1-2",
+s:["background-color: #f5f5f5 — сплошной цвет фона","background-image: url(photo.jpg) — фоновое изображение","background-size: cover — заполнить весь блок (обрезает лишнее)","background-size: contain — вписать целиком","background-position: center, top right, 50% 50%","background-repeat: no-repeat, repeat-x, repeat-y","background-attachment: fixed — параллакс при скролле"],
+ask:"Объясни все background свойства с примерами кода"},
+{id:"e2",t:"CSS градиенты",d:"linear-gradient, radial-gradient",time:"день 2",
+s:["linear-gradient(to right, #ff6b6b, #4ecdc4) — слева направо","linear-gradient(45deg, red, blue) — под углом 45 градусов","Несколько цветов: linear-gradient(red, yellow, green)","Остановки: linear-gradient(red 30%, blue 70%)","radial-gradient(circle, red, blue) — расходится от центра","Применяется как фон: background: linear-gradient(...)","С прозрачностью: от rgba(0,0,0,0) до rgba(0,0,0,0.8)"],
+ask:"Покажи примеры красивых CSS градиентов которые реально используются"},
+]},
+{n:5,c:"#534AB7",title:"Display и поток",desc:"Block, inline, overflow",days:"2-3 дня",T:[
+{id:"f0",t:"Normal flow",d:"Как браузер расставляет элементы",time:"день 1",
+s:["Block элементы: div, p, h1-h6, ul, li — каждый с новой строки","Block занимает 100% ширины родителя по умолчанию","Inline элементы: span, a, strong, em — идут как слова в тексте","Inline нельзя задать width и height — они игнорируются","Блоки складываются вертикально, inline — горизонтально","Normal flow — поведение без CSS position и float","Понимание flow объясняет почему элементы стоят там где стоят"],
+ask:"Объясни normal flow — как браузер расставляет элементы без CSS"},
+{id:"f1",t:"display: типы отображения",d:"block, inline, inline-block, none",time:"день 1-2",
+s:["display: block — вся строка, width и height работают","display: inline — в потоке текста, width и height не работают","display: inline-block — в потоке, но width и height работают","display: none — убрать из потока, места нет","visibility: hidden — скрыть, но место сохраняется","Кнопки делают inline-block чтобы задать padding","a { display: block } — делает ссылку блочной"],
+ask:"Объясни разницу block vs inline vs inline-block с примерами"},
+{id:"f2",t:"overflow",d:"Контент который не помещается",time:"день 2",
+s:["overflow: visible — контент вылезает за границы (по умолчанию)","overflow: hidden — обрезать всё что вышло","overflow: scroll — всегда показывать полосу прокрутки","overflow: auto — полоса только если нужна","overflow-x и overflow-y — по каждой оси отдельно","overflow: hidden создаёт новый block formatting context","Осторожно: overflow: hidden скрывает position:absolute дочерних"],
+ask:"Покажи реальные случаи применения разных значений overflow"},
+]},
+{n:6,c:"#3B6D11",title:"Flexbox",desc:"Одномерные гибкие раскладки",days:"5-7 дней",T:[
+{id:"g0",t:"display: flex и направление",d:"Основы контейнера",time:"день 1",
+s:["display: flex на родителе — дети становятся flex-элементами","Flexbox — для одномерных раскладок: строка ИЛИ колонка","flex-direction: row — горизонтально (по умолчанию)","flex-direction: column — вертикально","flex-direction: row-reverse, column-reverse — обратный порядок","Главная ось = направление flex-direction","Поперечная ось = перпендикулярно главной"],
+ask:"Тема: Flexbox с нуля — составь план изучения с упражнениями"},
+{id:"g1",t:"justify-content",d:"Распределение по главной оси",time:"день 2",
+s:["flex-start — прижать к началу (по умолчанию)","flex-end — прижать к концу","center — по центру главной оси","space-between — равные промежутки между элементами","space-around — равные промежутки вокруг каждого","space-evenly — абсолютно равные промежутки везде","Важно: главная ось меняется вместе с flex-direction"],
+ask:"Объясни все значения justify-content с визуальными примерами"},
+{id:"g2",t:"align-items и align-self",d:"Выравнивание по поперечной оси",time:"день 2-3",
+s:["stretch — растянуть по поперечной оси (по умолчанию)","flex-start — к началу поперечной оси","flex-end — к концу","center — по центру поперечной оси","baseline — по базовой линии текста","align-self — на дочернем, переопределяет align-items для него","Трюк: justify-content:center + align-items:center = идеальный центр"],
+ask:"Объясни разницу justify-content и align-items"},
+{id:"g3",t:"flex-wrap и gap",d:"Перенос строк и отступы",time:"день 3",
+s:["flex-wrap: nowrap — все в одну строку (по умолчанию)","flex-wrap: wrap — переносить на следующую строку","gap: 16px — расстояние между flex-элементами","gap: 8px 16px — row-gap и column-gap раздельно","align-content — выравнивание строк при flex-wrap","Карточки + flex-wrap + gap = простая адаптивная сетка","row-gap и column-gap можно задать отдельно"],
+ask:"Покажи паттерн flex-wrap для адаптивной сетки карточек"},
+{id:"g4",t:"Свойства дочерних элементов",d:"flex-grow, shrink, basis, order",time:"день 4-5",
+s:["flex-grow: 1 — занять всё свободное место","flex-grow: 2 — в два раза больше чем flex-grow:1 у соседа","flex-shrink: 0 — не сжиматься когда места не хватает","flex-basis: 200px — начальный размер до распределения","flex: 1 — сокращение: grow 1, shrink 1, basis 0 (самое частое)","flex: 0 0 auto — фиксированный размер, не расти и не сжиматься","order: -1 — поставить первым без изменения HTML"],
+ask:"Объясни flex-grow shrink basis простыми словами с примером кода"},
+]},
+{n:7,c:"#993556",title:"CSS Grid",desc:"Двумерные сетки — строки и колонки",days:"5-7 дней",T:[
+{id:"h0",t:"Основы Grid",d:"Колонки, строки, fr единица",time:"день 1-2",
+s:["display: grid — включаем на родителе","grid-template-columns: 200px 1fr 200px — три колонки","fr — fractional unit: доля свободного пространства","repeat(3, 1fr) — три равные колонки через сокращение","grid-template-rows — аналогично для строк","gap: 16px — расстояния между всеми ячейками","Дети автоматически размещаются по ячейкам"],
+ask:"Тема: CSS Grid с нуля — составь план изучения с упражнениями"},
+{id:"h1",t:"auto-fit, auto-fill, minmax",d:"Адаптивная сетка без media queries",time:"день 2-3",
+s:["minmax(200px, 1fr) — колонка от 200px до 1fr","repeat(auto-fit, minmax(200px, 1fr)) — сколько влезет","auto-fit: пустые треки схлопываются","auto-fill: пустые треки сохраняются","Это адаптивные карточки БЕЗ единого media query!","minmax(0, 1fr) — предотвращает вылезание контента из ячейки","Самый мощный паттерн Grid — учи в первую очередь"],
+ask:"Объясни auto-fit vs auto-fill + minmax с примером адаптивных карточек"},
+{id:"h2",t:"Размещение элементов",d:"grid-column, grid-row, span",time:"день 3-4",
+s:["grid-column: 1 / 3 — занять от линии 1 до линии 3","grid-column: span 2 — занять 2 колонки без указания линий","grid-row: 1 / 3 — занять 2 строки","grid-column: 1 / -1 — на всю ширину сетки","Линии: 4 колонки = 5 линий: 1, 2, 3, 4, 5","-1 означает последнюю линию","grid-area: header — назначить элементу имя области"],
+ask:"Объясни grid-column и grid-row с примером размещения элементов"},
+{id:"h3",t:"grid-template-areas",d:"Визуальная карта раскладки",time:"день 4-5",
+s:["Задаём карту строками в grid-template-areas","Пример: header header header","Второй ряд: sidebar main main","Третий ряд: footer footer footer","grid-area: header на элементе — назначает его в область","Имя области = один прямоугольник, L-форму нельзя","Точка . — пустая ячейка в сетке"],
+ask:"Покажи полный пример grid-template-areas для страницы сайта"},
+]},
+{n:8,c:"#854F0B",title:"Позиционирование",desc:"position, z-index, stacking context",days:"3-4 дня",T:[
+{id:"i0",t:"static и relative",d:"Базовое и сдвинутое позиционирование",time:"день 1",
+s:["static — по умолчанию у всех: top/left не работают","relative — сдвигаем через top, left, right, bottom","Сдвиг от своего исходного места в потоке","Место в потоке сохраняется — дыра остаётся","Главный смысл relative: создать контекст для absolute дочерних","position: relative без top/left — только как контейнер","Не создаёт stacking context если z-index: auto"],
+ask:"Объясни position relative с практическим примером"},
+{id:"i1",t:"absolute и fixed",d:"Элементы вырванные из потока",time:"день 2",
+s:["absolute — от ближайшего positioned предка (не static)","Если нет positioned предка — от корневого элемента страницы","Вырван из потока: другие элементы его не замечают","Паттерн: родитель position:relative + ребёнок position:absolute","fixed — от viewport, не двигается при прокрутке","fixed используют для: шапок, кнопок наверх, уведомлений","fixed тоже вырван из потока"],
+ask:"Объясни position absolute и fixed с примерами реальных UI компонентов"},
+{id:"i2",t:"sticky и z-index",d:"Прилипающий элемент и порядок слоёв",time:"день 3-4",
+s:["sticky — relative до порога, потом прилипает как fixed","position: sticky; top: 0 — шапка прилипает при скролле","Ограничен своим родителем — исчезает когда родитель уходит","z-index работает только у positioned элементов (не static)","Больше z-index = ближе к пользователю","Stacking context: новый контекст при transform, opacity, filter","Ребёнок не может выйти за пределы stacking context родителя"],
+ask:"Объясни почему z-index иногда не работает — с примером"},
+]},
+{n:9,c:"#0F6E56",title:"Единицы и Responsive",desc:"px, rem, vw, media queries, clamp",days:"5-7 дней",T:[
+{id:"j0",t:"Единицы измерения",d:"px, %, rem, em, vw, vh",time:"день 1-2",
+s:["px — абсолютные пиксели, предсказуемы","% — от родителя: width: 50% = половина ширины родителя","rem — от html: 1rem = 16px, 2rem = 32px — всегда предсказуемо","em — от font-size текущего элемента (опасно при вложенности)","vw — процент ширины viewport: 100vw = вся ширина","vh — процент высоты viewport: 100vh = весь экран","svh/dvh — учитывают мобильный адресбар"],
+ask:"Объясни все CSS единицы с примерами — когда что использовать"},
+{id:"j1",t:"Media queries",d:"Стили для разных экранов",time:"день 2-4",
+s:["@media (max-width: 768px) — при ширине до 768px","@media (min-width: 1024px) — при ширине от 1024px","Mobile-first: пишешь для мобильных, min-width расширяет","Desktop-first: пишешь для широких, max-width сужает","Брейкпоинты: 480, 768, 1024, 1440px","@media (prefers-color-scheme: dark) — тёмная тема ОС","@media (prefers-reduced-motion: reduce) — уважаем анимации"],
+ask:"Объясни mobile-first подход с полным примером"},
+{id:"j2",t:"clamp, min, max, calc",d:"Адаптивность без media queries",time:"день 5",
+s:["clamp(min, preferred, max) — значение зажато между min и max","font-size: clamp(16px, 2.5vw, 24px) — адаптивный шрифт","min(500px, 100%) — не шире 500px и не шире родителя","max(2rem, 5vw) — не меньше 2rem","calc(100% - 40px) — смешивать разные единицы","calc(var(--spacing) * 2) — с CSS переменными","Вложение: calc(min(600px, 100%) - 2rem)"],
+ask:"Покажи как clamp заменяет media queries для адаптивного текста"},
+]},
+{n:10,c:"#7F77DD",title:"CSS Переменные",desc:"Custom properties — переменные в CSS",days:"2-3 дня",T:[
+{id:"k0",t:"Объявление и использование",d:"Синтаксис custom properties",time:"день 1",
+s:["Объявление: --my-color: #ff6b6b (два дефиса обязательны)","Использование: color: var(--my-color)","Fallback: var(--my-color, red) — значение если переменная не задана","В :root — доступна глобально по всему документу","В .component — локальная только для этого компонента","Регистрозависимы: --Color и --color — разные переменные","Переменные наследуются как обычные CSS свойства"],
+ask:"Объясни CSS переменные с примером системы токенов дизайна"},
+{id:"k1",t:"Тёмная тема через переменные",d:"Переключение тем",time:"день 2",
+s:["Задай в :root: --bg: white; --text: #111","@media (prefers-color-scheme: dark) { :root { --bg: #1a1a1a } }","Тёмная тема через класс: .dark { --bg: #1a1a1a }","document.body.classList.toggle('dark') — переключение из JS","Все компоненты обновятся автоматически — меняй в одном месте","Компонентные переменные: .card { --card-bg: white }","Дочернее переопределение — локально внутри компонента"],
+ask:"Покажи полный пример тёмной темы через CSS переменные"},
+{id:"k2",t:"Переменные и JavaScript",d:"Читать и изменять через JS",time:"день 3",
+s:["Читать: getComputedStyle(el).getPropertyValue('--my-var').trim()","Установить: el.style.setProperty('--my-var', '20px')","Инлайн в HTML через атрибут style: --offset: 10px","Анимация через JS: меняй переменную, CSS transition анимирует","В calc(): width: calc(var(--cols) * 100px)","В transform: transform: translateX(var(--slide))","Паттерн: одна переменная из JS меняет много CSS эффектов"],
+ask:"Покажи примеры управления CSS переменными через JavaScript"},
+]},
+{n:11,c:"#378ADD",title:"Псевдоклассы и псевдоэлементы",desc:":hover, :nth-child, ::before, ::after",days:"3-4 дня",T:[
+{id:"l0",t:"Псевдоклассы состояния",d:"Реакция на пользователя",time:"день 1",
+s:[":hover — курсор мыши над элементом",":focus — элемент получил фокус (Tab или клик)",":focus-visible — фокус только при навигации с клавиатуры",":focus-within — фокус у любого потомка внутри",":active — в момент нажатия мыши",":visited — посещённая ссылка",":disabled и :checked — состояния форм",":hover + transition = базовая интерактивность"],
+ask:"Покажи паттерны :hover и :focus для кнопок и полей ввода"},
+{id:"l1",t:"Структурные псевдоклассы",d:":nth-child, :not, :is, :has",time:"день 2-3",
+s:[":first-child — первый дочерний элемент",":last-child — последний дочерний",":nth-child(3) — конкретно третий по счёту",":nth-child(odd) — нечётные; :nth-child(even) — чётные",":nth-child(3n+1) — формула: 1-й, 4-й, 7-й...",":not(.active) — все кроме .active",":is(h1, h2, h3) — группировка селекторов",":has(img) — родитель содержащий img (CSS 2024)"],
+ask:"Объясни :nth-child с примерами формул и реальными задачами"},
+{id:"l2",t:"::before и ::after",d:"Создаём элементы без лишнего HTML",time:"день 3-4",
+s:["::before — псевдоэлемент перед контентом тега","::after — псевдоэлемент после контента тега","content: '' — обязателен; без него псевдоэлемент не появится","content: 'текст' — вставить текстовое содержимое","display: block — чтобы задать размеры псевдоэлементу","Сочетание с position:absolute — декоративные эффекты","counter-increment + content: counter() — счётчики"],
+ask:"Покажи 5 реальных примеров использования ::before и ::after"},
+]},
+{n:12,c:"#D85A30",title:"Transform",desc:"Двигаем, вращаем, масштабируем",days:"2-3 дня",T:[
+{id:"m0",t:"2D трансформации",d:"translate, scale, rotate, skew",time:"день 1",
+s:["transform: translate(50px, 20px) — сдвиг по X и Y","translateX(50px), translateY(20px) — по одной оси","translate(50%) — 50% от размера самого элемента","transform: scale(1.5) — увеличить в 1.5 раза","transform: rotate(45deg) — поворот на 45 градусов","transform: skew(20deg) — наклон","Transform не влияет на поток — место в документе сохраняется"],
+ask:"Объясни все 2D transform функции с визуальными примерами"},
+{id:"m1",t:"transform-origin и GPU",d:"Точка трансформации и производительность",time:"день 2",
+s:["transform-origin: center center — по умолчанию","transform-origin: top left — вращать от левого верхнего угла","transform-origin: 50% 0 — от верхнего центра","Несколько трансформаций: transform: translate() rotate() scale()","Порядок важен — rotate потом translate не равно translate потом rotate","GPU-дешёвые свойства: transform и opacity — не вызывают reflow","GPU-дорогие: width, height, top, left — избегай для анимации"],
+ask:"Объясни transform-origin с примерами и GPU ускорение"},
+{id:"m2",t:"3D трансформации",d:"perspective, rotateX, rotateY",time:"день 3",
+s:["perspective: 1000px на родителе — создаёт 3D пространство","Меньше значение = более выраженный 3D эффект","rotateX(45deg) — вращение вокруг горизонтальной оси","rotateY(45deg) — вращение вокруг вертикальной оси","translateZ(100px) — сдвиг по оси Z (к зрителю)","transform-style: preserve-3d — включить 3D для дочерних","backface-visibility: hidden — скрыть обратную сторону"],
+ask:"Покажи как сделать 3D переворот карточки при hover"},
+]},
+{n:13,c:"#639922",title:"Transitions",desc:"Плавные переходы между состояниями",days:"2 дня",T:[
+{id:"n0",t:"Синтаксис transition",d:"Анимируем изменения свойств",time:"день 1",
+s:["transition: property duration timing-function delay","transition: color 0.3s ease — плавная смена цвета","transition: all 0.3s — все свойства (аккуратно, медленнее)","Несколько: transition: color 0.3s, transform 0.2s ease-out","Transition срабатывает при изменении: hover, class, focus","Работает в обратную сторону автоматически","transition-delay: 0.1s — задержка перед стартом"],
+ask:"Объясни синтаксис transition с примерами hover эффектов"},
+{id:"n1",t:"Timing functions",d:"Кривые плавности и оптимизация",time:"день 2",
+s:["ease — медленно-быстро-медленно (по умолчанию)","linear — постоянная скорость (для спиннеров)","ease-in — медленный старт (хорошо для ухода элемента)","ease-out — медленный финал (хорошо для появления)","ease-in-out — оба конца медленные","cubic-bezier(x1,y1,x2,y2) — кастомная кривая","Анимируй только transform и opacity — дёшево для GPU"],
+ask:"Объясни timing functions с примером когда что выбирать"},
+]},
+{n:14,c:"#D4537E",title:"Animations",desc:"@keyframes — полный контроль",days:"3-4 дня",T:[
+{id:"o0",t:"@keyframes",d:"Описываем шаги анимации",time:"день 1",
+s:["@keyframes myAnim { from { opacity:0 } to { opacity:1 } }","from = 0%, to = 100%","С процентами: 0% {} 25% {} 50% {} 100% {}","Несколько свойств в одном шаге: opacity + transform вместе","Шагов может быть сколько угодно — только нужные","Имя keyframes — твой выбор — применяется через animation-name","Keyframes можно переиспользовать для разных элементов"],
+ask:"Объясни @keyframes с 4 разными примерами анимаций"},
+{id:"o1",t:"Animation свойства",d:"Управляем воспроизведением",time:"день 2",
+s:["animation-name: myAnim — ссылка на @keyframes","animation-duration: 1s — длительность одного цикла","animation-timing-function: ease, linear, ease-out","animation-delay: 0.5s — пауза перед стартом","animation-iteration-count: 3 или infinite","animation-direction: normal, reverse, alternate (туда-обратно)","animation-fill-mode: forwards — остаться в конечном состоянии","animation-play-state: paused — пауза"],
+ask:"Объясни все animation свойства с примерами"},
+{id:"o2",t:"Базовые паттерны",d:"5 анимаций которые везде используются",time:"день 3",
+s:["Fade in: opacity от 0 до 1","Slide in: translateY(-20px) + opacity:0 до начального состояния","Spin: rotate от 0 до 360deg + iteration-count: infinite","Pulse: scale от 1 до 1.05 и обратно","Shake: translateX -5px, 5px, -5px через проценты","Shorthand: animation: fadeIn 0.4s ease-out forwards","@media (prefers-reduced-motion: reduce) — отключать анимации"],
+ask:"Покажи код fadeIn, slideIn, spin и pulse анимаций"},
+]},
+{n:15,c:"#5F5E5A",title:"Продвинутые концепции",desc:"filter, clip-path, современный CSS",days:"1-2 недели",T:[
+{id:"p0",t:"CSS функции",d:"calc, min, max, clamp",time:"2-3 дня",
+s:["calc(100% - 40px) — смешивать разные единицы","calc(var(--spacing) * 2) — с CSS переменными","min(500px, 100%) — меньшее из двух значений","max(2rem, 5vw) — большее из двух","clamp(min, preferred, max) — зажато между пределами","Вложение: calc(min(600px, 100%) - 2rem)","Применения: адаптивный шрифт, умная ширина, fluid spacing"],
+ask:"Объясни calc, min, max, clamp с практическими примерами кода"},
+{id:"p1",t:"Визуальные эффекты",d:"filter, backdrop-filter, clip-path",time:"2-3 дня",
+s:["filter: blur(4px) — размытие элемента","filter: brightness(1.5), grayscale(1) — яркость, ч/б","filter: drop-shadow() — тень учитывает прозрачность PNG","backdrop-filter: blur(10px) — размытие позади элемента","clip-path: polygon(...) — обрезать по форме","clip-path: circle(50%) — круговая обрезка","mix-blend-mode: multiply, screen — как слои в Photoshop"],
+ask:"Покажи как сделать эффект матового стекла через backdrop-filter"},
+{id:"p2",t:"Современный CSS",d:"Что знает джун в 2025",time:"3-4 дня",
+s:["aspect-ratio: 16/9 — соотношение сторон","object-fit: cover, contain — для картинок как background-size","scroll-behavior: smooth — плавная прокрутка к якорям","scroll-snap — прыжки к точкам при скролле","@container — стили по размеру родителя (Container Queries)","pointer-events: none — клики проходят сквозь элемент","color-mix(in srgb, red 50%, blue) — смешивание цветов"],
+ask:"Расскажи о Container Queries и чем они лучше media queries"},
+]},
+{n:16,c:"#3C3489",title:"Архитектура CSS",desc:"BEM, SCSS, CSS в React",days:"5-7 дней",T:[
+{id:"q0",t:"BEM методология",d:"Именование классов без конфликтов",time:"день 1-2",
+s:["Block: .card, .button, .nav — самостоятельный компонент","Element: .card__title — часть блока (два подчёркивания)","Modifier: .button--primary — вариант (два дефиса)","В CSS нет вложенности: .card__title {} не .card .title {}","Плюс: сразу видно что к чему относится в HTML","Минус: длинные имена классов, много классов в HTML","Основа для понимания любых CSS методологий"],
+ask:"Объясни BEM с полным примером реального UI компонента"},
+{id:"q1",t:"SCSS / Sass",d:"CSS с суперспособностями",time:"день 2-4",
+s:["SCSS компилируется в обычный CSS — браузер разницы не знает","Вложенность: .nav { a { color: red } } = .nav a { color: red }","Амперсанд &: &:hover = .button:hover — parent selector","@mixin button($color) {} + @include button(blue) — переиспользование","@extend .base — наследовать стили другого класса","Файлы: _variables.scss, _buttons.scss + @use для объединения","Vite поддерживает SCSS из коробки: npm install -D sass"],
+ask:"Покажи как организовать SCSS проект с переменными и миксинами"},
+{id:"q2",t:"CSS в React",d:"Modules, Tailwind, styled-components",time:"день 4-5",
+s:["Глобальный CSS: import './styles.css' — просто работает","CSS Modules: import styles from './Card.module.css'","className={styles.card} — классы локальны, не конфликтуют","Tailwind CSS: утилитарные классы прямо в JSX","flex items-center gap-4 p-4 rounded-xl bg-white","Tailwind: не пишешь CSS вообще — только классы","Styled-components: CSS прямо в JS как template literal"],
+ask:"Сравни CSS Modules vs Tailwind для React — плюсы и минусы"},
+]},
+];
+
+function g(id){return document.getElementById(id);}
+function mk(tag,cls){var e=document.createElement(tag);if(cls)e.className=cls;return e;}
+function tx(tag,cls,text){var e=mk(tag,cls);e.textContent=text;return e;}
+
+function updateProg(){
+  var total=P.reduce(function(s,p){return s+p.T.length;},0);
+  var d=DONE.size;
+  g('prog-fill').style.width=(total?d/total*100:0).toFixed(1)+'%';
+  g('prog-num').textContent=d+' / '+total+' тем';
+}
+
+function buildCard(t){
+  var card=mk('div','card');
+  var head=mk('div','card-head');
+  var chk=mk('div','chk');
+  var ci=mk('div','ci');
+  var cm=mk('div','cm');
+  cm.appendChild(tx('span','ctime',t.time));
+  var cnt=tx('span','ccnt',t.s.length+' подтем');
+  cm.appendChild(cnt);
+  ci.appendChild(tx('div','ct',t.t));
+  ci.appendChild(tx('div','cd',t.d));
+  ci.appendChild(cm);
+  head.appendChild(chk);
+  head.appendChild(ci);
+  var body=mk('div','cbody');
+  var ul=mk('ul','subs');
+  t.s.forEach(function(text){ul.appendChild(tx('li',null,text));});
+  var btn=tx('button','askbtn','Спросить ментора по этой теме ↗');
+  body.appendChild(ul);
+  body.appendChild(btn);
+  card.appendChild(head);
+  card.appendChild(body);
+  head.addEventListener('click',function(e){
+    if(e.target===chk||chk.contains(e.target))return;
+    body.classList.toggle('open');
+  });
+  chk.addEventListener('click',function(){
+    if(DONE.has(t.id))DONE.delete(t.id);else DONE.add(t.id);
+    var on=DONE.has(t.id);
+    chk.classList.toggle('on',on);
+    chk.textContent=on?'✓':'';
+    card.classList.toggle('done',on);
+    updateProg();
+  });
+  btn.addEventListener('click',function(){sendPrompt(t.ask);});
+  return card;
+}
+
+function buildPhase(ph){
+  var sec=mk('div','ph-sec');
+  sec.id='ph'+ph.n;
+  var head=mk('div','ph-head');
+  head.style.cssText='background:'+ph.c+'18;border-left-color:'+ph.c;
+  var num=tx('div','ph-num',ph.n);
+  num.style.cssText='background:'+ph.c+'25;color:'+ph.c;
+  var info=mk('div');
+  info.appendChild(tx('div','ph-name',ph.title));
+  info.appendChild(tx('div','ph-desc',ph.desc));
+  var dur=tx('div','ph-dur',ph.days);
+  head.appendChild(num);head.appendChild(info);head.appendChild(dur);
+  sec.appendChild(head);
+  var grid=mk('div','cards');
+  ph.T.forEach(function(t){grid.appendChild(buildCard(t));});
+  sec.appendChild(grid);
+  return sec;
+}
+
+var nav=g('pnav');
+var cont=g('phases');
+P.forEach(function(ph){
+  var btn=tx('button',null,'Ф'+ph.n+' '+ph.title);
+  btn.onclick=function(){g('ph'+ph.n).scrollIntoView({behavior:'smooth',block:'start'});};
+  nav.appendChild(btn);
+  cont.appendChild(buildPhase(ph));
+});
+updateProg();
+</script>
