@@ -1,0 +1,11 @@
+.default-paragraph {
+    color: black;
+}
+
+.warning-paragraph {
+    color: red;
+}
+
+#expansive {
+    font-size: 32px;
+}
