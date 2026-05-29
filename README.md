@@ -53,16 +53,6 @@
 * SCSS/SASS
 * Tailwind CSS
 
-## JavaScript
-
-* DOM
-* Events
-* Async/Await
-* Fetch API
-* Modules
-* OOP
-* Functional Programming Basics
-
 ## React Ecosystem
 
 * React
