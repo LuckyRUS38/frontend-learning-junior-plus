@@ -1,7 +1,13 @@
 # Frontend Junior+ Roadmap
 
 > Эксперимент по изучению Frontend-разработки с использованием AI как ментора и помощника в обучении.
+---
+![Status](https://img.shields.io/badge/status-in%20progress-blue)
+![Frontend](https://img.shields.io/badge/frontend-learning-orange)
+![React](https://img.shields.io/badge/react-roadmap-61DAFB)
+![License](https://img.shields.io/badge/license-MIT-green)
 
+---
 ## О проекте
 
 Этот репозиторий — мой личный roadmap и практическая база для изучения Frontend-разработки до уровня Junior+ Developer.
@@ -172,3 +178,4 @@ AI используется как вспомогательный инструм
 Создано в рамках эксперимента по AI-assisted обучению Frontend-разработке.
 
 * Created by Artemiy Kuznetsov
+---
