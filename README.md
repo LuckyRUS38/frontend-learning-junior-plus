@@ -179,3 +179,17 @@ AI используется как вспомогательный инструм
 
 * Created by Artemiy Kuznetsov
 ---
+
+## License
+
+This project is source-available.
+
+You may view and use this code for personal and educational purposes only.
+
+Commercial use, redistribution, sublicensing, or selling any part of this project is strictly prohibited without a separate paid license.
+
+For commercial licensing or permissions, contact:
+- Email: artemiykuzik@gmail.com  
+- Telegram: @LuckyRUS38
+
+All rights reserved.
