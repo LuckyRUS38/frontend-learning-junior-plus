@@ -8,6 +8,14 @@
 ![License](https://img.shields.io/badge/license-view--only-lightgrey)
 
 ---
+
+## Практический результат первых 6 фаз обучения | Первый мини-проект
+
+Ниже представлен результат прохождения первых шести фаз roadmap — мини-проект, созданный для закрепления изученного материала.
+
+![Mini Project Preview](assets/images/first-project.png)
+
+---
 ## О проекте
 
 Этот репозиторий — мой личный roadmap и практическая база для изучения Frontend-разработки до уровня Junior+ Developer.
