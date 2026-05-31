@@ -99,6 +99,9 @@ frontend-learning-junior-plus/
 │   ├── react/
 │   └── mini-projects/
 │
+├── projects/
+│   └── album-card/
+│
 ├── templates/
 │   └── clearest-html.html
 │
