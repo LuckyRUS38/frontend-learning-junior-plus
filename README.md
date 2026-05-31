@@ -158,8 +158,8 @@ frontend-learning-junior-plus/
 ## CSS
 
 * [x] Базовые селекторы
-* [ ] Box Model
-* [ ] Flexbox
+* [x] Box Model
+* [x] Flexbox
 * [ ] Grid
 * [ ] Responsive Design
 
