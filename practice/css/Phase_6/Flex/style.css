@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.block {
+    width: 200px;
+    height: 150px;
+    margin: 20px 10px;
+    background-color: #f7aaf7;
+}
