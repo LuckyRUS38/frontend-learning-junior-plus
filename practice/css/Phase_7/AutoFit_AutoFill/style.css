@@ -1,0 +1,12 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+    ); /*при autofit схлапываются пустые колонки на маленьком экране, если не влазят*/
+    gap: 20px;
+}
+
+.grid div {
+    background-color: lightgoldenrodyellow;
+}
