@@ -1,0 +1,12 @@
+.block {
+    background-color: yellowgreen;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+}
+
+.relative {
+    position: relative;
+    bottom: 20px;
+    background-color: lightblue;
+}

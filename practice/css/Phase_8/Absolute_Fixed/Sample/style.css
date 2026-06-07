@@ -1,0 +1,19 @@
+.card {
+    position: relative; /* якорь для absolute-ребёнка */
+    width: 200px;
+    height: 120px;
+    background: #eee;
+}
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px; /* от угла .card, а не экрана */
+    background: crimson;
+    color: #fff;
+    padding: 2px 6px;
+}
+.totop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* от угла окна, висит при скролле */
+}
