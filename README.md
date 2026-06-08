@@ -160,8 +160,10 @@ frontend-learning-junior-plus/
 * [x] Базовые селекторы
 * [x] Box Model
 * [x] Flexbox
-* [ ] Grid
+* [x] Grid
 * [ ] Responsive Design
+* [ ] Animations
+* [ ] Frameworks (soon)
 
 ## React
 

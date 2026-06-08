@@ -161,10 +161,12 @@ With this repository, I aim to create:
 ## CSS
 
 * [x] Basic Selectors
-* [ ] Box Model
-* [ ] Flexbox
-* [ ] Grid
+* [x] Box Model
+* [x] Flexbox
+* [x] Grid
 * [ ] Responsive Design
+* [ ] Animations
+* [ ] Frameworks (soon)
 
 ## React
 
