@@ -1,0 +1,29 @@
+.parent {
+    width: 400px;
+    background-color: yellow;
+}
+
+.child {
+    width: 50%;
+    background-color: greenyellow;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.fullscreen {
+    height: 100vh;
+    background: darkorange;
+    font-size: 2rem;
+}
