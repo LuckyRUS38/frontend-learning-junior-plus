@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sticky & z-index — пример</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <p>Прокручивай вниз — заголовок прилипнет к верху ↓</p>
+
+        <!-- sticky: ведёт себя как relative, пока не дойдёт до top:0,
+             затем "прилипает" к верху экрана при дальнейшем скролле -->
+        <h2 class="sticky-head">Я прилипаю к верху (sticky)</h2>
+
+        <div class="content">
+            <p>Текст 1 — длинный контент, чтобы появился скролл...</p>
+            <p>Текст 2</p>
+            <p>Текст 3</p>
+            <p>Текст 4</p>
+            <p>Текст 5</p>
+            <p>Текст 6</p>
+            <p>Текст 7</p>
+            <p>Текст 8</p>
+        </div>
+
+        <!-- z-index: чем больше число, тем ВЫШЕ слой.
+             Работает ТОЛЬКО у позиционированных элементов -->
+        <div class="layer back">z-index: 1 (снизу)</div>
+        <div class="layer front">z-index: 2 (поверх)</div>
+
+        <div class="tall">Ещё контент для скролла...</div>
+    </body>
+</html>

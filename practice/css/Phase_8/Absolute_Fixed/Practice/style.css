@@ -1,0 +1,20 @@
+.card {
+    position: relative;
+    background-color: palevioletred;
+    height: 250px;
+    width: 300px;
+}
+
+.badge {
+    position: absolute;
+    background-color: greenyellow;
+    padding: 5px 10px;
+    top: 0;
+    right: 0;
+}
+
+.scroll-screen {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}

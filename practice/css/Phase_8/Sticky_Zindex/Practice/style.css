@@ -1,0 +1,43 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: lightslategray;
+}
+
+.header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.red {
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    position: relative;
+    margin-left: 30px;
+}
+
+.green {
+    z-index: 1;
+    position: relative;
+    margin-top: -60px;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    height: 200px;
+    width: 200px;
+    display: flex;
+}
