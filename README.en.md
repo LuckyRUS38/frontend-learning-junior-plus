@@ -15,6 +15,13 @@
 
 ---
 
+## Practical Result of the First 9 Learning Phases | Second Mini Project
+I've been realised it using the knowledge gained from the first nine learning phases of the roadmap.
+
+![Mini Project 2 Preview](assets/images/second-project.png)
+
+---
+
 ## Practical Result of the First 6 Learning Phases | First Mini Project
 
 Below is the result of completing the first six phases of the roadmap — a mini project created to reinforce the material studied.
