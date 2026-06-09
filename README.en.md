@@ -171,7 +171,7 @@ With this repository, I aim to create:
 * [x] Box Model
 * [x] Flexbox
 * [x] Grid
-* [ ] Responsive Design
+* [x] Responsive Design
 * [ ] Animations
 * [ ] Frameworks (soon)
 
