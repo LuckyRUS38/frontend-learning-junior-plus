@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Roadmap — от нуля до middle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0D1117;--s1:#161B22;--s2:#1C2128;--bd:#30363D;--bdl:#21262D;--t1:#E6EDF3;--t2:#8B949E;--t3:#6E7681;--react:#61DAFB}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+
+/* HEADER */
+.hdr{border-bottom:1px solid var(--bd);padding:20px 0 16px;position:sticky;top:0;background:var(--bg);z-index:100}
+.hdr-in{max-width:1180px;margin:0 auto;padding:0 24px}
+.hdr-top{display:flex;align-items:center;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-ic{width:34px;height:34px;background:#20232A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--react)}
+.logo-t{font-size:18px;font-weight:600}
+.logo-s{font-size:12px;color:var(--t2);font-family:'JetBrains Mono',monospace}
+.prog-w{margin-left:auto;min-width:160px;text-align:right}
+.prog-lbl{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace;margin-bottom:5px}
+.prog-tr{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin-left:auto;width:180px}
+.prog-fl{height:100%;width:0;background:var(--react);border-radius:2px;transition:width .5s}
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:3px 11px;border-radius:20px;border:1px solid var(--bd);background:transparent;color:var(--t2);font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all .15s;white-space:nowrap}
+.nav-btn:hover{color:var(--react);border-color:var(--react)}
+
+/* MAIN */
+main{max-width:1180px;margin:0 auto;padding:36px 24px 80px}
+
+/* PHASE */
+.phase{margin-bottom:52px}
+.ph-hd{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--bdl)}
+.ph-num{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:3px}
+.ph-info .ph-ttl{font-size:19px;font-weight:600;color:var(--t1)}
+.ph-info .ph-dsc{font-size:13px;color:var(--t2);margin-top:2px}
+.ph-dur{margin-left:auto;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t3);padding:4px 10px;border:1px solid var(--bd);border-radius:20px;flex-shrink:0;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+
+/* TOPIC CARD */
+.card{background:var(--s1);border:1px solid var(--bdl);border-radius:8px;overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--bd)}
+.card.done .c-hd{opacity:.45}
+.c-hd{padding:13px 15px;cursor:pointer;display:flex;gap:10px;align-items:flex-start}
+.chk{width:17px;height:17px;border:1.5px solid var(--bd);border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;cursor:pointer}
+.chk.on{background:#388bfd;border-color:#388bfd;color:#fff}
+.c-inf{flex:1;min-width:0}
+.c-ttl{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:3px;line-height:1.3}
+.c-dsc{font-size:12px;color:var(--t2);line-height:1.4}
+.c-mt{display:flex;gap:8px;margin-top:7px;align-items:center}
+.c-tm{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace}
+.c-cnt{font-size:11px;padding:1px 7px;background:var(--s2);border-radius:4px;color:var(--t3)}
+.c-arr{font-size:10px;color:var(--t3);transition:transform .2s;margin-top:2px;flex-shrink:0}
+.card.open .c-arr{transform:rotate(90deg)}
+.c-bd{display:none;border-top:1px solid var(--bdl);padding:11px 15px 13px}
+.card.open .c-bd{display:block}
+.subs{list-style:none;margin-bottom:11px}
+.subs li{font-size:12px;color:var(--t2);padding:3px 0 3px 12px;border-left:2px solid var(--bdl);margin-bottom:4px;line-height:1.55}
+.ask{width:100%;padding:6px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:5px;color:var(--t2);font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;text-align:left;transition:all .15s}
+.ask:hover{border-color:var(--react);color:var(--react)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-family:'JetBrains Mono',monospace;padding:2px 8px;border-radius:4px;margin-top:6px;opacity:.85}
+
+@media(max-width:640px){
+  .hdr-top{gap:12px}
+  .prog-w{margin-left:0;text-align:left}
+  .prog-tr{margin-left:0;width:100%}
+  main{padding:24px 16px 60px}
+  .ph-hd{flex-wrap:wrap}
+  .ph-dur{margin-left:0}
+}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-top">
+      <div class="logo">
+        <div class="logo-ic">⚛</div>
+        <div><div class="logo-t">React Roadmap</div><div class="logo-s">// от нуля до middle</div></div>
+      </div>
+      <div class="prog-w">
+        <div class="prog-lbl" id="plbl">0 / 0 тем</div>
+        <div class="prog-tr"><div class="prog-fl" id="pfl"></div></div>
+      </div>
+    </div>
+    <div class="nav" id="nav"></div>
+  </div>
+</header>
+<main id="main"></main>
+
+<script>
+const LS_KEY = 'react-roadmap-v1';
+const DONE = new Set(JSON.parse(localStorage.getItem(LS_KEY)||'[]'));
+
+const D = [
+[0,'#F7B731','JS для React','Базовый синтаксис JavaScript — нужно знать до старта','1-2 нед',[
+  ['a0','Стрелочные функции и деструктуризация','Синтаксис который в React везде','день 1-2',
+  ['Стрелочная функция: const add = (a, b) => a + b',
+   'Неявный return: const double = x => x * 2',
+   'Деструктуризация объекта: const { name, age } = user',
+   'Деструктуризация массива: const [first, second] = arr',
+   'Дефолтное значение: const { name = "Гость" } = user',
+   'Переименование: const { name: userName } = user',
+   'Вложенная деструктуризация: const { address: { city } } = user'],
+  'Объясни стрелочные функции и деструктуризацию — нужно для React'],
+  ['a1','Spread, rest, методы массивов','Иммутабельные трансформации данных','день 2-3',
+  ['Spread объекта: const newObj = { ...obj, key: value }',
+   'Spread массива: const newArr = [...arr, newItem]',
+   'Rest параметры: const sum = (...nums) => nums.reduce((a,b)=>a+b,0)',
+   'map — создать новый массив трансформируя каждый элемент',
+   'filter — создать новый массив оставив только нужные элементы',
+   'reduce — свернуть массив в одно значение',
+   'find, findIndex, some, every, includes — поиск и проверка'],
+  'Объясни map, filter, reduce, spread с примерами для React разработчика'],
+  ['a2','Модули, async/await, опциональная цепочка','ES6+ который нужен каждый день','день 3-4',
+  ['export default — один главный экспорт из файла',
+   'Именованный экспорт: export const fn = ...',
+   'import Component from "./Component" — default импорт',
+   'import { helper } from "./utils" — именованный импорт',
+   'async/await — читаемый синтаксис для промисов',
+   'try/catch/finally — обработка ошибок в async функциях',
+   'Опциональная цепочка: user?.address?.city — безопасный доступ',
+   'Нулевое слияние: value ?? "default" — fallback для null/undefined'],
+  'Объясни async/await, модули ES6 и опциональную цепочку — нужно для React'],
+]],
+[1,'#61DAFB','Введение в React','Что такое React и как запустить первый проект','2-3 дня',[
+  ['b0','Зачем React и как работает','Virtual DOM, reconciliation, Vite','день 1',
+  ['React — библиотека для создания UI, не полноценный фреймворк',
+   'Компонентный подход: UI = дерево независимых компонентов',
+   'Virtual DOM — JS-представление DOM в памяти',
+   'Reconciliation: сравнение старого и нового Virtual DOM',
+   'Только изменившиеся узлы обновляются в настоящем DOM',
+   'npm create vite@latest — создать проект React + Vite',
+   'Структура: src/App.jsx корневой, main.jsx точка входа',
+   'React DevTools — расширение браузера для отладки'],
+  'Объясни как работает React — Virtual DOM и reconciliation для новичка'],
+  ['b1','JSX синтаксис','JavaScript с HTML-подобной разметкой','день 1-2',
+  ['JSX компилируется в React.createElement() — это обычный JS',
+   'className вместо class, htmlFor вместо for',
+   'Самозакрывающиеся теги обязательны: img, input, br',
+   'Выражения JS в фигурных скобках { }',
+   'Атрибуты в camelCase: onClick, tabIndex, strokeWidth',
+   'Одна корневая нода или Fragment как пустой тег-обёртка',
+   'Комментарии в JSX: {/* комментарий */}',
+   'JSX — это JS, поэтому if через тернарный, циклы через map'],
+  'Объясни JSX — чем отличается от HTML и как работает'],
+  ['b2','Функциональные компоненты','Функция с заглавной буквы → JSX','день 2',
+  ['Компонент — функция возвращающая JSX, имя с заглавной буквы',
+   'Файл: Button.jsx, экспорт: export default Button',
+   'Вложенность: компоненты вкладываются образуя дерево',
+   'React рендерит дерево компонентов в реальный DOM',
+   'Чистая функция: те же props → тот же результат',
+   'Нельзя читать/писать DOM напрямую — для этого хуки',
+   'React.StrictMode: двойной рендер в dev для поиска ошибок',
+   'Именование: компонент — существительное, хук — useГлагол'],
+  'Объясни функциональные компоненты React с практическими примерами'],
+]],
+[2,'#4ECDC4','Props','Передача данных сверху вниз по дереву','2-3 дня',[
+  ['c0','Props — основы','Объект данных передаваемый в компонент','день 1',
+  ['Props — объект с данными который передаётся в компонент при вызове',
+   'Строка: name="Иван", число: age={25}, булево: active={true}',
+   'Получение через деструктуризацию: function Card({ name, age })',
+   'Props — read only, мутировать нельзя',
+   'Любой тип: строки, числа, объекты, массивы, функции, JSX',
+   'Дефолт: function Card({ name = "Гость" }) — значение по умолчанию',
+   'Spread props: передать все пропсы дочернему через {...props}'],
+  'Объясни props в React с примерами передачи разных типов данных'],
+  ['c1','children и composition','Вложенное содержимое и гибкие обёртки','день 1-2',
+  ['children — JSX между открывающим и закрывающим тегами компонента',
+   'Передаётся автоматически без явного указания пропа',
+   'Card с children — универсальная обёртка для любого содержимого',
+   'Composition > inheritance — в React не используют наследование',
+   'Именованные слоты: header={<H1/>} footer={<Footer/>}',
+   'Layout компонент: принимает children, оборачивает общей структурой',
+   'React.Children — утилиты для работы с children в сложных случаях'],
+  'Объясни props.children и паттерн composition в React'],
+  ['c2','Prop drilling','Проблема и когда искать альтернативы','день 2',
+  ['Данные текут только вниз через props — однонаправленный поток',
+   'Для передачи данных вверх — передавай callback как проп',
+   'Prop drilling: передача пропсов через 3+ промежуточных уровней',
+   'Промежуточные компоненты получают то, что им не нужно',
+   'Сигнал к рефакторингу, не обязательно антипаттерн',
+   'Решения: useContext, Zustand, Redux (изучим в фазах 7 и 15)',
+   'Composition может устранить drilling без дополнительных инструментов'],
+  'Объясни проблему prop drilling и как её решать'],
+]],
+[3,'#FF6B9D','useState','Реактивное состояние компонента','3-4 дня',[
+  ['d0','useState — основы','Хук для хранения изменяемого состояния','день 1',
+  ['const [value, setValue] = useState(initialValue)',
+   'Вызов setValue перезапускает рендер компонента',
+   'Стейт локален: у каждого экземпляра компонента свой стейт',
+   'Нельзя мутировать напрямую: arr.push() не вызовет ререндер',
+   'Только через setter: setValue(newValue)',
+   'Хуки только на верхнем уровне — не внутри if, for, вложенных функций',
+   'Lazy init: useState(() => computeExpensive()) — выполнится один раз'],
+  'Объясни useState с примерами — счётчик, переключатель, строка'],
+  ['d1','Иммутабельность стейта','Правильное обновление объектов и массивов','день 2',
+  ['Иммутабельность: не мутируй стейт — создавай новое значение',
+   'Обновить объект: setUser({ ...user, name: "Новое имя" })',
+   'Добавить в массив: setItems([...items, newItem])',
+   'Удалить из массива: setItems(items.filter(i => i.id !== id))',
+   'Обновить элемент: setItems(items.map(i => i.id===id ? {...i,done:true} : i))',
+   'React сравнивает по ссылке: мутация объекта не вызовет ререндер',
+   'Functional update: setValue(prev => prev + 1) — когда нужно предыдущее'],
+  'Объясни иммутабельность стейта с примерами объектов и массивов'],
+  ['d2','Управляемые компоненты','Формы через стейт','день 3',
+  ['Controlled input: value={stateValue} onChange={handler}',
+   'Инпут всегда показывает значение из стейта — единственный источник правды',
+   'onChange: e => setValue(e.target.value)',
+   'Чекбокс: checked={bool} onChange={e => setBool(e.target.checked)}',
+   'Select: value={selected} onChange через стейт аналогично',
+   'Uncontrolled: useRef к DOM напрямую (нужен реже)',
+   'Сброс формы: setValues(initialState) после успешного submit'],
+  'Объясни controlled vs uncontrolled компоненты с примером формы'],
+]],
+[4,'#FC8181','События и формы','Обработчики, submit, preventDefault','2 дня',[
+  ['e0','Обработчики событий','Синтетические события React','день 1',
+  ['Синтетические события: одинаковы во всех браузерах',
+   'onClick={handleClick} — без скобок, передаём функцию',
+   'onClick={handleClick()} — вызов при рендере! Ошибка',
+   'С аргументом: onClick={() => handleClick(id)}',
+   'e.preventDefault() — отменить стандартное поведение',
+   'e.stopPropagation() — остановить всплытие события',
+   'onMouseEnter, onFocus, onBlur, onKeyDown, onSubmit'],
+  'Объясни обработчики событий в React — частые ошибки и паттерны'],
+  ['e1','Формы в React','Полная форма с валидацией','день 1-2',
+  ['onSubmit на теге form — не на кнопке submit',
+   'e.preventDefault() в handleSubmit — обязательно',
+   'Валидация: проверяем стейт, ошибки записываем в стейт',
+   'Показывай ошибки после попытки submit или onBlur поля',
+   'react-hook-form — меньше кода, лучше производительность',
+   'Zod/Yup — схемы валидации, интегрируются с react-hook-form',
+   'Сброс: setValues(initialState) после успешного ответа сервера'],
+  'Покажи пример полной формы React с валидацией и submit'],
+]],
+[5,'#F6AD55','useEffect','Побочные эффекты и синхронизация','3-4 дня',[
+  ['f0','useEffect — основы','Побочные эффекты после рендера','день 1',
+  ['Side effects: API запросы, подписки, изменение document.title',
+   'Запускается после рендера и коммита в DOM',
+   'useEffect(() => { ... }, [deps])',
+   'Пустой массив [] — один раз после первого рендера',
+   '[dep] — после монтирования и при каждом изменении dep',
+   'Без массива — после каждого рендера (очень редко нужно)',
+   'Не смешивай несвязанные эффекты — один эффект, одна задача'],
+  'Объясни useEffect с примерами — три варианта зависимостей'],
+  ['f1','Зависимости и cleanup','Правила и очистка эффектов','день 2',
+  ['Все значения из scope используемые внутри — в массив зависимостей',
+   'eslint-plugin-react-hooks напомнит о пропущенных зависимостях',
+   'Cleanup: return () => { unsubscribe() } — очистка',
+   'Cleanup при размонтировании и перед следующим запуском эффекта',
+   'Бесконечный цикл: объект/массив пересоздаётся каждый рендер',
+   'Решение: вынести объект за компонент или useMemo',
+   'AbortController в cleanup — отмена fetch запроса'],
+  'Объясни cleanup useEffect и распространённые ошибки с зависимостями'],
+  ['f2','Паттерн data/loading/error','Запросы к API из эффекта','день 3',
+  ['Три стейта: data, isLoading, error',
+   'isLoading: true до запроса, false в finally',
+   'try/catch ловит ошибку, записываем в error стейт',
+   'AbortController: const ctrl = new AbortController()',
+   'ctrl.abort() в cleanup функции',
+   'Флаг отмены: let cancelled = false; if(!cancelled) setData(res)',
+   'Лучше TanStack Query для реальных проектов — useEffect для учёбы'],
+  'Покажи паттерн запроса к API в useEffect с loading, error, data'],
+]],
+[6,'#68D391','Списки и условный рендеринг','map, key, тернарный оператор','2 дня',[
+  ['g0','Рендеринг списков','array.map() и обязательный key','день 1',
+  ['array.map() возвращает массив JSX — React его рендерит',
+   'Каждый элемент списка обязан иметь уникальный проп key',
+   'key помогает React понять что изменилось, добавилось, удалилось',
+   'Лучший key — уникальный id из данных (из БД)',
+   'Index как key — только если список никогда не меняется',
+   'Без key: предупреждение и баги с state/анимациями/фокусом',
+   'null, undefined, false в массиве — React их не рендерит'],
+  'Объясни рендеринг списков — зачем key и какие ошибки бывают'],
+  ['g1','Условный рендеринг','Все паттерны для показа и скрытия UI','день 1-2',
+  ['Тернарный оператор: condition ? ElementA : ElementB',
+   'Логическое И: condition && Element — рендерить только если true',
+   'Осторожно: 0 && Element рендерит 0 в DOM!',
+   'Безопаснее: !!count && Element или count > 0 && Element',
+   'null, undefined, false — не рендерятся, удобно для скрытия',
+   'Early return: if(!data) return <Skeleton /> — до основного JSX',
+   'Enum паттерн: const views = {loading:<L/>, error:<E/>, data:<D/>}[state]'],
+  'Объясни все способы условного рендеринга в React с примерами'],
+]],
+[7,'#9F7AEA','useRef и useContext','DOM ссылки и глобальные данные','3 дня',[
+  ['h0','useRef','Ссылки и mutable значения без ререндера','день 1',
+  ['useRef возвращает { current: value } — мутабельный контейнер',
+   'Изменение ref.current не вызывает ререндер — отличие от useState',
+   'DOM ссылка: ref={myRef} на JSX → myRef.current === DOM узел',
+   'Применения: программный фокус, скролл, сторонние библиотеки',
+   'Предыдущее значение: prevRef.current = currentValue в эффекте',
+   'Таймеры: timerRef.current = setTimeout(...) → clearTimeout в cleanup',
+   'forwardRef — передать ref из родителя в дочерний компонент'],
+  'Объясни useRef — чем отличается от useState и когда использовать'],
+  ['h1','useContext','Глобальные данные без prop drilling','день 2-3',
+  ['Проблема: нужны данные на разных уровнях дерева без prop drilling',
+   'createContext(defaultValue) — создать контекст',
+   'Provider value={data} — обернуть поддерево, данные для всех потомков',
+   'useContext(MyContext) — получить данные в любом компоненте-потомке',
+   'Изменение value → все потребители перерендерятся',
+   'Разделяй контексты: ThemeContext, AuthContext, LanguageContext',
+   'Не для часто обновляемых данных — для этого Zustand/Redux'],
+  'Объясни useContext с примером темы или авторизации'],
+]],
+[8,'#48BB78','Продвинутые хуки','useMemo, useCallback, useReducer, кастомные','4 дня',[
+  ['i0','useMemo и useCallback','Мемоизация значений и функций','день 1-2',
+  ['Мемоизация — кешировать результат чтобы не вычислять повторно',
+   'useMemo(() => heavyCalc(a,b), [a,b]) — кешировать значение',
+   'useCallback(() => fn(a), [a]) — кешировать функцию',
+   'Без useCallback функция пересоздаётся каждый рендер — новая ссылка',
+   'React.memo(Comp) — не ренд если props не изменились (shallow compare)',
+   'Связка React.memo + useCallback — для оптимизации дочерних',
+   'Не злоупотребляй: примитивные вычисления не нужно мемоизировать'],
+  'Объясни useMemo и useCallback — когда реально нужны'],
+  ['i1','useReducer','Сложное состояние через редьюсер','день 2-3',
+  ['Для сложного стейта с взаимосвязанными обновлениями',
+   'const [state, dispatch] = useReducer(reducer, initialState)',
+   'reducer — чистая функция: (state, action) => newState',
+   'dispatch({ type: "ADD", payload: item }) — отправить действие',
+   'switch по action.type — обработчики каждого случая',
+   'Вся логика обновления в одном месте — легче тестировать',
+   'Когда выбрать: 3+ взаимосвязанных стейта или сложные переходы'],
+  'Объясни useReducer с примером корзины или многошаговой формы'],
+  ['i2','Кастомные хуки','Переиспользование stateful логики','день 3-4',
+  ['Функция начинающаяся с use — кастомный хук',
+   'Извлекает логику для переиспользования между компонентами',
+   'Каждый вызов — изолированная копия стейта',
+   'useFetch(url) — возвращает { data, isLoading, error }',
+   'useLocalStorage(key, init) — стейт синхронизированный с localStorage',
+   'useDebounce(value, delay) — задержка для поиска',
+   'useWindowSize() — текущий размер окна с обновлением'],
+  'Объясни кастомные хуки — создай useFetch с нуля'],
+]],
+[9,'#4299E1','Архитектура компонентов','Структура проекта и паттерны','3 дня',[
+  ['j0','Структура проекта','Как организовывать файлы и папки','день 1',
+  ['Feature-based: папка на фичу содержит всё для неё',
+   'Flat для мелких проектов: components/, pages/, hooks/, utils/, types/',
+   'Barrel файлы: index.js в папке для удобного импорта',
+   'Абсолютные пути: настройка через resolve.alias в vite.config',
+   'Колокация: тесты и стили рядом с компонентом',
+   'Не создавай сложную структуру заранее — рефакторь по мере роста',
+   'Один компонент = один файл, имя файла = имя компонента'],
+  'Покажи хорошую структуру папок для React проекта среднего размера'],
+  ['j1','Когда разбивать компонент','Принципы декомпозиции','день 1-2',
+  ['Компонент делает слишком много — признак к разделению',
+   'Более 100-150 строк — задумайся о дроблении',
+   'Повторяющийся UI в нескольких местах — кандидат на компонент',
+   'Presentational: только props → JSX, никакой бизнес-логики',
+   'Container: управляет стейтом, получает данные, передаёт в presentational',
+   'Не дроби слишком мелко — мелкие абстракции сложнее читать',
+   'Инстинкт приходит с практикой кодревью и рефакторинга'],
+  'Объясни принципы разбиения компонентов — presentational vs container'],
+  ['j2','Паттерны компонентов','Compound, render props, controlled','день 2-3',
+  ['Compound components: Select + Option через контекст',
+   'Render props: передаём (data) => JSX как проп',
+   'HOC устарел — заменяется кастомными хуками в большинстве случаев',
+   'Controlled pattern: value + onChange снаружи — компонент без своего стейта',
+   'Uncontrolled: компонент сам управляет стейтом',
+   'Headless components: только логика, UI на откуп потребителю (Radix UI)',
+   'Паттерн slots: header/footer props как именованные области'],
+  'Объясни compound components с реальным примером кода'],
+]],
+[10,'#F6AD55','React Router v6','Навигация и маршрутизация','3-4 дня',[
+  ['k0','Основы роутинга','Routes, Route, Link, NavLink','день 1-2',
+  ['npm install react-router-dom',
+   'BrowserRouter — оборачивает приложение в index.jsx',
+   'Routes содержит все Route',
+   'Route: path и element пропсы',
+   'Link to="/about" — навигация без перезагрузки страницы',
+   'NavLink — добавляет класс active для текущего пути',
+   'Navigate to="/login" — программный редирект в JSX'],
+  'Объясни React Router v6 с примером трёхстраничного приложения'],
+  ['k1','useParams, useNavigate, useLocation','Хуки роутера','день 2-3',
+  ['path="/users/:id" — динамический сегмент с двоеточием',
+   'useParams() — const { id } = useParams()',
+   'useNavigate() — const nav = useNavigate(); nav("/home")',
+   'navigate(-1) — кнопка назад программно',
+   'navigate("/path", { replace: true }) — без записи в историю',
+   'useLocation() — { pathname, search, hash, state }',
+   'useSearchParams() — работа с query string ?page=2&sort=name'],
+  'Объясни динамические маршруты и хуки React Router v6'],
+  ['k2','Вложенные маршруты','Outlet, layout routes, protected routes','день 3-4',
+  ['Nested routes — Route внутри Route',
+   'Outlet — место куда рендерятся дочерние маршруты',
+   'Layout route: шапка/подвал + Outlet = общая структура страниц',
+   'index route — маршрут по умолчанию для родительского пути',
+   'Protected route: проверяет авторизацию, редиректит на login',
+   'React.lazy + Suspense — lazy loading страниц по роутам',
+   'path="*" — 404 страница ловит все несуществующие маршруты'],
+  'Покажи пример layout route и protected route в React Router v6'],
+]],
+[11,'#38B2AC','Запросы к API','fetch, axios, TanStack Query','3-4 дня',[
+  ['l0','fetch и axios','Базовые HTTP запросы','день 1',
+  ['fetch — встроенный браузерный API для HTTP',
+   'fetch возвращает промис; нужен response.json() для парсинга',
+   'axios автоматически парсит JSON',
+   'axios.create({ baseURL, timeout }) — базовые настройки',
+   'Интерцепторы axios: добавить Authorization заголовок',
+   'Ошибки: axios бросает при 4xx/5xx, fetch нет',
+   'AbortController — отменить запрос'],
+  'Сравни fetch и axios — когда что использовать в React'],
+  ['l1','TanStack Query','Стандарт для серверного стейта','день 2-3',
+  ['QueryClientProvider + new QueryClient() — setup приложения',
+   'useQuery({ queryKey: ["users"], queryFn: fetchUsers })',
+   'queryKey — массив: ключ кеша, перезапрос при изменении',
+   '{ data, isLoading, isError, error } — из useQuery',
+   'useMutation({ mutationFn }) — для POST/PUT/DELETE',
+   'onSuccess, onError — callbacks у мутации',
+   'refetch, isFetching, isRefetching — дополнительные статусы'],
+  'Объясни TanStack Query с примером списка и создания записи'],
+  ['l2','Паттерны данных','Loading, ошибки, оптимистик','день 3-4',
+  ['queryClient.invalidateQueries(["users"]) — сбросить кеш после мутации',
+   'Optimistic update: обновить UI до ответа, откатить при ошибке',
+   'Skeleton screens лучше спиннеров — нет layout shift',
+   'Error boundary — компонент ловящий ошибки рендера',
+   'Pagination: страница в queryKey; keepPreviousData для плавности',
+   'useInfiniteQuery — подгрузка при скролле',
+   'staleTime и gcTime — тонкая настройка стратегии кеша'],
+  'Объясни оптимистичные обновления и invalidation в TanStack Query'],
+]],
+[12,'#3B82F6','TypeScript в React','Props, хуки, события, утилитарные типы','3-4 дня',[
+  ['m0','TypeScript база','Типы, интерфейсы, strict','день 1',
+  ['TypeScript — JavaScript с типами, компилируется в JS',
+   'Vite + TS: выбрать React + TypeScript при создании проекта',
+   'tsconfig.json strict: true — обязательно включить',
+   'Базовые типы: string, number, boolean, null, undefined',
+   'interface для объектов; type для union и сложных типов',
+   'Union: type Status = "idle" | "loading" | "error" | "success"',
+   'Дженерики: Array<string> или string[] — массив строк',
+   'any — никогда: это отключает проверку типов'],
+  'Объясни базовый TypeScript для React разработчика'],
+  ['m1','Типизация компонентов','Props, children, события','день 2',
+  ['interface ButtonProps { label: string; onClick: () => void }',
+   'function Button({ label, onClick }: ButtonProps)',
+   'React.FC устарел — типизируй пропсы напрямую',
+   'children: React.ReactNode — самый широкий тип для children',
+   'Опциональный проп: disabled?: boolean',
+   'Событие onChange: React.ChangeEvent<HTMLInputElement>',
+   'Событие клика: React.MouseEvent<HTMLButtonElement>',
+   'ComponentPropsWithoutRef<"button"> — типы нативных атрибутов'],
+  'Объясни типизацию React компонентов и событий в TypeScript'],
+  ['m2','Типизация хуков и API','useState, useRef, useContext, данные','день 3',
+  ['useState выводит тип из начального значения автоматически',
+   'Явный тип: useState<User | null>(null)',
+   'useRef: useRef<HTMLInputElement>(null)',
+   'useContext: типизируй createContext сразу нужным типом',
+   'API данные: interface User { id: number; name: string }',
+   'Утилитарные типы: Partial, Required, Pick, Omit',
+   'ReturnType<typeof fn> — тип возврата функции',
+   'as const для литеральных типов массивов и объектов'],
+  'Объясни типизацию хуков React в TypeScript с примерами'],
+]],
+[13,'#718096','Тестирование','Vitest, React Testing Library','3 дня',[
+  ['n0','Основы тестирования','Виды тестов и инструменты','день 1',
+  ['Unit тест — тестирует одну функцию или компонент изолированно',
+   'Integration тест — взаимодействие нескольких компонентов',
+   'E2E тест — полный пользовательский сценарий (Playwright)',
+   'Vitest — быстрый тест-раннер для Vite проектов',
+   'React Testing Library — тестирование через пользовательский интерфейс',
+   'describe / it / expect — структура тестов',
+   'beforeEach / afterEach — setup и teardown'],
+  'Объясни виды тестов и как настроить Vitest + RTL в Vite проекте'],
+  ['n1','Написание тестов','render, screen, userEvent','день 2-3',
+  ['render(<Component />) — рендер в тестовой среде',
+   'screen.getByRole("button", { name: "Сохранить" })',
+   'screen.getByText, screen.getByLabelText — другие queries',
+   'getBy (ошибка если нет), findBy (async), queryBy (null если нет)',
+   'await userEvent.click(button) — асинхронная симуляция',
+   'await userEvent.type(input, "текст") — ввод',
+   'Тестируй что видит пользователь, не детали реализации'],
+  'Покажи пример тестирования формы с React Testing Library'],
+]],
+[14,'#ECC94B','Производительность','Profiler, memo, lazy, code splitting','3 дня',[
+  ['o0','Профилирование и React.memo','Найти и устранить лишние рендеры','день 1-2',
+  ['Не оптимизируй преждевременно — сначала измерь',
+   'React DevTools Profiler: записывает рендеры и время',
+   'Flame chart: какие компоненты перерендерились и почему',
+   'Причина лишних рендеров: новая ссылка на объект или функцию',
+   'React.memo(Component) — пропустить ренд если props не изменились',
+   'useCallback для функций передаваемых в мемоизированные компоненты',
+   'useMemo для дорогих вычислений используемых в рендере'],
+  'Как искать проблемы производительности React — Profiler и подход'],
+  ['o1','Code splitting','Lazy, Suspense, маленький бандл','день 2-3',
+  ['Code splitting — разбить бандл на части, загружать по требованию',
+   'React.lazy(() => import("./HeavyComponent")) — динамический импорт',
+   'Suspense fallback={<Spinner/>} — оборачивает lazy компоненты',
+   'Роутинг + lazy: каждая страница — отдельный чанк',
+   'Vite создаёт chunk автоматически для каждого lazy импорта',
+   'rollup-plugin-visualizer: анализ размера бандла',
+   'Preload hints для критических но ещё не загруженных чанков'],
+  'Объясни code splitting с React.lazy и Suspense на примере роутинга'],
+]],
+[15,'#B794F4','Стейт-менеджеры','Zustand, Redux Toolkit','4-5 дней',[
+  ['p0','Когда нужен стейт-менеджер','Локальный vs глобальный','день 1',
+  ['Локальный стейт: данные одного или двух компонентов',
+   'Context: тема, язык, авторизация — медленных изменений',
+   'Zustand: глобальный UI стейт, минимальный бойлерплейт',
+   'Redux Toolkit: корпоративный стандарт, строгая структура',
+   'Серверный стейт (API данные): TanStack Query, не Redux!',
+   'Jotai/Recoil: атомарный подход для гранулярных подписок',
+   'Правило: не добавляй стейт-менеджер пока не нужен'],
+  'Объясни разницу local state, Context, Zustand и Redux Toolkit'],
+  ['p1','Zustand','Минималистичный глобальный стейт','день 2-3',
+  ['npm install zustand',
+   'create(set => ({ count: 0, inc: () => set(s => ({count: s.count+1})) }))',
+   'Хранилище: стейт и actions в одном объекте',
+   'const count = useStore(s => s.count) — selector',
+   'Selector предотвращает лишние рендеры — подписка только на нужное',
+   'persist middleware — автоматически localStorage',
+   'devtools middleware — интеграция с Redux DevTools'],
+  'Создай Zustand стор для корзины интернет-магазина с нуля'],
+  ['p2','Redux Toolkit','Корпоративный стандарт','день 3-5',
+  ['configureStore({ reducer: { counter: counterReducer } })',
+   'createSlice: name, initialState, reducers в одном месте',
+   'Actions генерируются автоматически из ключей reducers',
+   'useSelector(state => state.counter.value) — читать стейт',
+   'useDispatch() → dispatch(increment()) — отправить action',
+   'createAsyncThunk — асинхронные actions для API',
+   'RTK Query — встроенный инструмент для API запросов'],
+  'Объясни Redux Toolkit с примером стора с синхронными и async actions'],
+]],
+];
+
+// Build page
+const nav = document.getElementById('nav');
+const main = document.getElementById('main');
+const TOTAL = D.reduce((s,p)=>s+p[5].length,0);
+
+function save() { localStorage.setItem(LS_KEY, JSON.stringify([...DONE])); }
+
+function updateProg() {
+  const d = DONE.size;
+  document.getElementById('pfl').style.width = (TOTAL ? d/TOTAL*100 : 0).toFixed(1) + '%';
+  document.getElementById('plbl').textContent = d + ' / ' + TOTAL + ' тем';
+}
+
+D.forEach(ph => {
+  const [n, color, title, desc, dur, topics] = ph;
+
+  // Nav pill
+  const pill = document.createElement('button');
+  pill.className = 'nav-btn';
+  pill.textContent = 'Ф' + n + ' ' + title;
+  pill.style.setProperty('--c', color);
+  pill.addEventListener('click', () => {
+    document.getElementById('ph'+n).scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+  nav.appendChild(pill);
+
+  // Phase section
+  const section = document.createElement('section');
+  section.className = 'phase';
+  section.id = 'ph' + n;
+
+  // Phase header
+  const hd = document.createElement('div');
+  hd.className = 'ph-hd';
+
+  const badge = document.createElement('span');
+  badge.className = 'ph-num';
+  badge.textContent = String(n).padStart(2,'0');
+  badge.style.cssText = 'background:' + color + '18;color:' + color;
+
+  const info = document.createElement('div');
+  info.className = 'ph-info';
+  const ttl = document.createElement('div');
+  ttl.className = 'ph-ttl';
+  ttl.textContent = title;
+  const dsc = document.createElement('div');
+  dsc.className = 'ph-dsc';
+  dsc.textContent = desc;
+  info.appendChild(ttl);
+  info.appendChild(dsc);
+
+  const durEl = document.createElement('span');
+  durEl.className = 'ph-dur';
+  durEl.textContent = dur;
+
+  hd.appendChild(badge);
+  hd.appendChild(info);
+  hd.appendChild(durEl);
+  section.appendChild(hd);
+
+  // Topics grid
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+
+  topics.forEach(t => {
+    const [id, tttl, tdsc, ttime, subs, ask] = t;
+
+    const card = document.createElement('div');
+    card.className = 'card' + (DONE.has(id) ? ' done' : '');
+
+    // Card head
+    const cHead = document.createElement('div');
+    cHead.className = 'c-hd';
+
+    const chk = document.createElement('div');
+    chk.className = 'chk' + (DONE.has(id) ? ' on' : '');
+    chk.textContent = DONE.has(id) ? '✓' : '';
+
+    const cInf = document.createElement('div');
+    cInf.className = 'c-inf';
+
+    const cTtl = document.createElement('div');
+    cTtl.className = 'c-ttl';
+    cTtl.textContent = tttl;
+
+    const cDsc = document.createElement('div');
+    cDsc.className = 'c-dsc';
+    cDsc.textContent = tdsc;
+
+    const cMt = document.createElement('div');
+    cMt.className = 'c-mt';
+    const cTm = document.createElement('span');
+    cTm.className = 'c-tm';
+    cTm.textContent = ttime;
+    const cCnt = document.createElement('span');
+    cCnt.className = 'c-cnt';
+    cCnt.textContent = subs.length + ' подтем';
+    cMt.appendChild(cTm);
+    cMt.appendChild(cCnt);
+
+    const arr = document.createElement('span');
+    arr.className = 'c-arr';
+    arr.textContent = '▶';
+
+    cInf.appendChild(cTtl);
+    cInf.appendChild(cDsc);
+    cInf.appendChild(cMt);
+    cHead.appendChild(chk);
+    cHead.appendChild(cInf);
+    cHead.appendChild(arr);
+
+    // Card body
+    const cBody = document.createElement('div');
+    cBody.className = 'c-bd';
+
+    const ul = document.createElement('ul');
+    ul.className = 'subs';
+    subs.forEach(s => {
+      const li = document.createElement('li');
+      li.textContent = s;
+      ul.appendChild(li);
+    });
+
+    const askBtn = document.createElement('button');
+    askBtn.className = 'ask';
+    askBtn.textContent = '↗ Спросить ментора: ' + ask;
+
+    cBody.appendChild(ul);
+    cBody.appendChild(askBtn);
+
+    card.appendChild(cHead);
+    card.appendChild(cBody);
+    grid.appendChild(card);
+
+    // Events
+    cHead.addEventListener('click', e => {
+      if (e.target === chk || chk.contains(e.target)) return;
+      card.classList.toggle('open');
+    });
+
+    chk.addEventListener('click', () => {
+      if (DONE.has(id)) DONE.delete(id);
+      else DONE.add(id);
+      const on = DONE.has(id);
+      chk.classList.toggle('on', on);
+      chk.textContent = on ? '✓' : '';
+      card.classList.toggle('done', on);
+      save();
+      updateProg();
+    });
+
+    askBtn.addEventListener('click', () => {
+      if (typeof sendPrompt === 'function') {
+        sendPrompt(ask);
+      } else {
+        const area = document.createElement('textarea');
+        area.style.cssText = 'position:fixed;top:-9999px';
+        document.body.appendChild(area);
+        area.value = ask;
+        area.select();
+        document.execCommand('copy');
+        document.body.removeChild(area);
+        askBtn.textContent = '✓ Скопировано!';
+        setTimeout(() => { askBtn.textContent = '↗ Спросить ментора: ' + ask; }, 2000);
+      }
+    });
+  });
+
+  section.appendChild(grid);
+  main.appendChild(section);
+});
+
+updateProg();
+</script>
+</body>
+</html>
