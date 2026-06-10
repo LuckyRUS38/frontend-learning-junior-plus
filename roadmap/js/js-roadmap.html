@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Roadmap — от нуля до уверенного уровня</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0D1117;--s1:#161B22;--s2:#1C2128;--bd:#30363D;--bdl:#21262D;--t1:#E6EDF3;--t2:#8B949E;--t3:#6E7681;--js:#F7DF1E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+.hdr{border-bottom:1px solid var(--bd);padding:20px 0 16px;position:sticky;top:0;background:var(--bg);z-index:100}
+.hdr-in{max-width:1180px;margin:0 auto;padding:0 24px}
+.hdr-top{display:flex;align-items:center;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-ic{width:34px;height:34px;background:#20232A;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:#1a1a1a;background:var(--js)}
+.logo-t{font-size:18px;font-weight:600}
+.logo-s{font-size:12px;color:var(--t2);font-family:'JetBrains Mono',monospace}
+.prog-w{margin-left:auto;min-width:160px;text-align:right}
+.prog-lbl{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace;margin-bottom:5px}
+.prog-tr{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin-left:auto;width:180px}
+.prog-fl{height:100%;width:0;background:var(--js);border-radius:2px;transition:width .5s}
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:3px 11px;border-radius:20px;border:1px solid var(--bd);background:transparent;color:var(--t2);font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all .15s;white-space:nowrap}
+.nav-btn:hover{color:var(--js);border-color:var(--js)}
+main{max-width:1180px;margin:0 auto;padding:36px 24px 80px}
+.phase{margin-bottom:52px}
+.ph-hd{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--bdl)}
+.ph-num{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:3px}
+.ph-info .ph-ttl{font-size:19px;font-weight:600;color:var(--t1)}
+.ph-info .ph-dsc{font-size:13px;color:var(--t2);margin-top:2px}
+.ph-dur{margin-left:auto;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t3);padding:4px 10px;border:1px solid var(--bd);border-radius:20px;flex-shrink:0;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.card{background:var(--s1);border:1px solid var(--bdl);border-radius:8px;overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--bd)}
+.card.done .c-hd{opacity:.45}
+.c-hd{padding:13px 15px;cursor:pointer;display:flex;gap:10px;align-items:flex-start}
+.chk{width:17px;height:17px;border:1.5px solid var(--bd);border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;cursor:pointer}
+.chk.on{background:#388bfd;border-color:#388bfd;color:#fff}
+.c-inf{flex:1;min-width:0}
+.c-ttl{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:3px;line-height:1.3}
+.c-dsc{font-size:12px;color:var(--t2);line-height:1.4}
+.c-mt{display:flex;gap:8px;margin-top:7px;align-items:center}
+.c-tm{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace}
+.c-cnt{font-size:11px;padding:1px 7px;background:var(--s2);border-radius:4px;color:var(--t3)}
+.c-arr{font-size:10px;color:var(--t3);transition:transform .2s;margin-top:2px;flex-shrink:0}
+.card.open .c-arr{transform:rotate(90deg)}
+.c-bd{display:none;border-top:1px solid var(--bdl);padding:11px 15px 13px}
+.card.open .c-bd{display:block}
+.subs{list-style:none;margin-bottom:11px}
+.subs li{font-size:12px;color:var(--t2);padding:3px 0 3px 12px;border-left:2px solid var(--bdl);margin-bottom:4px;line-height:1.55}
+.ask{width:100%;padding:6px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:5px;color:var(--t2);font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;text-align:left;transition:all .15s}
+.ask:hover{border-color:var(--js);color:var(--js)}
+@media(max-width:640px){.hdr-top{gap:12px}.prog-w{margin-left:0;text-align:left}.prog-tr{margin-left:0;width:100%}main{padding:24px 16px 60px}.ph-hd{flex-wrap:wrap}.ph-dur{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-top">
+      <div class="logo">
+        <div class="logo-ic">JS</div>
+        <div><div class="logo-t">JavaScript Roadmap</div><div class="logo-s">// от нуля до уверенного уровня</div></div>
+      </div>
+      <div class="prog-w">
+        <div class="prog-lbl" id="plbl">0 / 0 тем</div>
+        <div class="prog-tr"><div class="prog-fl" id="pfl"></div></div>
+      </div>
+    </div>
+    <div class="nav" id="nav"></div>
+  </div>
+</header>
+<main id="main"></main>
+<script>
+const LS_KEY='js-roadmap-v1';
+const DONE=new Set(JSON.parse(localStorage.getItem(LS_KEY)||'[]'));
+const D=[
+[0,'#F7DF1E','Основы языка','Переменные, типы данных, операторы','2-3 дня',[
+['a0','Переменные и типы данных','let, const, var — объявление и типы','день 1',
+['var устарел: функциональная область видимости, hoisting','let — блочная область видимости, переопределяемая','const — блочная, нельзя переопределить (но объект мутировать можно)','Примитивы: string, number, boolean, null, undefined, symbol, bigint','Объекты: object, array, function — передаются по ссылке','typeof x — определить тип значения','Приведение типов: Number("3"), String(5), Boolean(0)','Неявное приведение: "5" * 2 = 10, "5" + 2 = "52"'],
+'Объясни переменные let const var и типы данных в JavaScript'],
+['a1','Операторы','Арифметика, сравнение, логика, присвоение','день 1-2',
+['+  -  *  /  %  ** — арифметические','++ и -- преинкремент и постинкремент — разница важна','=== и !== — строгое сравнение (всегда используй их)','== и != — нестрогое, с приведением типов (избегай)','&&  ||  ! — логические И, ИЛИ, НЕ','?? — nullish coalescing: значение если null или undefined','?.  — опциональная цепочка: безопасный доступ к свойству','+=  -=  *=  /= — операторы присвоения'],
+'Объясни все операторы JavaScript с примерами — особенно === vs =='],
+['a2','Шаблонные строки и приведение типов','Template literals, явное и неявное приведение','день 2',
+['Шаблонная строка: `Привет, ${name}!` — обратные кавычки','Многострочные строки без \n — просто Enter внутри','Выражения внутри: `${a + b}`, `${user.age > 18 ? "взрослый" : "ребёнок"}`','Tagged templates — продвинутое использование (css-in-js, i18n)','Number("") = 0, Number(null) = 0, Number(undefined) = NaN','Boolean("") = false, Boolean(0) = false, Boolean(null) = false','Truthy: непустая строка, любое число кроме 0, объект, массив','NaN !== NaN — единственное значение не равное себе; проверяй через Number.isNaN()'],
+'Объясни шаблонные строки и приведение типов в JavaScript'],
+]],
+[1,'#61AFEF','Управляющие конструкции','if, switch, циклы, break, continue','2-3 дня',[
+['b0','Условия: if/else и switch','Ветвление логики программы','день 1',
+['if (условие) { } else if { } else { }','Блок else if — для нескольких вариантов','Тернарный оператор: condition ? a : b — для простых случаев','switch (value) { case x: ... break; default: ... }','break в switch обязателен — иначе fallthrough','Короткое замыкание: user && user.name — вместо if','Nullish: config ?? defaultConfig — если null или undefined','Паттерн guard clause: if (!user) return — ранний выход'],
+'Объясни if else switch и тернарный оператор в JavaScript'],
+['b1','Циклы: for, while, for...of, for...in','Итерация и обход коллекций','день 1-2',
+['for (let i = 0; i < arr.length; i++) — классический','while (условие) { } — пока условие истинно','do { } while (условие) — минимум один раз','for...of — итерация по значениям: массивы, строки, Set, Map','for...in — итерация по ключам объекта (избегай для массивов)','break — прервать цикл полностью','continue — пропустить текущую итерацию','Вложенные циклы — метки для break с указанием уровня'],
+'Объясни все виды циклов в JavaScript с примерами'],
+['b2','Обработка ошибок: try/catch/finally','Перехват и обработка исключений','день 2',
+['try { } catch (e) { } finally { } — структура','catch (e) получает объект Error с полями message и stack','throw new Error("сообщение") — бросить ошибку','Типы ошибок: TypeError, RangeError, SyntaxError, ReferenceError','finally выполняется всегда — для очистки ресурсов','Перебрасывание ошибки: if (e instanceof TypeError) throw e','Кастомные ошибки: class AppError extends Error { }','try/catch в async функциях — для обработки rejected промисов'],
+'Объясни try catch finally и типы ошибок в JavaScript'],
+]],
+[2,'#98C379','Функции','Всё о функциях — сердце JavaScript','4-5 дней',[
+['c0','Виды объявлений функций','Declaration, expression, arrow','день 1',
+['Function declaration: function fn() { } — hoisting, видна до объявления','Function expression: const fn = function() { } — нет hoisting','Arrow function: const fn = () => { } — нет своего this','Неявный return у arrow: const double = x => x * 2','Разница в this: arrow берёт this из внешнего scope','Функция — объект первого класса: можно передавать как аргумент','Named function expression: const fn = function myFn() { } — имя для отладки','IIFE: (function() { })() — немедленно вызываемая функция'],
+'Объясни разницу между function declaration expression и arrow function'],
+['c1','Параметры функций','Default, rest, destructuring в параметрах','день 2',
+['Дефолтные параметры: function fn(x = 0, y = 0) { }','Rest параметры: function sum(...nums) — массив всех аргументов','arguments объект — устарел, используй rest вместо него','Деструктуризация в параметрах: function fn({ name, age }) { }','Дефолт + деструктуризация: function fn({ name = "Гость" } = {}) { }','Порядок: обязательные параметры — перед опциональными','Именованные параметры через объект — лучше многих аргументов','Spread при вызове: fn(...array) — передать массив как аргументы'],
+'Объясни default rest параметры и деструктуризацию в параметрах функций'],
+['c2','Scope и замыкания','Область видимости и closures','день 3-4',
+['Global scope — виден везде; Function scope — внутри функции','Block scope — внутри {} для let и const','Scope chain — поиск переменной вверх по цепочке','Closure — функция помнит scope в котором была создана','Практика: счётчик, мемоизация, приватные данные через closure','Частичное применение (partial application) через closure','Hoisting: var и function declarations поднимаются вверх','Temporal Dead Zone: let/const до объявления — ReferenceError'],
+'Объясни scope и замыкания в JavaScript с практическими примерами'],
+['c3','Рекурсия и чистые функции','Функции без побочных эффектов','день 4-5',
+['Рекурсия — функция вызывает саму себя','База рекурсии — условие выхода (обязательно!)','Примеры: факториал, сумма массива, обход дерева','Стек вызовов — каждый вызов добавляет фрейм','Stack overflow — слишком глубокая рекурсия','Чистая функция — нет побочных эффектов, возвращает предсказуемый результат','Side effects: изменение внешней переменной, console.log, fetch','Функции высшего порядка — принимают или возвращают функции'],
+'Объясни рекурсию и чистые функции в JavaScript с примерами'],
+]],
+[3,'#E5C07B','Объекты','Создание, методы, this, прототипы','4-5 дней',[
+['d0','Создание объектов и работа со свойствами','Литерал, доступ, добавление, удаление','день 1',
+['Литерал: const user = { name: "Иван", age: 25 }','Доступ через точку: user.name','Доступ через скобки: user["name"] — для динамических ключей','Добавить свойство: user.email = "i@example.com"','Удалить свойство: delete user.age','Проверить наличие: "name" in user или hasOwnProperty','Shorthand: const name = "Иван"; const user = { name } — то же что name: name','Computed property: const key = "age"; const obj = { [key]: 25 }'],
+'Объясни создание объектов и работу со свойствами в JavaScript'],
+['d1','Методы объектов и this','Функции в объектах и контекст вызова','день 2',
+['Метод — функция как свойство объекта','this внутри метода — ссылка на сам объект','Arrow function в методе — this не работает (берётся из внешнего scope)','Потеря this: const fn = obj.method; fn() — this будет undefined в strict','bind(obj) — привязать this навсегда: const fn = obj.method.bind(obj)','call(obj, arg1, arg2) — вызвать с указанным this','apply(obj, [args]) — то же что call, но аргументы массивом','Цепочка методов (chaining): return this в каждом методе'],
+'Объясни this в JavaScript — все контексты вызова и потеря контекста'],
+['d2','Object методы и деструктуризация','Утилиты для работы с объектами','день 3',
+['Object.keys(obj) — массив ключей','Object.values(obj) — массив значений','Object.entries(obj) — массив пар [ключ, значение]','Object.assign({}, obj, updates) — копировать свойства','Object.freeze(obj) — заморозить объект (нельзя менять)','Spread копия: const copy = { ...obj } — поверхностная копия','Глубокая копия: structuredClone(obj) — современный способ','Object.fromEntries(entries) — из массива пар в объект'],
+'Объясни Object.keys values entries assign freeze с примерами'],
+['d3','Геттеры, сеттеры и символы','Продвинутая работа с объектами','день 4-5',
+['get name() { return this._name } — геттер','set name(val) { this._name = val } — сеттер','Геттеры/сеттеры для вычисляемых свойств и валидации','Symbol — уникальный примитив, не пересекается с другими ключами','Symbol как приватный ключ объекта: obj[Symbol()] = ...',
+'Symbol.iterator — добавить свой итератор на объект','Optional chaining: obj?.prop?.nested — безопасный доступ','Nullish assignment: obj.prop ??= defaultValue'],
+'Объясни геттеры сеттеры и Symbol в JavaScript'],
+]],
+[4,'#56B6C2','Массивы','Методы итерации и трансформации','3-4 дня',[
+['e0','Базовые методы массивов','Добавление, удаление, поиск','день 1',
+['push(...items) — добавить в конец, возвращает новую длину','pop() — удалить и вернуть последний элемент','shift() — удалить и вернуть первый элемент','unshift(...items) — добавить в начало','splice(start, count, ...items) — удалить и/или вставить','slice(start, end) — вернуть подмассив без изменения','concat(arr2) — объединить массивы','indexOf / lastIndexOf — найти индекс значения (-1 если нет)'],
+'Объясни базовые методы массивов push pop splice slice с примерами'],
+['e1','Итерация: forEach, map, filter, reduce','Функциональный стиль работы с массивами','день 2',
+['forEach(fn) — обойти каждый элемент (ничего не возвращает)','map(fn) — создать новый массив трансформируя элементы','filter(fn) — создать новый массив оставив подходящие элементы','reduce(fn, init) — свернуть массив в одно значение','Цепочка методов: arr.filter(...).map(...).reduce(...)','find(fn) — первый элемент по условию (или undefined)','findIndex(fn) — индекс первого по условию (-1 если нет)','some(fn) — true если хотя бы один подходит; every — все'],
+'Объясни forEach map filter reduce с примерами цепочек методов'],
+['e2','Продвинутые методы','flat, flatMap, from, sort, spread','день 3',
+['sort((a,b) => a - b) — сортировка (мутирует! использовать [...arr].sort)','reverse() — перевернуть (мутирует!)','flat(depth) — выровнять вложенные массивы','flatMap(fn) — map + flat(1) за один проход','Array.from(iterable, mapFn) — создать из итерируемого','Array.from({ length: 5 }, (_, i) => i) — создать заполненный','includes(val) — проверить наличие значения','join(sep) — объединить в строку; split — обратное'],
+'Объясни flat flatMap Array.from sort с примерами'],
+]],
+[5,'#C678DD','Строки и числа','Методы строк, Math, Number','2 дня',[
+['f0','Строки — методы и работа с текстом','Поиск, замена, разделение, трансформация','день 1',
+['length — длина строки','indexOf / lastIndexOf — найти подстроку','includes — проверить наличие подстроки','startsWith / endsWith — начало/конец','slice(start, end) — вырезать подстроку','split(sep) — разбить в массив; join — обратное','replace / replaceAll — заменить','trim / trimStart / trimEnd — убрать пробелы','toUpperCase / toLowerCase — регистр','padStart / padEnd — дополнить до нужной длины'],
+'Объясни методы строк в JavaScript с практическими примерами'],
+['f1','Числа и Math','parseInt, parseFloat, Number, Math методы','день 1-2',
+['Number.parseInt("123px") — парсинг целого числа','Number.parseFloat("3.14em") — парсинг дробного','Number.isNaN(x) — правильная проверка на NaN','Number.isFinite(x) — проверка на конечность','Number.isInteger(x) — целое ли число','toFixed(n) — округлить до n знаков (возвращает строку!)','Math.round / floor / ceil — округление','Math.min / max — минимум и максимум','Math.abs — абсолютное значение','Math.random() — случайное от 0 до 1'],
+'Объясни работу с числами и Math в JavaScript'],
+]],
+[6,'#E06C75','DOM','Работа с HTML через JavaScript','4-5 дней',[
+['g0','Выбор элементов','querySelector, getElementById и другие','день 1',
+['document.getElementById("id") — по id','document.querySelector(".class") — CSS селектор, первый','document.querySelectorAll(".class") — все в NodeList','document.getElementsByClassName — HTMLCollection (живая!)','Разница: NodeList от querySelectorAll — статичная','element.closest(".parent") — ближайший предок по селектору','element.matches(".selector") — подходит ли элемент','Хранить ссылки: const btn = document.querySelector(".btn")'],
+'Объясни способы выбора DOM элементов в JavaScript'],
+['g1','Изменение контента и атрибутов','textContent, innerHTML, setAttribute','день 2',
+['element.textContent = "текст" — только текст (безопасно)','element.innerHTML = "html" — осторожно: XSS атаки','element.insertAdjacentHTML("position", html) — безопаснее innerHTML','element.getAttribute("href") — получить атрибут','element.setAttribute("href", "#") — установить атрибут','element.removeAttribute("disabled") — удалить атрибут','element.dataset.value — доступ к data-* атрибутам','element.classList: add, remove, toggle, contains, replace'],
+'Объясни работу с атрибутами и контентом DOM элементов'],
+['g2','Стили через JavaScript','style, classList, getComputedStyle','день 3',
+['element.style.color = "red" — инлайн стиль','element.style.backgroundColor = "blue" — camelCase!','element.style.setProperty("--var", "value") — CSS переменные','getComputedStyle(el).getPropertyValue("color") — вычисленный стиль','classList.add("active") — добавить класс','classList.remove("active") — убрать класс','classList.toggle("open") — переключить','classList.contains("active") — проверить наличие'],
+'Объясни работу со стилями и классами через JavaScript'],
+['g3','Создание и удаление элементов','createElement, append, remove','день 4-5',
+['document.createElement("div") — создать элемент','element.textContent = "текст" — заполнить','parent.appendChild(child) — добавить в конец','parent.prepend(child) — добавить в начало','parent.insertBefore(new, ref) — вставить перед','element.remove() — удалить сам себя','parent.removeChild(child) — удалить дочерний','element.cloneNode(true) — клонировать с потомками','DocumentFragment — группа элементов без лишней перерисовки'],
+'Объясни создание удаление и вставку DOM элементов'],
+]],
+[7,'#61AFEF','События','Обработка событий, делегирование','3-4 дня',[
+['h0','addEventListener и объект события','Подписка на события и e object','день 1',
+['element.addEventListener("click", handler) — подписаться','element.removeEventListener("click", handler) — отписаться (та же функция!)','Третий параметр: { once: true } — сработает один раз','Объект события (e): type, target, currentTarget','e.target — элемент на котором произошло событие','e.currentTarget — элемент на котором висит обработчик','e.preventDefault() — отменить стандартное поведение браузера','e.stopPropagation() — остановить всплытие события'],
+'Объясни addEventListener и объект события в JavaScript'],
+['h1','Всплытие, перехват, делегирование','Bubble, capture, event delegation','день 2-3',
+['Всплытие (bubbling) — событие идёт от цели вверх к document','Перехват (capture) — третий аргумент true или {capture:true}','e.stopPropagation() — остановить всплытие','e.stopImmediatePropagation() — остановить все обработчики','Делегирование событий — один обработчик на родителя','e.target.closest(".item") — найти нужный потомок','Эффективно для динамических списков','e.target.matches(".btn") — проверить целевой элемент'],
+'Объясни всплытие событий и делегирование событий в JavaScript'],
+['h2','Типы событий и FormData','Mouse, keyboard, form, custom events','день 3-4',
+['Mouse: click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave','Keyboard: keydown, keyup, keypress; e.key, e.code, e.ctrlKey','Form: submit, change, input, focus, blur, focusin, focusout','Scroll: scroll, wheel — используй с throttle','Touch: touchstart, touchend, touchmove — мобильные','Custom events: new CustomEvent("name", { detail: data })','element.dispatchEvent(event) — выпустить событие','Intersection Observer — видимость элемента без scroll'],
+'Объясни типы событий и создание кастомных событий в JavaScript'],
+]],
+[8,'#98C379','Прототипы и классы','ООП в JavaScript','4-5 дней',[
+['i0','Прототипная цепочка','Как работает наследование в JS','день 1-2',
+['Каждый объект имеет [[Prototype]] — ссылку на прототип','Object.getPrototypeOf(obj) — получить прототип','Поиск свойства: сначала в объекте, потом по цепочке прототипов','obj.hasOwnProperty("key") — только собственное свойство?','Object.prototype — вершина цепочки (toString, valueOf и др.)','Object.create(proto) — создать объект с заданным прототипом','Функция-конструктор: function User(name) { this.name = name }','new User("Иван") — создать экземпляр; new добавляет this'],
+'Объясни прототипную цепочку в JavaScript с примерами'],
+['i1','Синтаксис class','Классы как синтаксический сахар над прототипами','день 2-3',
+['class User { constructor(name) { this.name = name } }','Методы в теле класса — добавляются в прототип','Поля класса: name = "default" — собственные свойства','Статические методы: static create() { } — на классе, не на экземпляре','Приватные поля: #name — доступны только внутри класса','Геттеры и сеттеры через get/set внутри класса','Класс — это функция: typeof User === "function"','Классы не поднимаются (no hoisting) в отличие от function'],
+'Объясни синтаксис class в JavaScript с примерами'],
+['i2','Наследование через extends','Цепочка классов и super','день 3-4',
+['class Admin extends User { } — наследование','super(args) — вызов конструктора родителя (обязателен если есть constructor)','super.method() — вызов метода родителя','Переопределение метода — просто объяви метод с тем же именем','instanceof — проверить принадлежность к классу','Миксины — патч прототипа несколькими объектами','Абстрактные методы — через throw в базовом классе','Composition > inheritance — не злоупотребляй глубокими цепочками'],
+'Объясни наследование через extends и super в JavaScript'],
+]],
+[9,'#E5C07B','Асинхронность','Callbacks, Promises, async/await, Event Loop','5-6 дней',[
+['j0','Callbacks и проблема','Асинхронность через функции обратного вызова','день 1',
+['Синхронный код выполняется строго по порядку','Асинхронный: setTimeout, setInterval, fetch — не блокируют','Callback — функция передаваемая как аргумент и вызываемая позже','setTimeout(() => {}, 1000) — вызов через 1 секунду','setInterval(() => {}, 1000) — каждые 1 секунду','clearTimeout / clearInterval — отменить','Callback hell — глубокая вложенность, плохая читаемость','Promises — решение проблемы callback hell'],
+'Объясни callbacks setTimeout setInterval и проблему callback hell'],
+['j1','Промисы','Создание, then, catch, finally','день 2-3',
+['new Promise((resolve, reject) => { }) — создание промиса','resolve(value) — промис выполнен успешно','reject(error) — промис отклонён','promise.then(onFulfilled, onRejected)','promise.catch(onRejected) — обработать отклонение','promise.finally(fn) — выполнить в любом случае','Цепочка: promise.then(...).then(...).catch(...)','then возвращает новый промис — можно цеплять','Promise.resolve(val) / Promise.reject(err) — создать готовый'],
+'Объясни промисы в JavaScript — создание, цепочки, обработка ошибок'],
+['j2','Promise.all, race, allSettled','Параллельные асинхронные операции','день 3',
+['Promise.all([p1, p2, p3]) — ждёт все, fails fast','Promise.all: результат — массив в том же порядке','Promise.allSettled([p1, p2]) — ждёт все, не падает','allSettled: { status, value/reason } для каждого','Promise.race([p1, p2]) — первый кто завершится','Promise.any([p1, p2]) — первый успешный (игнорирует ошибки)','Паттерн timeout: Promise.race([fetch(), timeout(5000)])','Параллельные запросы через Promise.all быстрее последовательных'],
+'Объясни Promise.all race allSettled any с примерами'],
+['j3','async/await','Синхронный стиль для асинхронного кода','день 4-5',
+['async function fn() { } — возвращает промис всегда','await promise — приостановить до resolve (только внутри async)','try/catch для обработки ошибок — вместо .catch()','Последовательные запросы: const a = await f1(); const b = await f2(a)','Параллельные: const [a, b] = await Promise.all([f1(), f2()])','await в цикле — последовательно (осторожно с forEach)','Используй for...of если нужен await внутри цикла','Top-level await — в ES modules можно без async функции'],
+'Объясни async/await с примерами последовательных и параллельных запросов'],
+['j4','Event Loop','Как JS выполняет асинхронный код','день 5-6',
+['JS — однопоточный: один поток, одна задача за раз','Call Stack — стек вызовов функций','Web APIs — setTimeout, fetch, DOM events — вне стека','Callback Queue (Task Queue) — очередь макрозадач','Microtask Queue — промисы и queueMicrotask','Порядок: стек пуст → микрозадачи → макрозадача → рендер','Микрозадачи всегда выполняются перед следующей макрозадачей','requestAnimationFrame — перед следующим кадром рендера'],
+'Объясни Event Loop Call Stack Queue в JavaScript с примерами'],
+]],
+[10,'#56B6C2','Fetch и работа с API','HTTP запросы, JSON, REST','3 дня',[
+['k0','Fetch API','Делаем HTTP запросы из браузера','день 1',
+['fetch(url) — возвращает промис Response','response.ok — true если статус 200-299','response.json() — парсить тело как JSON (тоже промис)','response.text() — тело как текст','response.status — код ответа (200, 404, 500)','GET запрос: fetch(url).then(r => r.json())','POST: fetch(url, { method: "POST", body: JSON.stringify(data), headers: {...} })','Content-Type: application/json — обязателен для POST с JSON телом'],
+'Объясни fetch API с примерами GET и POST запросов'],
+['k1','Обработка ошибок и AbortController','Правильная обработка сетевых ошибок','день 2',
+['fetch не реджектит при 4xx/5xx — только при сетевой ошибке','Нужно проверять response.ok вручную','if (!response.ok) throw new Error(response.status)','AbortController — отмена запроса','const ctrl = new AbortController(); fetch(url, { signal: ctrl.signal })','ctrl.abort() — отменить запрос','При отмене: catch поймает AbortError','Timeout через Promise.race с setTimeout'],
+'Объясни обработку ошибок fetch и AbortController'],
+['k2','JSON и REST соглашения','Формат данных и структура API','день 2-3',
+['JSON — текстовый формат: только строки, числа, bool, null, объекты, массивы','JSON.stringify(obj) — объект в JSON строку','JSON.parse(str) — JSON строку в объект','Нельзя в JSON: undefined, функции, Symbol, Date (превращается в строку)','REST: GET /users, POST /users, GET /users/:id, PUT /users/:id, DELETE /users/:id','Коды ответов: 200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Server Error','Headers: Authorization, Content-Type, Accept','CORS — браузер блокирует запросы на другой домен; сервер должен разрешить'],
+'Объясни JSON и REST API соглашения с примерами запросов'],
+]],
+[11,'#98C379','Модули','import, export, динамическая загрузка','2 дня',[
+['l0','ES Modules: import и export','Модульная система JavaScript','день 1',
+['export const fn = ... — именованный экспорт','export default Component — один default на файл','import { fn } from "./file.js" — именованный импорт','import Component from "./file.js" — default импорт','import * as utils from "./utils.js" — всё как объект','Переименование: import { fn as myFn } from "./file.js"','Реэкспорт: export { fn } from "./other.js"','Модули выполняются один раз и кешируются'],
+'Объясни ES modules import export с примерами'],
+['l1','Динамические импорты и CommonJS','Загрузка по требованию и Node.js модули','день 2',
+['import("./module.js") — динамический импорт, возвращает промис','Используется для code splitting и lazy loading','const { fn } = await import("./module.js")','CommonJS (Node.js): const fn = require("./file"); module.exports = fn','Отличие: CommonJS синхронный, ESM асинхронный','type="module" в script теге — включить ESM в браузере','.mjs расширение — явно ESM файл','Bundlers (Vite, Webpack) — объединяют модули для браузера'],
+'Объясни динамические импорты и разницу ESM vs CommonJS'],
+]],
+[12,'#C678DD','Хранилища браузера','localStorage, sessionStorage, cookies','2 дня',[
+['m0','localStorage и sessionStorage','Хранение данных на клиенте','день 1',
+['localStorage.setItem("key", "value") — сохранить строку','localStorage.getItem("key") — получить или null','localStorage.removeItem("key") — удалить ключ','localStorage.clear() — очистить всё','Хранит только строки — JSON.stringify/parse для объектов','localStorage — между сессиями (не очищается при закрытии)','sessionStorage — только для текущей вкладки и сессии','Лимит: ~5-10 МБ; не для больших данных'],
+'Объясни localStorage и sessionStorage с примерами'],
+['m1','Cookies и IndexedDB','Другие способы хранить данные','день 2',
+['document.cookie = "name=value; max-age=3600; path=/"','Куки передаются на сервер с каждым запросом','httpOnly куки — не доступны из JS (защита от XSS)','Secure — только по HTTPS; SameSite — защита от CSRF','Для cookies используй библиотеки: js-cookie','IndexedDB — база данных в браузере для больших данных','Структурные данные, транзакции, индексы','Используй библиотеку Dexie.js для удобной работы с IndexedDB'],
+'Объясни cookies и когда использовать что из хранилищ браузера'],
+]],
+[13,'#E06C75','Деструктуризация и современный синтаксис','ES6+ фичи которые нужны каждый день','2-3 дня',[
+['n0','Деструктуризация объектов и массивов','Удобное извлечение данных','день 1',
+['Объект: const { name, age } = user','Дефолт: const { name = "Гость" } = user','Переименование: const { name: userName } = user','Вложенная: const { address: { city } } = user','Массив: const [first, second, ...rest] = arr','Пропуск: const [, second] = arr — первый элемент игнорируется','В параметрах: function fn({ name, age = 0 }) { }','Обмен значениями: [a, b] = [b, a]'],
+'Объясни деструктуризацию объектов и массивов с практическими примерами'],
+['n1','Spread, rest и новый синтаксис','Операторы и современные фичи','день 2',
+['Spread объекта: { ...obj, newKey: val } — копия с изменением','Spread массива: [...arr, newItem] — добавить в конец','Object rest: const { a, ...rest } = obj — остаток свойств','Array rest в параметрах: (...args) => args','Логические операторы присвоения: x ||= default; x &&= val; x ??= init','Опциональная цепочка: obj?.prop?.nested — безопасный доступ','Nullish coalescing: val ?? "default" — только для null/undefined','at(-1) — последний элемент массива или строки'],
+'Объясни spread rest и современный синтаксис ES2020+ в JavaScript'],
+['n2','Map, Set, WeakMap, WeakSet','Коллекции ES6','день 3',
+['Set — коллекция уникальных значений','new Set([1,2,2,3]) — автоматически убирает дубликаты','set.add(val), set.has(val), set.delete(val), set.size','Убрать дубликаты из массива: [...new Set(arr)]','Map — коллекция пар ключ-значение (ключ любого типа)','new Map(); map.set(key, val); map.get(key); map.has(key)','Map vs Object: Map хранит порядок, ключи любого типа','WeakMap/WeakSet — ключи только объекты, не мешают GC'],
+'Объясни Set Map WeakMap WeakSet с практическими примерами'],
+]],
+[14,'#F7DF1E','Продвинутые концепции','Closures, generators, proxy, паттерны','1-2 нед',[
+['o0','Замыкания в деталях','Приватность, memoization, partial application','день 1-2',
+['Closure — функция + её лексическое окружение','Приватные данные через closure: не доступны снаружи','Счётчик через closure: let count = 0; return () => ++count','Мемоизация: const memo = {}; if (memo[x]) return memo[x]','Partial application: const add5 = add.bind(null, 5)','Currying: const curry = a => b => a + b','Генераторы ID: замыкание с инкрементом','Module pattern: IIFE возвращает публичный API'],
+'Объясни замыкания глубоко — приватность, мемоизация, currying'],
+['o1','Генераторы и итераторы','function* и Symbol.iterator','день 3-4',
+['Генератор: function* gen() { yield 1; yield 2; }','gen() возвращает итератор; next() — следующее значение','yield — приостановить генератор, вернуть значение','yield* — делегировать другому генератору','for...of работает с генераторами','Symbol.iterator — добавить итерируемость объекту','Бесконечные последовательности через генераторы','Async генераторы: async function* для потоков данных'],
+'Объясни генераторы и итераторы в JavaScript с примерами'],
+['o2','Proxy и Reflect','Перехват операций над объектами','день 4-5',
+['Proxy(target, handler) — обёртка перехватывающая операции','get trap — перехватить чтение свойства','set trap — перехватить запись свойства','has trap — перехватить оператор in','Применение: валидация, логирование, реактивность (Vue 3)','Reflect — зеркало для операций: Reflect.get, Reflect.set','Reflect возвращает boolean — можно проверить успех','Property descriptors: Object.defineProperty для тонкой настройки'],
+'Объясни Proxy и Reflect с практическими примерами применения'],
+['o3','Паттерны проектирования в JS','Singleton, Observer, Factory, Module','день 5-7',
+['Singleton — один экземпляр на всё приложение','Observer/EventEmitter — подписка и публикация событий','Factory — создание объектов через функцию-фабрику','Module Pattern — инкапсуляция через IIFE и замыкание','Decorator — добавить поведение без изменения оригинала','Strategy — заменяемый алгоритм через функцию','Command — инкапсуляция действия в объект (undo/redo)','MVC — Model, View, Controller разделение ответственности'],
+'Объясни паттерны проектирования в JavaScript с примерами'],
+]],
+[15,'#E5C07B','Регулярные выражения','Поиск и замена паттернов в строках','3 дня',[
+['p0','Синтаксис и флаги','Создание паттернов и режимы поиска','день 1',
+['/pattern/ — литеральная запись регулярного выражения','new RegExp("pattern", "flags") — динамическое создание','. — любой символ кроме переноса строки','^ начало строки; $ конец строки','\\d — цифра; \\w — буква/цифра/_; \\s — пробельный символ','+ один или больше; * ноль или больше; ? ноль или один','[abc] — один из символов; [^abc] — любой кроме','Флаги: i — без регистра; g — все совпадения; m — многострочный'],
+'Объясни синтаксис регулярных выражений и флаги в JavaScript'],
+['p1','Методы строк и RegExp','test, match, exec, replace, split','день 2-3',
+['regex.test(str) — true/false — есть ли совпадение','str.match(regex) — вернуть совпадения','str.matchAll(regex) — итератор всех совпадений (с флагом g)','str.search(regex) — индекс первого совпадения','str.replace(regex, replacement) — заменить','str.split(regex) — разбить по паттерну','Группы захвата: (pattern) — извлечь часть','Именованные группы: (?<name>pattern) — по имени','Backreference: \\1 — повторить первую группу'],
+'Объясни методы работы с регулярными выражениями в JavaScript'],
+]],
+[16,'#56B6C2','Инструменты разработчика','npm, Vite, ESLint, Git workflow','3-4 дня',[
+['q0','npm и управление пакетами','Node.js Package Manager','день 1',
+['npm init — создать package.json','npm install package — установить пакет','npm install -D package — devDependency (только для разработки)','node_modules/ — папка пакетов (в .gitignore!)','package.json scripts: "dev": "vite", "build": "vite build"','npm run dev — запустить скрипт','package-lock.json — точные версии зависимостей','npm update / npm outdated — управление версиями'],
+'Объясни npm package.json и управление зависимостями'],
+['q1','Vite и сборка','Бандлер для современного frontend','день 2',
+['Vite — быстрый dev-сервер + сборщик для продакшна','npm create vite@latest — создать проект','npm run dev — дев-сервер с hot reload','npm run build — собрать для продакшна в dist/','Vite использует ESModules в dev — мгновенный старт','rollup под капотом для сборки продакшна','vite.config.js — конфигурация','Плагины: @vitejs/plugin-react, vite-plugin-svgr'],
+'Объясни Vite — зачем нужен и как настроить'],
+['q2','ESLint и Prettier','Качество и форматирование кода','день 2-3',
+['ESLint — статический анализ: ищет ошибки и антипаттерны','npm install -D eslint — установить','eslint.config.js — правила линтера','Prettier — форматирует код единообразно','npm install -D prettier — установить','.prettierrc — настройки: tabWidth, semi, singleQuote','ESLint + Prettier вместе: eslint-config-prettier','VS Code: сохранить → автоформат через настройку editor.formatOnSave'],
+'Как настроить ESLint и Prettier для JavaScript проекта'],
+['q3','Git workflow','Коммиты, ветки, GitHub','день 3-4',
+['git init / git clone — начать репозиторий','git add . / git commit -m "feat: add user auth"','Conventional commits: feat, fix, docs, style, refactor, test','git branch feature/login — создать ветку','git checkout -b feature/login — создать и переключиться','git merge / git rebase — слить изменения','git pull origin main — получить обновления','Pull Request: feature ветка → main через ревью'],
+'Объясни Git workflow с ветками и Pull Request для разработчика'],
+]],
+];
+
+const TOTAL=D.reduce((s,p)=>s+p[5].length,0);
+function save(){localStorage.setItem(LS_KEY,JSON.stringify([...DONE]));}
+function updateProg(){
+  const d=DONE.size;
+  document.getElementById('pfl').style.width=(TOTAL?d/TOTAL*100:0).toFixed(1)+'%';
+  document.getElementById('plbl').textContent=d+' / '+TOTAL+' тем';
+}
+function mk(tag,cls){const e=document.createElement(tag);if(cls)e.className=cls;return e;}
+function tx(tag,cls,t){const e=mk(tag,cls);e.textContent=t;return e;}
+
+const nav=document.getElementById('nav');
+const main=document.getElementById('main');
+
+D.forEach(ph=>{
+  const[n,color,title,desc,dur,topics]=ph;
+  const pill=tx('button','nav-btn','Ф'+n+' '+title);
+  pill.addEventListener('click',()=>document.getElementById('ph'+n).scrollIntoView({behavior:'smooth',block:'start'}));
+  nav.appendChild(pill);
+  const section=mk('section','phase');
+  section.id='ph'+n;
+  const hd=mk('div','ph-hd');
+  const badge=tx('span','ph-num',String(n).padStart(2,'0'));
+  badge.style.cssText='background:'+color+'18;color:'+color;
+  const info=mk('div','ph-info');
+  info.appendChild(tx('div','ph-ttl',title));
+  info.appendChild(tx('div','ph-dsc',desc));
+  const durEl=tx('span','ph-dur',dur);
+  hd.appendChild(badge);hd.appendChild(info);hd.appendChild(durEl);
+  section.appendChild(hd);
+  const grid=mk('div','grid');
+  topics.forEach(t=>{
+    const[id,tttl,tdsc,ttime,subs,ask]=t;
+    const card=mk('div','card');
+    if(DONE.has(id))card.classList.add('done');
+    const cHead=mk('div','c-hd');
+    const chk=mk('div','chk');
+    if(DONE.has(id)){chk.classList.add('on');chk.textContent='✓';}
+    const cInf=mk('div','c-inf');
+    cInf.appendChild(tx('div','c-ttl',tttl));
+    cInf.appendChild(tx('div','c-dsc',tdsc));
+    const cMt=mk('div','c-mt');
+    cMt.appendChild(tx('span','c-tm',ttime));
+    cMt.appendChild(tx('span','c-cnt',subs.length+' подтем'));
+    cInf.appendChild(cMt);
+    const arr=tx('span','c-arr','▶');
+    cHead.appendChild(chk);cHead.appendChild(cInf);cHead.appendChild(arr);
+    const cBody=mk('div','c-bd');
+    const ul=mk('ul','subs');
+    subs.forEach(s=>{ul.appendChild(tx('li',null,s));});
+    const askBtn=tx('button','ask','↗ Спросить ментора: '+ask);
+    cBody.appendChild(ul);cBody.appendChild(askBtn);
+    card.appendChild(cHead);card.appendChild(cBody);
+    cHead.addEventListener('click',e=>{
+      if(e.target===chk||chk.contains(e.target))return;
+      card.classList.toggle('open');
+    });
+    chk.addEventListener('click',()=>{
+      if(DONE.has(id))DONE.delete(id);else DONE.add(id);
+      const on=DONE.has(id);
+      chk.classList.toggle('on',on);
+      chk.textContent=on?'✓':'';
+      card.classList.toggle('done',on);
+      save();updateProg();
+    });
+    askBtn.addEventListener('click',()=>{
+      if(typeof sendPrompt==='function'){sendPrompt(ask);}
+      else{
+        const a=document.createElement('textarea');
+        a.style.cssText='position:fixed;top:-9999px';
+        document.body.appendChild(a);
+        a.value=ask;a.select();
+        document.execCommand('copy');
+        document.body.removeChild(a);
+        askBtn.textContent='✓ Скопировано!';
+        setTimeout(()=>{askBtn.textContent='↗ Спросить ментора: '+ask;},2000);
+      }
+    });
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  main.appendChild(section);
+});
+updateProg();
+</script>
+</body>
+</html>

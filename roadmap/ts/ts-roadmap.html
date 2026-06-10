@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TypeScript Roadmap — от нуля до уверенного уровня</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0D1117;--s1:#161B22;--s2:#1C2128;--bd:#30363D;--bdl:#21262D;--t1:#E6EDF3;--t2:#8B949E;--t3:#6E7681;--ts:#3178C6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+.hdr{border-bottom:1px solid var(--bd);padding:20px 0 16px;position:sticky;top:0;background:var(--bg);z-index:100}
+.hdr-in{max-width:1180px;margin:0 auto;padding:0 24px}
+.hdr-top{display:flex;align-items:center;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-ic{width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#fff;background:var(--ts)}
+.logo-t{font-size:18px;font-weight:600}
+.logo-s{font-size:12px;color:var(--t2);font-family:'JetBrains Mono',monospace}
+.prog-w{margin-left:auto;min-width:160px;text-align:right}
+.prog-lbl{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace;margin-bottom:5px}
+.prog-tr{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin-left:auto;width:180px}
+.prog-fl{height:100%;width:0;background:var(--ts);border-radius:2px;transition:width .5s}
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:3px 11px;border-radius:20px;border:1px solid var(--bd);background:transparent;color:var(--t2);font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all .15s;white-space:nowrap}
+.nav-btn:hover{color:var(--ts);border-color:var(--ts)}
+main{max-width:1180px;margin:0 auto;padding:36px 24px 80px}
+.phase{margin-bottom:52px}
+.ph-hd{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--bdl)}
+.ph-num{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:3px}
+.ph-info .ph-ttl{font-size:19px;font-weight:600;color:var(--t1)}
+.ph-info .ph-dsc{font-size:13px;color:var(--t2);margin-top:2px}
+.ph-dur{margin-left:auto;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--t3);padding:4px 10px;border:1px solid var(--bd);border-radius:20px;flex-shrink:0;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.card{background:var(--s1);border:1px solid var(--bdl);border-radius:8px;overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--bd)}
+.card.done .c-hd{opacity:.45}
+.c-hd{padding:13px 15px;cursor:pointer;display:flex;gap:10px;align-items:flex-start}
+.chk{width:17px;height:17px;border:1.5px solid var(--bd);border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;cursor:pointer}
+.chk.on{background:#388bfd;border-color:#388bfd;color:#fff}
+.c-inf{flex:1;min-width:0}
+.c-ttl{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:3px;line-height:1.3}
+.c-dsc{font-size:12px;color:var(--t2);line-height:1.4}
+.c-mt{display:flex;gap:8px;margin-top:7px;align-items:center}
+.c-tm{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace}
+.c-cnt{font-size:11px;padding:1px 7px;background:var(--s2);border-radius:4px;color:var(--t3)}
+.c-arr{font-size:10px;color:var(--t3);transition:transform .2s;margin-top:2px;flex-shrink:0}
+.card.open .c-arr{transform:rotate(90deg)}
+.c-bd{display:none;border-top:1px solid var(--bdl);padding:11px 15px 13px}
+.card.open .c-bd{display:block}
+.subs{list-style:none;margin-bottom:11px}
+.subs li{font-size:12px;color:var(--t2);padding:3px 0 3px 12px;border-left:2px solid var(--bdl);margin-bottom:4px;line-height:1.55}
+.ask{width:100%;padding:6px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:5px;color:var(--t2);font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;text-align:left;transition:all .15s}
+.ask:hover{border-color:var(--ts);color:#60a5fa}
+@media(max-width:640px){.hdr-top{gap:12px}.prog-w{margin-left:0;text-align:left}.prog-tr{margin-left:0;width:100%}main{padding:24px 16px 60px}.ph-hd{flex-wrap:wrap}.ph-dur{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-top">
+      <div class="logo">
+        <div class="logo-ic">TS</div>
+        <div><div class="logo-t">TypeScript Roadmap</div><div class="logo-s">// от нуля до уверенного уровня</div></div>
+      </div>
+      <div class="prog-w">
+        <div class="prog-lbl" id="plbl">0 / 0 тем</div>
+        <div class="prog-tr"><div class="prog-fl" id="pfl"></div></div>
+      </div>
+    </div>
+    <div class="nav" id="nav"></div>
+  </div>
+</header>
+<main id="main"></main>
+<script>
+const LS_KEY='ts-roadmap-v1';
+const DONE=new Set(JSON.parse(localStorage.getItem(LS_KEY)||'[]'));
+const D=[
+[0,'#3178C6','Введение в TypeScript','Зачем TS, установка, первый проект','2-3 дня',[
+['a0','Зачем TypeScript','Преимущества над JS и как работает','день 1',
+['TypeScript — надмножество JavaScript: любой JS является валидным TS',
+'Статическая типизация: ошибки типов находятся до запуска программы',
+'Автодополнение и рефакторинг в IDE — TypeScript Language Server',
+'TypeScript компилируется в обычный JS — браузер не знает о TS',
+'Чем больше проект — тем ощутимее польза от TypeScript',
+'Популярность: React, Angular, Vue, Node.js — всё на TS',
+'Постепенное внедрение: можно добавлять TS в JS проект файл за файлом',
+'TypeScript не замедляет runtime — только этап разработки'],
+'Объясни зачем нужен TypeScript и чем он лучше JavaScript'],
+['a1','Установка и настройка','tsc, tsconfig.json, первый файл','день 1-2',
+['npm install -D typescript — установить TypeScript',
+'npx tsc --init — создать tsconfig.json',
+'npx tsc file.ts — скомпилировать один файл',
+'npx tsc --watch — следить за изменениями',
+'ts-node — запускать .ts напрямую без компиляции',
+'Vite + TS: npm create vite@latest — выбрать TypeScript шаблон',
+'tsconfig.json — главный конфигурационный файл',
+'Расширение .ts для обычных файлов, .tsx для JSX'],
+'Как установить TypeScript и настроить первый проект'],
+['a2','tsconfig.json — основные опции','Ключевые настройки компилятора','день 2-3',
+['strict: true — включить все строгие проверки (обязательно!)',
+'target: ES2020 — в какую версию JS компилировать',
+'module: ESNext — система модулей',
+'moduleResolution: bundler — для Vite/Webpack проектов',
+'outDir: ./dist — куда класть скомпилированный JS',
+'rootDir: ./src — корень исходников',
+'include и exclude — какие файлы компилировать',
+'paths — алиасы для импортов: @/components вместо ../../components'],
+'Объясни основные опции tsconfig.json — что включать и зачем'],
+]],
+[1,'#61AFEF','Базовые типы','Примитивы, any, unknown, never, void, вывод типов','2-3 дня',[
+['b0','Примитивные типы','string, number, boolean, null, undefined','день 1',
+['string — любая строка: "hello", `world`',
+'number — любое число: 42, 3.14, NaN, Infinity',
+'boolean — только true или false',
+'null и undefined — самостоятельные типы при strictNullChecks: true',
+'string | null — nullable тип: строка или null',
+'symbol — уникальный примитив (Symbol())',
+'bigint — большие целые числа (42n)',
+'Аннотация: const name: string = "Иван"'],
+'Объясни базовые примитивные типы TypeScript с примерами'],
+['b1','any, unknown, never, void','Специальные типы TypeScript','день 1-2',
+['any — отключает проверку типов (избегай!)',
+'any: можно делать всё — присваивать куда угодно, вызывать методы',
+'unknown — безопасная альтернатива any',
+'unknown: нельзя использовать без сужения типа сначала',
+'Правило: используй unknown вместо any — заставляет делать проверки',
+'never — тип который никогда не наступает',
+'never: возврат из бесконечного цикла или функции бросающей ошибку',
+'void — функция ничего не возвращает (или возвращает undefined)'],
+'Объясни разницу any vs unknown vs never vs void в TypeScript'],
+['b2','Вывод типов (Type Inference)','TypeScript выводит тип сам','день 2-3',
+['Вывод из значения: const x = 5 — тип number выводится автоматически',
+'Лучше не дублировать: const name: string = "Ivan" — избыточно',
+'Когда нужна аннотация: параметры функций, возврат, пустой массив',
+'Literal types: const x = "hello" — тип "hello", не string',
+'Widening: let x = "hello" — тип string (let можно переприсвоить)',
+'Контекстуальный вывод: тип события в addEventListener выводится сам',
+'Вывод в объекте: { name: "Иван", age: 25 } — TypeScript выводит оба типа',
+'satisfies — проверить тип без сужения до него'],
+'Объясни type inference в TypeScript — когда TS выводит тип сам'],
+]],
+[2,'#98C379','Объекты и интерфейсы','interface, type alias, readonly, optional','3-4 дня',[
+['c0','Interface','Описание формы объекта','день 1',
+['interface User { name: string; age: number }',
+'Опциональное свойство: email?: string — может не быть',
+'Readonly: readonly id: number — нельзя изменить после создания',
+'Метод в интерфейсе: greet(): string — метод возвращающий строку',
+'Index signature: [key: string]: unknown — объект с произвольными ключами',
+'Расширение: interface Admin extends User { role: string }',
+'Declaration merging: один interface можно открыть и добавить поля',
+'Implements: class User implements IUser — класс реализует интерфейс'],
+'Объясни interface в TypeScript с примерами'],
+['c1','Type Alias','type — псевдонимы типов','день 2',
+['type User = { name: string; age: number } — псевдоним',
+'type ID = string | number — псевдоним для union',
+'type Callback = (err: Error | null, data: string) => void',
+'Рекурсивный тип: type Tree = { value: number; children: Tree[] }',
+'type не поддерживает declaration merging в отличие от interface',
+'type нельзя использовать в implements напрямую (только interface)',
+'Комбинирование: type AdminUser = User & { role: string }',
+'Практика: interface для объектов/классов, type для union и утилит'],
+'Объясни type alias в TypeScript и чем отличается от interface'],
+['c2','Interface vs Type: когда что','Практические отличия и рекомендации','день 3',
+['interface можно расширить через extends — type через &',
+'interface: declaration merging — открыть и добавить поля (полезно для augmentation)',
+'type: поддерживает union и primitive aliases — interface нет',
+'Оба поддерживают дженерики и пересечение',
+'Ошибки: interface даёт более читаемые сообщения об ошибках',
+'Рекомендация TypeScript team: interface для объектов, type для union',
+'В React: interface для Props, type для union state',
+'В библиотеках: interface чтобы пользователи могли расширять'],
+'Объясни отличия interface от type alias — когда что выбрать'],
+]],
+[3,'#E5C07B','Union, Intersection и Literal типы','Составные типы TypeScript','3 дня',[
+['d0','Union Types','Тип одно из нескольких значений','день 1',
+['type StringOrNumber = string | number — одно из',
+'Использование: function fn(x: string | number)',
+'TypeScript сужает тип внутри if/switch автоматически',
+'Nullability: string | null | undefined — nullable',
+'Discriminated Union: общее поле для различения вариантов',
+'type Shape = { kind: "circle"; radius: number } | { kind: "square"; side: number }',
+'switch(shape.kind) — TypeScript знает какой вариант в каждом case',
+'Exhaustive check через never: убедиться что все варианты покрыты'],
+'Объясни Union Types и discriminated union в TypeScript'],
+['d1','Intersection Types','Объединение нескольких типов в один','день 2',
+['type AdminUser = User & Admin — все свойства обоих типов',
+'Intersection примитивов: string & number = never (невозможно)',
+'Применение: расширить тип без наследования',
+'type WithTimestamps = T & { createdAt: Date; updatedAt: Date }',
+'Пересечение объектов: все поля присутствуют одновременно',
+'Конфликт: одинаковые ключи с несовместимыми типами = never для этого поля',
+'Mixin паттерн: несколько источников поведения через intersection',
+'Intersection vs extends: intersection нельзя переопределить метод'],
+'Объясни Intersection Types в TypeScript с примерами'],
+['d2','Literal и Template Literal типы','Точные значения как типы','день 3',
+['Literal type: type Status = "idle" | "loading" | "success" | "error"',
+'Числовой literal: type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6',
+'as const: const dirs = ["left", "right"] as const — literal типы',
+'as const объект: keyof typeof obj — ключи как union тип',
+'Template literal: type EventName = `on${string}` — шаблонный',
+'type CSSProperty = `${string}-${string}` — CSS property pattern',
+'Встроенные: Uppercase, Lowercase, Capitalize, Uncapitalize',
+'Применение: строго типизированные названия событий, маршрутов'],
+'Объясни literal types и as const в TypeScript с примерами'],
+]],
+[4,'#C678DD','Массивы, кортежи, Enum','Типизация коллекций','2-3 дня',[
+['e0','Массивы и ReadonlyArray','Типизированные массивы','день 1',
+['string[] или Array<string> — массив строк (оба варианта равнозначны)',
+'(string | number)[] — массив строк или чисел',
+'ReadonlyArray<string> или readonly string[] — нельзя мутировать',
+'Пустой массив: const arr: string[] = [] — нужна аннотация',
+'Многомерный: number[][] — массив массивов чисел',
+'as const для массива: ["a", "b"] as const — readonly кортеж',
+'Вывод типа: const arr = [1, "a"] — тип (string | number)[]',
+'Array<never> — пустой тип, нельзя добавить элементы'],
+'Объясни типизацию массивов в TypeScript'],
+['e1','Кортежи (Tuple)','Массив с фиксированной длиной и типами','день 1-2',
+['type Point = [number, number] — пара чисел',
+'Именованный кортеж: [x: number, y: number] — для документации',
+'Опциональный элемент: [string, number?] — второй может отсутствовать',
+'Rest в кортеже: [string, ...number[]] — строка и любое количество чисел',
+'Деструктуризация: const [name, age]: [string, number] = data',
+'Кортеж vs массив: кортеж — фиксированная структура, массив — переменная длина',
+'Применение: возврат нескольких значений из функции',
+'React: useState возвращает кортеж [value, setter]'],
+'Объясни кортежи (tuple) в TypeScript с примерами'],
+['e2','Enum и альтернативы','Перечисления и их замена','день 2-3',
+['enum Direction { Up, Down, Left, Right } — числовой enum',
+'Direction.Up === 0 по умолчанию',
+'Строковый enum: enum Color { Red = "RED", Blue = "BLUE" }',
+'const enum — встраивается при компиляции, нет runtime объекта',
+'Проблемы enum: создаёт runtime объект, не tree-shakeable, bidirectional',
+'Современная альтернатива: const DIRS = { Up: "up" } as const',
+'Тип из as const: typeof DIRS[keyof typeof DIRS]',
+'Рекомендация: избегай enum, используй as const объекты'],
+'Объясни enum в TypeScript и почему as const часто лучше'],
+]],
+[5,'#56B6C2','Функции','Типизация функций, overloads, this','3 дня',[
+['f0','Типизация функций','Параметры, возврат, необязательные аргументы','день 1',
+['function add(a: number, b: number): number { return a + b }',
+'Опциональный параметр: function fn(x?: number) — может быть undefined',
+'Дефолтный параметр: function fn(x = 0): number — вывод типа от дефолта',
+'Rest параметры: function fn(...args: string[]): void',
+'Деструктуризация в параметрах: function fn({ name, age }: User)',
+'Тип функции: type Handler = (event: MouseEvent) => void',
+'Функция как параметр: function run(cb: () => void)',
+'Возврат void vs undefined: void — не используем возврат, undefined — явный'],
+'Объясни типизацию функций в TypeScript'],
+['f1','Перегрузки функций','Несколько сигнатур для одной функции','день 2',
+['Overload signatures — несколько объявлений перед реализацией',
+'function fn(x: string): string',
+'function fn(x: number): number',
+'function fn(x: string | number): string | number { } — реализация',
+'Реализация не видна снаружи — только overload signatures',
+'Применение: функция с разным поведением в зависимости от типа',
+'Лучше перегрузок: generic + conditional types',
+'Method overloads в классах работают аналогично'],
+'Объясни перегрузки функций в TypeScript с примерами'],
+['f2','this и типы коллбэков','Типизация контекста вызова','день 3',
+['this параметр: function fn(this: User, x: number) — фиктивный первый параметр',
+'Запрет потери контекста: TypeScript проверяет this при вызове',
+'arrow function в классе: нет проблемы с this',
+'ReturnType<typeof fn> — извлечь тип возврата функции',
+'Parameters<typeof fn> — извлечь типы параметров как кортеж',
+'Awaited<ReturnType<typeof fn>> — тип промиса из async функции',
+'Callback типы: type OnChange = (value: string) => void',
+'Generic callback: type Mapper<T, U> = (item: T) => U'],
+'Объясни ReturnType Parameters Awaited и this параметр в TypeScript'],
+]],
+[6,'#E06C75','Generics','Обобщённое программирование в TypeScript','4-5 дней',[
+['g0','Базовые дженерики','Параметры типов в функциях','день 1-2',
+['function identity<T>(x: T): T { return x } — простейший generic',
+'T — конвенция, но можно любое имя: Value, Item, TKey',
+'Несколько параметров: function pair<T, U>(a: T, b: U): [T, U]',
+'Вывод типа: identity(42) — T = number, не нужно указывать явно',
+'Явная передача: identity<string>("hello") — когда вывод не работает',
+'Generic массив: function first<T>(arr: T[]): T | undefined',
+'Generic промис: function fetchUser(): Promise<User>',
+'Комбинация: async function get<T>(url: string): Promise<T>'],
+'Объясни generics в TypeScript с практическими примерами'],
+['g1','Constraints (ограничения)','extends в дженериках','день 2-3',
+['function fn<T extends string>(x: T): T — T должен быть string',
+'function fn<T extends object>(x: T): T — только объекты',
+'keyof T — union всех ключей типа T',
+'function get<T, K extends keyof T>(obj: T, key: K): T[K]',
+'extends с интерфейсом: function fn<T extends { id: number }>(x: T)',
+'Дефолтный тип: function fn<T = string>(x?: T): T',
+'Несколько constraints: T extends A & B',
+'Применение: функция которая работает с любым объектом у которого есть нужное поле'],
+'Объясни constraints в generics с keyof и extends'],
+['g2','Generic интерфейсы и классы','Обобщённые структуры данных','день 3-4',
+['interface Repository<T> { findById(id: number): T | null }',
+'interface ApiResponse<T> { data: T; status: number; message: string }',
+'Дефолтный параметр: interface Container<T = string> { value: T }',
+'class Stack<T> { private items: T[] = []; push(item: T): void { } }',
+'Extends в generic классе: class NumberStack extends Stack<number>',
+'Generic React компонент: function List<T>({ items }: { items: T[] })',
+'Generic хук: function useFetch<T>(url: string): { data: T | null }',
+'Вывод в экземпляре: new Stack<number>() или new Stack() с первым push'],
+'Объясни generic интерфейсы и классы с практическими примерами'],
+]],
+[7,'#61AFEF','Классы в TypeScript','Access modifiers, abstract, implements','3-4 дня',[
+['h0','Access modifiers','public, private, protected, readonly','день 1',
+['public — доступно отовсюду (по умолчанию)',
+'private — только внутри класса (TypeScript compile-time)',
+'protected — внутри класса и потомков',
+'readonly — нельзя переопределить после создания экземпляра',
+'Краткий конструктор: constructor(private name: string, readonly id: number)',
+'Краткий конструктор эквивалентен объявлению и присвоению в теле',
+'ES Private Fields #name — настоящая приватность в runtime',
+'static методы и свойства: принадлежат классу, не экземпляру'],
+'Объясни access modifiers в TypeScript классах с примерами'],
+['h1','Implements и abstract','Интерфейсы для классов и абстракция','день 2-3',
+['class Dog implements Animal — класс обязан реализовать интерфейс',
+'Несколько интерфейсов: class Admin implements IUser, IAdmin',
+'Implements не добавляет runtime поведение — только проверка типов',
+'abstract class — нельзя создать экземпляр напрямую',
+'abstract method — должен быть реализован в каждом потомке',
+'abstract class задаёт контракт для всех подклассов',
+'abstract vs interface: abstract может иметь реализацию методов',
+'Применение: base class с общей логикой и абстрактными хуками'],
+'Объясни abstract class и implements в TypeScript'],
+['h2','Декораторы','Метаданные и трансформация классов','день 3-4',
+['Декораторы — экспериментальная фича, включить experimentalDecorators: true',
+'Class decorator: @sealed — оборачивает конструктор класса',
+'Method decorator: @log — оборачивает метод',
+'Property decorator: @required — трансформирует свойство',
+'Parameter decorator: @inject — метаданные параметра',
+'reflect-metadata — для работы с метаданными в runtime',
+'Активно используются в NestJS и Angular',
+'TypeScript 5.0+: новый синтаксис декораторов по стандарту TC39'],
+'Объясни декораторы в TypeScript с примерами применения'],
+]],
+[8,'#98C379','Type Narrowing','Сужение типов и type guards','3 дня',[
+['i0','Встроенные способы сужения','typeof, instanceof, in, truthiness','день 1',
+['typeof x === "string" — x становится string в этой ветке',
+'typeof: работает с string, number, boolean, symbol, bigint, function, object, undefined',
+'instanceof Date — x становится Date',
+'in operator: "name" in obj — obj имеет поле name',
+'Truthiness: if (x) { } — x не null, undefined, 0, "", NaN',
+'Equality: if (x === "hello") — x буквально "hello"',
+'Control flow analysis — TypeScript отслеживает тип по всем путям',
+'Narrowing в switch: case определяет тип в своём блоке'],
+'Объясни type narrowing в TypeScript — все встроенные способы'],
+['i1','User-defined Type Guards','Пользовательские функции сужения','день 2',
+['function isUser(x: unknown): x is User — type predicate',
+'Если isUser вернул true — TypeScript знает что x это User',
+'Assertion function: function assert(x: unknown): asserts x is User',
+'Если assertion не бросила — x это User после вызова',
+'Практика: валидация API ответов перед использованием',
+'Discriminated union + switch — самый надёжный паттерн сужения',
+'Non-null assertion: value! — сказать TS что точно не null (осторожно)',
+'satisfies — проверить тип без сужения к нему'],
+'Объясни user-defined type guards и assertion functions'],
+['i2','Exhaustiveness checking','Убедиться что покрыты все случаи','день 3',
+['never в switch default — если добрались до default, что-то не так',
+'function assertNever(x: never): never { throw new Error() }',
+'switch(shape.kind) { case "circle": ... default: assertNever(shape) }',
+'При добавлении нового варианта в union — TypeScript укажет на неохваченный case',
+'Discriminated union — лучший паттерн для exhaustive checks',
+'Partial narrowing: Exclude<T, AlreadyHandled>',
+'Паттерн с объектом handlers вместо switch',
+'never как bottom type — ничто не присваивается never'],
+'Объясни exhaustiveness checking через never в TypeScript'],
+]],
+[9,'#E5C07B','Утилитарные типы','Partial, Pick, Omit, Record и другие','3-4 дня',[
+['j0','Трансформации объектов','Partial, Required, Readonly, Pick, Omit','день 1-2',
+['Partial<T> — все свойства опциональными: для partial update',
+'Required<T> — все свойства обязательными: убрать все ?',
+'Readonly<T> — все свойства readonly: для immutable объектов',
+'Pick<T, "name" | "age"> — взять только нужные свойства',
+'Omit<T, "password"> — исключить ненужные свойства',
+'Record<string, number> — объект с ключами string и значениями number',
+'Record<K, V>: эквивалент { [key in K]: V } через mapped type',
+'Применение: UpdateUser = Partial<Omit<User, "id">>'],
+'Объясни Partial Required Readonly Pick Omit Record с примерами'],
+['j1','Условные утилитарные типы','Exclude, Extract, NonNullable, ReturnType','день 2-3',
+['Exclude<T, U> — убрать из union те типы что входят в U',
+'Exclude<string | number | boolean, string> = number | boolean',
+'Extract<T, U> — оставить только общие для T и U типы',
+'NonNullable<T> — убрать null и undefined из типа',
+'ReturnType<typeof fn> — тип возврата функции',
+'Parameters<typeof fn> — кортеж типов параметров',
+'Awaited<Promise<string>> = string — распаковать промис',
+'InstanceType<typeof MyClass> — тип экземпляра класса'],
+'Объясни Exclude Extract NonNullable ReturnType Awaited с примерами'],
+]],
+[10,'#C678DD','Mapped Types','keyof, typeof, создание новых типов из существующих','3-4 дня',[
+['k0','keyof и typeof','Операторы для работы с типами','день 1',
+['keyof T — union всех ключей типа T',
+'keyof User = "name" | "age" | "email"',
+'typeof переменной — получить тип значения',
+'typeof obj — { name: string; age: number }',
+'Комбинация: keyof typeof config — ключи объекта как union',
+'T[K] — тип поля K в объекте T (indexed access type)',
+'User["name"] = string — тип поля name',
+'User[keyof User] — union всех типов значений объекта'],
+'Объясни keyof и typeof в TypeScript с практическими примерами'],
+['k1','Создание Mapped Types','Трансформация всех свойств типа','день 2-3',
+['{ [K in keyof T]: T[K] } — копия типа T',
+'Partial реализация: { [K in keyof T]?: T[K] }',
+'Readonly реализация: { readonly [K in keyof T]: T[K] }',
+'Трансформация значений: { [K in keyof T]: string } — все значения string',
+'Модификаторы: -readonly убирает readonly; -? убирает optional',
+'Remapping с as: { [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K] }',
+'Фильтрация свойств: as never убирает ключ из mapped type',
+'Применение: создание getters, setters, строгих версий типов'],
+'Объясни mapped types в TypeScript с примерами трансформаций'],
+['k2','Продвинутые Mapped Types','Template literals + mapped = мощные паттерны','день 3-4',
+['type Getters<T> = { [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K] }',
+'type EventHandlers<T> = { [K in keyof T as `on${Capitalize<string & K>}Change`]: (val: T[K]) => void }',
+'Mapped type + conditional: отфильтровать только методы',
+'type Methods<T> = { [K in keyof T]: T[K] extends Function ? K : never }[keyof T]',
+'Deep Readonly через рекурсивный mapped type',
+'type DeepReadonly<T> = { readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K] }',
+'Mapped types строятся на основе keyof и создают утилитарные типы',
+'Изучение builtin утилит через их реализацию'],
+'Объясни продвинутые mapped types с template literals'],
+]],
+[11,'#56B6C2','Conditional Types','T extends U ? X : Y, infer','3-4 дня',[
+['l0','Базовые Conditional Types','Условные типы как тернарный оператор','день 1-2',
+['T extends U ? X : Y — если T присваивается U то X иначе Y',
+'type IsString<T> = T extends string ? true : false',
+'IsString<string> = true; IsString<number> = false',
+'Distributive: conditional type применяется к каждому члену union',
+'string | number extends string ? X : Y = (string extends string ? X : Y) | (number extends string ? X : Y)',
+'NonNullable реализация: T extends null | undefined ? never : T',
+'Exclude реализация: T extends U ? never : T',
+'Extract реализация: T extends U ? T : never'],
+'Объясни conditional types в TypeScript с примерами'],
+['l1','infer ключевое слово','Извлечение типов в conditional','день 2-3',
+['infer R — объявить переменную типа внутри extends',
+'ReturnType реализация: T extends (...args: any) => infer R ? R : never',
+'Элемент массива: T extends (infer U)[] ? U : never',
+'Первый параметр: T extends (first: infer F, ...rest: any) => any ? F : never',
+'Promise распаковка: T extends Promise<infer U> ? U : T',
+'Рекурсивный infer: глубокая распаковка вложенных типов',
+'infer можно использовать только в extends части conditional',
+'Множественный infer: infer A extends infer B — новый синтаксис TS 4.7'],
+'Объясни infer в conditional types с примерами'],
+]],
+[12,'#E06C75','Template Literal Types','Строковые шаблоны на уровне типов','2-3 дня',[
+['m0','Синтаксис и встроенные утилиты','Шаблонные типы и string manipulation','день 1',
+['type Hello = `hello_${string}` — строки начинающиеся с hello_',
+'type EventName = `on${string}` — строки начинающиеся с on',
+'Комбинирование union: type Dir = "left" | "right"; type Padding = `padding-${Dir}`',
+'paddingLeft, paddingRight — автоматически из template literal + union',
+'Capitalize<S>: первая буква заглавная',
+'Uncapitalize<S>: первая буква строчная',
+'Uppercase<S>: всё заглавными',
+'Lowercase<S>: всё строчными'],
+'Объясни template literal types в TypeScript с примерами'],
+['m1','Применения','CSS свойства, события, маршруты API','день 2-3',
+['Типизация CSS-in-JS: type CSSColor = `#${string}` | "red" | "blue"',
+'Event handler names: type HandlerKey<T> = `on${Capitalize<string & keyof T>}`',
+'API маршруты: type Route = `/api/${string}`',
+'Getter/setter паттерн через template + mapped types',
+'Автодополнение для string паттернов — IDE подсказывает варианты',
+'Строгая типизация i18n ключей: type TranslationKey = keyof typeof translations',
+'Ограничение формата: type HexColor = `#${string}` — проверка формата цвета',
+'Комбинация с infer: извлечь часть строки из шаблонного литерала'],
+'Объясни применения template literal types на практике'],
+]],
+[13,'#98C379','Модули и Declaration Files','Типизация JS библиотек без TS','2-3 дня',[
+['n0','Declaration Files (.d.ts)','Как TypeScript описывает JS библиотеки','день 1',
+['.d.ts файл — только типы, без реализации',
+'@types/package — пакеты с типами от DefinitelyTyped',
+'npm install -D @types/node @types/express',
+'Если @types нет — можно написать свой .d.ts',
+'declare const, declare function, declare class — ambient declarations',
+'declare module "package-name" { } — объявить тип для JS модуля',
+'lib.d.ts — встроенные типы браузера и Node.js',
+'skipLibCheck: true — пропустить проверку .d.ts файлов'],
+'Объясни declaration files и @types в TypeScript'],
+['n1','Module Augmentation','Расширение существующих типов','день 2-3',
+['Module augmentation — добавить типы в существующий модуль',
+'declare module "express" { interface Request { user?: User } }',
+'Расширение глобального: declare global { interface Window { myLib: Lib } }',
+'Merging интерфейсов через declaration merging',
+'Augment встроенных типов: Array<T>.prototype.custom()',
+'paths в tsconfig.json: алиасы импортов',
+'baseUrl и paths: "@/*": ["./src/*"] для абсолютных путей',
+'typeRoots и types: контролировать какие @types подключаются'],
+'Объясни module augmentation и расширение существующих типов'],
+]],
+[14,'#F7B731','TypeScript в React','Типизация компонентов, хуков, событий','4-5 дней',[
+['o0','Компоненты и Props','Типизация React компонентов','день 1-2',
+['interface ButtonProps { label: string; onClick: () => void }',
+'function Button({ label, onClick }: ButtonProps): JSX.Element',
+'React.FC устарел — типизируй напрямую через параметры',
+'children: React.ReactNode — самый широкий тип',
+'Опциональный проп: disabled?: boolean',
+'style: React.CSSProperties — для объектов стилей',
+'ref: React.Ref<HTMLButtonElement> — для forwardRef компонентов',
+'ComponentPropsWithoutRef<"button"> — все нативные атрибуты кнопки'],
+'Объясни типизацию React компонентов и props в TypeScript'],
+['o1','События и Refs','Типизация DOM событий','день 2-3',
+['React.ChangeEvent<HTMLInputElement> — для onChange инпута',
+'React.MouseEvent<HTMLButtonElement> — для onClick',
+'React.FormEvent<HTMLFormElement> — для onSubmit',
+'e.target.value — TypeScript знает тип из HTMLInputElement',
+'useRef<HTMLInputElement>(null) — типизированная ссылка на DOM',
+'ref.current — HTMLInputElement | null после useRef',
+'Non-null assertion в ref: ref.current! — когда уверен что не null',
+'forwardRef: React.forwardRef<HTMLInputElement, Props>((props, ref) => ...)'],
+'Объясни типизацию событий и refs в React с TypeScript'],
+['o2','Хуки с TypeScript','useState, useReducer, useContext','день 3-4',
+['useState<User | null>(null) — явный тип для null начального значения',
+'useState вывод: useState(0) — тип number без аннотации',
+'useReducer: типизировать State и Action через interface',
+'type Action = { type: "increment" } | { type: "setUser"; payload: User }',
+'createContext<ThemeContextType | null>(null) — типизированный контекст',
+'useContext возвращает ThemeContextType | null — нужно сужение',
+'Custom hook с generics: function useLocalStorage<T>(key: string, init: T)',
+'Generic hook возврат: [T, (val: T) => void] как кортеж'],
+'Объясни типизацию хуков React в TypeScript'],
+]],
+[15,'#B794F4','Продвинутые паттерны','Branded types, Builder, Recursive, Variadic','1-2 нед',[
+['p0','Branded Types','Номинальная типизация в структурной системе','день 1-2',
+['TypeScript — структурная типизация: совместимость по форме',
+'Проблема: type UserId = string; type OrderId = string — совместимы!',
+'Branded type: type UserId = string & { readonly _brand: "UserId" }',
+'Функция-конструктор: function userId(s: string): UserId { return s as UserId }',
+'Теперь UserId и OrderId несовместимы — TypeScript не перепутает',
+'Применение: id типы, денежные единицы, валидированные строки',
+'Более чистый синтаксис через declare: type UserId = string & { _brand: "user" }',
+'Opaque types — паттерн для избегания путаницы похожих типов'],
+'Объясни branded types в TypeScript — зачем и как использовать'],
+['p1','Рекурсивные и Variadic типы','Сложные структуры типов','день 3-4',
+['Рекурсивный тип: type JSON = string | number | boolean | null | JSON[] | { [k: string]: JSON }',
+'Deep Partial: type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T',
+'Variadic tuple: type Concat<T extends unknown[], U extends unknown[]> = [...T, ...U]',
+'Inference в variadic: infer Head, infer Tail для first/rest',
+'type Reverse<T extends unknown[]> = T extends [infer H, ...infer R] ? [...Reverse<R>, H] : T',
+'Ограничение глубины: TypeScript ограничивает рекурсию для защиты компилятора',
+'Conditional + mapped + recursive = мощные трансформации типов',
+'Использовать только когда действительно нужно — сложные типы тяжело читать'],
+'Объясни рекурсивные типы и variadic tuples в TypeScript'],
+['p2','Builder и Fluent interface паттерны','TypeScript для безопасных API','день 5-6',
+['Builder pattern: типизированная пошаговая конструкция объекта',
+'Fluent interface: методы возвращают this — цепочка вызовов',
+'Discriminated state: тип меняется в зависимости от вызовов',
+'Function overloads для разных веток builder',
+'Generic builder: накапливать типы при каждом вызове',
+'Type-safe event emitter: строгие типы для on/emit',
+'Result type: type Result<T, E> = { ok: true; value: T } | { ok: false; error: E }',
+'Option/Maybe type — избежать null без nullable типов'],
+'Объясни Builder pattern и Result type в TypeScript'],
+]],
+[16,'#3178C6','Конфигурация и инструменты','tsconfig подробно, strict mode, утилиты','2-3 дня',[
+['q0','tsconfig.json подробно','Все важные опции','день 1',
+['strict: включает strictNullChecks, noImplicitAny, strictFunctionTypes и другие',
+'noImplicitAny: ошибка если тип выведен как any',
+'strictNullChecks: null и undefined — отдельные типы',
+'strictFunctionTypes: строгая проверка типов функций',
+'noUnusedLocals и noUnusedParameters: ошибки за неиспользуемые переменные',
+'noImplicitReturns: все ветки функции должны возвращать значение',
+'exactOptionalPropertyTypes: undefined нельзя явно присвоить optional полю',
+'isolatedModules: каждый файл как независимый модуль (для Vite)'],
+'Объясни важные опции tsconfig.json — что включать и зачем'],
+['q1','Инструменты экосистемы','tsc, ts-node, tsx, type-checking в CI','день 2',
+['tsc --noEmit — проверить типы без компиляции (для CI)',
+'ts-node — запускать TypeScript напрямую в Node.js',
+'tsx — быстрая альтернатива ts-node (через esbuild)',
+'typescript-eslint — линтинг TypeScript кода',
+'Правила eslint для TypeScript: no-explicit-any, no-unsafe-assignment',
+'Vite не проверяет типы при сборке — нужен отдельный tsc --noEmit',
+'GitHub Actions: добавить tsc --noEmit в CI pipeline',
+'ts-prune — найти неиспользуемые экспорты'],
+'Как настроить type-checking в CI и инструменты TypeScript экосистемы'],
+['q2','Миграция JS проекта на TypeScript','Постепенное добавление типов','день 3',
+['allowJs: true — TypeScript принимает .js файлы',
+'checkJs: true — проверять JS файлы через JSDoc',
+'Переименовывать файлы .js → .ts по одному',
+'noImplicitAny: false на старте — включить позже',
+'any как временная заглушка — помечать TODO',
+'@ts-ignore и @ts-expect-error — подавить ошибку временно',
+'Strict mode включать постепенно: сначала strictNullChecks, потом остальное',
+'Автоматическая миграция: ts-migrate от Airbnb'],
+'Объясни стратегию миграции JavaScript проекта на TypeScript'],
+]],
+];
+
+const TOTAL=D.reduce((s,p)=>s+p[5].length,0);
+function save(){localStorage.setItem(LS_KEY,JSON.stringify([...DONE]));}
+function updateProg(){
+  const d=DONE.size;
+  document.getElementById('pfl').style.width=(TOTAL?d/TOTAL*100:0).toFixed(1)+'%';
+  document.getElementById('plbl').textContent=d+' / '+TOTAL+' тем';
+}
+function mk(tag,cls){const e=document.createElement(tag);if(cls)e.className=cls;return e;}
+function tx(tag,cls,t){const e=mk(tag,cls);e.textContent=t;return e;}
+const nav=document.getElementById('nav');
+const main=document.getElementById('main');
+D.forEach(ph=>{
+  const[n,color,title,desc,dur,topics]=ph;
+  const pill=tx('button','nav-btn','Ф'+n+' '+title);
+  pill.addEventListener('click',()=>document.getElementById('ph'+n).scrollIntoView({behavior:'smooth',block:'start'}));
+  nav.appendChild(pill);
+  const section=mk('section','phase');
+  section.id='ph'+n;
+  const hd=mk('div','ph-hd');
+  const badge=tx('span','ph-num',String(n).padStart(2,'0'));
+  badge.style.cssText='background:'+color+'18;color:'+color;
+  const info=mk('div','ph-info');
+  info.appendChild(tx('div','ph-ttl',title));
+  info.appendChild(tx('div','ph-dsc',desc));
+  const durEl=tx('span','ph-dur',dur);
+  hd.appendChild(badge);hd.appendChild(info);hd.appendChild(durEl);
+  section.appendChild(hd);
+  const grid=mk('div','grid');
+  topics.forEach(t=>{
+    const[id,tttl,tdsc,ttime,subs,ask]=t;
+    const card=mk('div','card');
+    if(DONE.has(id))card.classList.add('done');
+    const cHead=mk('div','c-hd');
+    const chk=mk('div','chk');
+    if(DONE.has(id)){chk.classList.add('on');chk.textContent='✓';}
+    const cInf=mk('div','c-inf');
+    cInf.appendChild(tx('div','c-ttl',tttl));
+    cInf.appendChild(tx('div','c-dsc',tdsc));
+    const cMt=mk('div','c-mt');
+    cMt.appendChild(tx('span','c-tm',ttime));
+    cMt.appendChild(tx('span','c-cnt',subs.length+' подтем'));
+    cInf.appendChild(cMt);
+    const arr=tx('span','c-arr','▶');
+    cHead.appendChild(chk);cHead.appendChild(cInf);cHead.appendChild(arr);
+    const cBody=mk('div','c-bd');
+    const ul=mk('ul','subs');
+    subs.forEach(s=>{ul.appendChild(tx('li',null,s));});
+    const askBtn=tx('button','ask','↗ Спросить ментора: '+ask);
+    cBody.appendChild(ul);cBody.appendChild(askBtn);
+    card.appendChild(cHead);card.appendChild(cBody);
+    cHead.addEventListener('click',e=>{
+      if(e.target===chk||chk.contains(e.target))return;
+      card.classList.toggle('open');
+    });
+    chk.addEventListener('click',()=>{
+      if(DONE.has(id))DONE.delete(id);else DONE.add(id);
+      const on=DONE.has(id);
+      chk.classList.toggle('on',on);
+      chk.textContent=on?'✓':'';
+      card.classList.toggle('done',on);
+      save();updateProg();
+    });
+    askBtn.addEventListener('click',()=>{
+      if(typeof sendPrompt==='function'){sendPrompt(ask);}
+      else{
+        const a=document.createElement('textarea');
+        a.style.cssText='position:fixed;top:-9999px';
+        document.body.appendChild(a);
+        a.value=ask;a.select();
+        document.execCommand('copy');
+        document.body.removeChild(a);
+        askBtn.textContent='✓ Скопировано!';
+        setTimeout(()=>{askBtn.textContent='↗ Спросить ментора: '+ask;},2000);
+      }
+    });
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  main.appendChild(section);
+});
+updateProg();
+</script>
+</body>
+</html>
