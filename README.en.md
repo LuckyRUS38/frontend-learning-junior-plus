@@ -6,7 +6,10 @@
 
 ![Status](https://img.shields.io/badge/status-in%20progress-blue)
 ![Frontend](https://img.shields.io/badge/frontend-learning-orange)
-![React](https://img.shields.io/badge/react-roadmap-61DAFB)
+![CSS](https://img.shields.io/badge/CSS-roadmap-1572B6)
+![JS](https://img.shields.io/badge/JS-roadmap-F7DF1E)
+![React](https://img.shields.io/badge/React-roadmap-61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-roadmap-3178C6)
 ![License](https://img.shields.io/badge/license-view--only-lightgrey)
 
 ---
@@ -15,16 +18,17 @@
 
 ---
 
-## Practical Result of the First 9 Learning Phases | Second Mini Project
-I've been realised it using the knowledge gained from the first nine learning phases of the roadmap.
+## Second Mini Project
+
+Sleep Token landing page — practical result of the first 9 CSS learning phases.
 
 ![Mini Project 2 Preview](assets/images/second-project.png)
 
 ---
 
-## Practical Result of the First 6 Learning Phases | First Mini Project
+## First Mini Project
 
-Below is the result of completing the first six phases of the roadmap — a mini project created to reinforce the material studied.
+Result of completing the first 6 roadmap phases — a mini project to reinforce the material.
 
 ![Mini Project Preview](assets/images/first-project.png)
 
@@ -32,81 +36,81 @@ Below is the result of completing the first six phases of the roadmap — a mini
 
 ## About the Project
 
-This repository is my personal roadmap and practical knowledge base for learning Frontend Development up to a Junior+ Developer level.
+A personal roadmap and practical knowledge base for learning Frontend Development up to Junior+ Developer level.
 
-The main idea behind this project is to evaluate how effectively learning can be structured using AI tools, particularly Claude Code, as:
+This experiment tests how effectively learning can be structured with AI tools (Claude Code) acting as a mentor, code reviewer, and roadmap generator.
 
-* a mentor;
-* a learning assistant;
-* a roadmap generator;
-* a code reviewer;
-* a source of explanations and practice.
-
-The primary goal is not simply to learn syntax, but to build a systematic understanding of Frontend Development and learn how to write high-quality production-like code.
+The goal is not just syntax — it's systematic understanding of Frontend and production-like code quality.
 
 ---
 
-# Project Goals
+## Roadmaps
 
-* Learn Frontend Development from scratch to Junior+ level.
-* Build a structured learning system.
-* Reinforce knowledge through practice.
-* Maintain transparent learning progress.
-* Build a portfolio of projects.
-* Learn to work with a modern Frontend stack.
-
----
-
-# Technologies and Areas of Study
-
-## Fundamentals
-
-* HTML5
-* CSS3
-* JavaScript (ES6+) — not included in the roadmap because I already know it.
-
-## CSS Ecosystem
-
-* Flexbox
-* Grid
-* Responsive Design
-* Animations
-* BEM
-* SCSS/SASS
-* Tailwind CSS
-
-## React Ecosystem
-
-* React
-* React Hooks
-* React Router
-* Zustand
-* Redux Toolkit
-* Context API
-* React Query / TanStack Query
-* Form Handling
-* Performance Optimization
-
-## Tools
-
-* Vite
-* npm
-* ESLint
-* Prettier
-* TypeScript
-* DevTools
+| Technology | File | Status |
+|---|---|---|
+| CSS | [roadmap/css/css_roadmap_v2.html](roadmap/css/css_roadmap_v2.html) | In progress |
+| JavaScript | [roadmap/js/js-roadmap.html](roadmap/js/js-roadmap.html) | Not started |
+| React | [roadmap/react/react-roadmap.html](roadmap/react/react-roadmap.html) | Not started |
+| TypeScript | [roadmap/ts/ts-roadmap.html](roadmap/ts/ts-roadmap.html) | Not started |
 
 ---
 
-# Project Structure
+## Progress
 
-```bash
-frontend-learning-junior-plus/
+### CSS
+- [x] Basic Selectors
+- [x] Box Model
+- [x] Flexbox
+- [x] Grid
+- [x] Responsive Design
+- [ ] Animations
+- [ ] BEM
+- [ ] SCSS/SASS
+- [ ] Tailwind CSS
+
+### JavaScript
+- [ ] Fundamentals & ES6+
+- [ ] DOM & Events
+- [ ] Async / Promises / Fetch
+- [ ] Modules
+
+### React
+- [ ] Components & Props
+- [ ] State & Hooks
+- [ ] React Router
+- [ ] State Management (Zustand / Redux Toolkit)
+- [ ] React Query / TanStack Query
+- [ ] Performance Optimization
+
+### TypeScript
+- [ ] Types & Interfaces
+- [ ] Generics
+- [ ] TS + React
+
+---
+
+## Stack
+
+**Fundamentals:** HTML5 · CSS3 · JavaScript (ES6+) · TypeScript
+
+**CSS:** Flexbox · Grid · Responsive Design · BEM · SCSS/SASS · Tailwind CSS
+
+**React:** React · Hooks · Router · Zustand · Redux Toolkit · React Query
+
+**Tools:** Vite · npm · ESLint · Prettier · DevTools · Git
+
+---
+
+## Project Structure
+
+```
+frontend-learning/
 │
 ├── roadmap/
-│   ├── css/
-│   ├── react/
-│   └── typescript/
+│   ├── css/          # CSS roadmap
+│   ├── js/           # JavaScript roadmap
+│   ├── react/        # React roadmap
+│   └── ts/           # TypeScript roadmap
 │
 ├── practice/
 │   ├── html-css/
@@ -114,104 +118,43 @@ frontend-learning-junior-plus/
 │   └── mini-projects/
 │
 ├── projects/
+│   ├── sleep-token-landing/
 │   └── album-card/
 │
-├── templates/
-│   └── clearest-html.html
-│
-└── README.md
+└── templates/
+    └── clearest-html.html
 ```
 
 ---
 
-# Learning Approach
-
-Each technology is studied using the following workflow:
+## Learning Approach
 
 1. Theory
 2. Practice
-3. Mini Projects
-4. Revision
-5. Refactoring
-6. Reinforcement Through a New Project
+3. Mini Project
+4. Revision & Refactoring
 
 ---
 
-# Why This Project Exists
+## AI Tools
 
-Most roadmaps available online are either too superficial or too chaotic.
+* **Claude Code** — primary mentor, code reviewer, roadmap generator
+* **ChatGPT** — additional explanation source
 
-With this repository, I aim to create:
-
-* a clear learning path;
-* a structured knowledge base;
-* a collection of practical exercises;
-* a realistic Frontend Developer growth track.
+AI is used as a tool, not a replacement for independent learning.
 
 ---
 
-# Future Plans
-
-* Complete React Roadmap
-* TypeScript
-* Frontend Architecture
-* API Integration
-* Testing
-* CI/CD
-* Next.js
-* Fullstack Basics
-
----
-
-# Progress
-
-## CSS
-
-* [x] Basic Selectors
-* [x] Box Model
-* [x] Flexbox
-* [x] Grid
-* [x] Responsive Design
-* [ ] Animations
-* [ ] Frameworks (soon)
-
-## React
-
-* [ ] Components
-* [ ] Props
-* [ ] State
-* [ ] Hooks
-
----
-
-# AI Tools Used
-
-* Claude Code
-* ChatGPT
-
-AI is used as a supporting tool, not as a replacement for independent learning.
-
----
-
-# Author
+## Author
 
 Created as part of an AI-assisted Frontend learning experiment.
-
-* Created by Artemiy Kuznetsov
+**Artemiy Kuznetsov**
 
 ---
 
 ## License
 
-This project is source-available.
+This project is source-available. Personal and educational use only.
+Commercial use strictly prohibited without a separate license.
 
-You may view and use this code for personal and educational purposes only.
-
-Commercial use, redistribution, sublicensing, or selling any part of this project is strictly prohibited without a separate paid license.
-
-For commercial licensing or permissions, contact:
-
-* Email: [artemiykuzik@gmail.com](mailto:artemiykuzik@gmail.com)
-* Telegram: @LuckyRUS38
-
-All rights reserved.
+Contact: [artemiykuzik@gmail.com](mailto:artemiykuzik@gmail.com) · Telegram: @LuckyRUS38
