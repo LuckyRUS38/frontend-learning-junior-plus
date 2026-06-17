@@ -1,0 +1,26 @@
+.move-y {
+    transform: translateY(-20px);
+}
+
+.scale {
+    transform: scale(1.3);
+}
+
+.rotate {
+    transform: rotate(15deg);
+}
+
+.skew {
+    transform: skew(10deg);
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: red;
+}
+
+div:nth-child(2n) {
+    background-color: orangered;
+}
