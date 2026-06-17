@@ -1,0 +1,21 @@
+li:first-child {
+    font-weight: bold;
+    color: #fff;
+}
+
+li:nth-child(odd) {
+    background-color: black;
+    color: #fff;
+}
+
+li:nth-child(even) {
+    background-color: white;
+}
+
+li:nth-child(3n) {
+    background-color: red;
+}
+
+li:last-child {
+    background-color: yellow;
+}
