@@ -1,0 +1,29 @@
+.card {
+    display: flex;
+    margin: 20px auto;
+    width: 300px;
+    height: 200px;
+    background-color: yellow;
+    transition: transform 0.4s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: orangered;
+    border: 1px darkorange solid;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: #cc3700;
+}
