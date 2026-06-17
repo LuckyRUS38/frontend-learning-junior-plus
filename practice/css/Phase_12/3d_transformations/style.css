@@ -1,0 +1,10 @@
+.container {
+    perspective: 800px;
+}
+
+.block {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    transform: rotateY(45deg) translateZ(100px) translateX(400px);
+}
