@@ -1,0 +1,103 @@
+:root {
+    --primary-color: #e2a369;
+    --secondary-color: #f4cf7d;
+    --accent-color: #efc730;
+    --font-color: orangered;
+}
+
+body {
+    color: var(--font-color);
+}
+
+.card {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: block;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(
+        to right bottom,
+        var(--secondary-color) 30%,
+        var(--primary-color) 80%,
+        var(--accent-color)
+    );
+    min-width: 400px;
+    min-height: 600px;
+    max-width: 500px;
+    border: 2px #e2a369 solid;
+    border-radius: 20px;
+    border-top-left-radius: 125px;
+}
+
+.card header {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.card header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+}
+
+.card header .profile_container {
+    align-items: flex-start;
+    margin: 40px 0;
+    flex-grow: 1;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card header img {
+    flex: 0 0 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profession {
+    margin: 0;
+    padding: 0;
+}
+
+.bio {
+    display: block;
+}
+
+.bio p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.skills {
+    margin: 20px 0;
+}
+
+.skills img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.skills img:hover {
+    transform: scale(1.3);
+}
+
+.card footer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.card footer .social-link {
+    margin: 0 10px 0 0;
+}
+
+.card footer img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card footer img:hover {
+    transform: scale(1.3);
+}
