@@ -1,0 +1,38 @@
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(200px);
+        opacity: 1;
+    }
+}
+
+.block {
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: lightskyblue;
+    animation: pulse 2s ease-in-out infinite alternate;
+}
+
+.fade {
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: palevioletred;
+    animation: fadeIn 3s ease forwards;
+}
