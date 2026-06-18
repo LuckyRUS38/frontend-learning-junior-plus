@@ -1,0 +1,45 @@
+img {
+    transition: filter 1.5s ease-out;
+}
+
+.bw {
+    filter: grayscale(1);
+}
+
+.bw:hover {
+    filter: grayscale(0);
+}
+
+.scene {
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F31750780%2Fpexels-photo-31750780.jpeg%3Fcs%3Dsrgb%26dl%3Dpexels-optical-chemist-340351297-31750780.jpg%26fm%3Djpg&f=1&nofb=1&ipt=ba43fd9b306cd21c94251cef5b5b1cd8f097aabb5e823e00d821bb3038f369e1");
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.glass {
+    width: 350px;
+    height: 300px;
+    background: rgba(255, 100, 255, 0.2); /* ПОЛУПРОЗРАЧНЫЙ фон — ключ */
+    backdrop-filter: blur(8px); /* размоет .scene позади себя */
+    border-radius: 16px;
+}
+
+.clip-circle {
+    clip-path: circle(50%);
+}
+
+.clip {
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 30%,
+        89% 67%,
+        89% 100%,
+        12% 100%,
+        12% 68%,
+        0% 30%
+    );
+}
