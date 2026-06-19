@@ -49,7 +49,7 @@ Sleep Token landing page — практический результат пер�
 | Технология | Файл | Статус |
 |---|---|---|
 | CSS | [roadmap/css/css_roadmap_v2.html](roadmap/css/css_roadmap_v2.html) | В процессе |
-| JavaScript | [roadmap/js/js-roadmap.html](roadmap/js/js-roadmap.html) | Не начат |
+| JavaScript | [roadmap/js/js-roadmap.html](roadmap/js/js-roadmap.html) | В процессе |
 | React | [roadmap/react/react-roadmap.html](roadmap/react/react-roadmap.html) | Не начат |
 | TypeScript | [roadmap/ts/ts-roadmap.html](roadmap/ts/ts-roadmap.html) | Не начат |
 
@@ -113,7 +113,8 @@ frontend-learning/
 │   └── ts/           # TypeScript roadmap
 │
 ├── practice/
-│   ├── html-css/
+│   ├── css/
+│   ├── js/
 │   ├── react/
 │   └── mini-projects/
 │

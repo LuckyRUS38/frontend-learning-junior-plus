@@ -49,7 +49,7 @@ The goal is not just syntax — it's systematic understanding of Frontend and pr
 | Technology | File | Status |
 |---|---|---|
 | CSS | [roadmap/css/css_roadmap_v2.html](roadmap/css/css_roadmap_v2.html) | In progress |
-| JavaScript | [roadmap/js/js-roadmap.html](roadmap/js/js-roadmap.html) | Not started |
+| JavaScript | [roadmap/js/js-roadmap.html](roadmap/js/js-roadmap.html) | In progress |
 | React | [roadmap/react/react-roadmap.html](roadmap/react/react-roadmap.html) | Not started |
 | TypeScript | [roadmap/ts/ts-roadmap.html](roadmap/ts/ts-roadmap.html) | Not started |
 
@@ -113,7 +113,8 @@ frontend-learning/
 │   └── ts/           # TypeScript roadmap
 │
 ├── practice/
-│   ├── html-css/
+│   ├── css/
+│   ├── js/
 │   ├── react/
 │   └── mini-projects/
 │
