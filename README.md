@@ -63,8 +63,8 @@ Sleep Token landing page — практический результат пер�
 - [x] Flexbox
 - [x] Grid
 - [x] Responsive Design
-- [ ] Animations
-- [ ] BEM
+- [x] Animations
+- [x] BEM
 - [ ] SCSS/SASS
 - [ ] Tailwind CSS
 

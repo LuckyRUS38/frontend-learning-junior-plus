@@ -63,8 +63,8 @@ The goal is not just syntax — it's systematic understanding of Frontend and pr
 - [x] Flexbox
 - [x] Grid
 - [x] Responsive Design
-- [ ] Animations
-- [ ] BEM
+- [x] Animations
+- [x] BEM
 - [ ] SCSS/SASS
 - [ ] Tailwind CSS
 
