@@ -8,6 +8,15 @@ CSS, HTML, JavaScript, TypeScript, React, Vite, Node.js, Git
 
 ---
 
+## Roadmaps (источник тем)
+Все программы обучения по фазам и подтемам читай в `.md` файлах папки `roadmap/` (НЕ в `.html` — это исходник интерактивной версии). Перед разбором фазы/подтемы открывай соответствующий файл и проходи по всем подтемам, ничего не пропуская:
+- CSS — `roadmap/css/css_roadmap_v2.md`
+- JavaScript — `roadmap/js/js-roadmap.md`
+- TypeScript — `roadmap/ts/ts-roadmap.md`
+- React — `roadmap/react/react-roadmap.md`
+
+---
+
 ## Ответ на "Тема: [название]"
 
 Дай ровно четыре блока:
