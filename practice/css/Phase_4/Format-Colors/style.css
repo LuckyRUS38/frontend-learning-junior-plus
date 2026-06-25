@@ -1,35 +1,35 @@
 .a {
-    color: red;
+  color: red;
 } /* named — 140+ имён */
 .b {
-    color: #ff0000;
+  color: #ff0000;
 } /* hex: #RRGGBB, #fff = белый */
 .c {
-    color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
 } /* каналы 0–255 */
 .d {
-    color: rgba(255, 0, 0, 0.5);
+  color: rgba(255, 0, 0, 0.5);
 } /* +прозрачность 0–1 */
 .e {
-    color: hsl(0, 100%, 50%);
+  color: hsl(0, 100%, 50%);
 } /* оттенок 0–360, насыщ., светлота */
 
 .pa {
-    color: blue;
+  color: blue;
 }
 
 .pb {
-    color: #0000ff;
+  color: #0000ff;
 }
 
 .pc {
-    color: rgb(0, 0, 255);
+  color: rgb(0, 0, 255);
 }
 
 .pd {
-    color: hsl(240, 100%, 50%);
+  color: hsl(240, 100%, 50%);
 }
 
 .pe {
-    color: rgba(0, 0, 255, 0.3);
+  color: rgba(0, 0, 255, 0.3);
 }

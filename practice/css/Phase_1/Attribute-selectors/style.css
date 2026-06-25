@@ -1,11 +1,11 @@
 [href^="https"] {
-    color: orangered;
+  color: orangered;
 }
 
 [href$=".pdf"] {
-    color: palevioletred;
+  color: palevioletred;
 }
 
 a {
-    display: block;
+  display: block;
 }

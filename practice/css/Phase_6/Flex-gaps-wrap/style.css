@@ -1,16 +1,16 @@
 .container {
-    margin: 20px 0;
-    display: flex;
-    flex-direction: row;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
 
-    align-items: stretch;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 20px 30px;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px 30px;
 }
 
 .block {
-    width: 200px;
-    height: 100px;
-    background-color: #efee19;
+  width: 200px;
+  height: 100px;
+  background-color: #efee19;
 }

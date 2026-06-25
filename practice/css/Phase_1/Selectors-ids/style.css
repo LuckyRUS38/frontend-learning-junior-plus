@@ -1,11 +1,11 @@
 .default-paragraph {
-    color: black;
+  color: black;
 }
 
 .warning-paragraph {
-    color: red;
+  color: red;
 }
 
 #expansive {
-    font-size: 32px;
+  font-size: 32px;
 }

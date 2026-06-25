@@ -1,46 +1,46 @@
 :root {
-    --accent: #eeb433;
-    --text-color: #1a1a1a;
-    --text-size: 16px;
-    --bg: #fff;
+  --accent: #eeb433;
+  --text-color: #1a1a1a;
+  --text-size: 16px;
+  --bg: #fff;
 }
 
 .card {
-    background-color: var(--bg);
-    color: var(--text-color);
-    padding: 1rem;
+  background-color: var(--bg);
+  color: var(--text-color);
+  padding: 1rem;
 }
 
 h1 {
-    color: var(--accent);
-    font-size: 36px;
+  color: var(--accent);
+  font-size: 36px;
 }
 
 h2 {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 label {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 p {
-    color: var(--text-color);
-    font-size: var(--text-size);
+  color: var(--text-color);
+  font-size: var(--text-size);
 }
 
 body:has(#theme:checked) {
-    --bg: #1a1a1a;
-    --text-color: #fff;
+  --bg: #1a1a1a;
+  --text-color: #fff;
 }
 
 body {
-    background-color: var(--bg);
+  background-color: var(--bg);
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #1a1a1a;
-        --text-color: #fff;
-    }
+  :root {
+    --bg: #1a1a1a;
+    --text-color: #fff;
+  }
 }

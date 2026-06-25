@@ -1,17 +1,17 @@
 span {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
 }
 
 #first {
-    background-color: red;
+  background-color: red;
 }
 
 #second {
-    background-color: cyan;
+  background-color: cyan;
 }
 
 #third {
-    background-color: violet;
+  background-color: violet;
 }

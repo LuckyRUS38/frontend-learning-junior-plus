@@ -1,18 +1,18 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-flow: dense;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 20px;
 }
 
 .grid div {
-    background-color: greenyellow;
+  background-color: greenyellow;
 }
 
 .full {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 .span {
-    grid-column: span 2;
+  grid-column: span 2;
 }

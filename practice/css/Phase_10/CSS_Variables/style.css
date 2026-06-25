@@ -1,16 +1,16 @@
 :root {
-    --accent: #bb88ee;
-    --text: 24px;
-    --radius: 20px;
+  --accent: #bb88ee;
+  --text: 24px;
+  --radius: 20px;
 }
 
 button {
-    background-color: var(--accent);
-    border-radius: var(--radius);
-    font-size: var(--text);
+  background-color: var(--accent);
+  border-radius: var(--radius);
+  font-size: var(--text);
 }
 
 h1 {
-    font-size: var(--text);
-    color: var(--accent);
+  font-size: var(--text);
+  color: var(--accent);
 }

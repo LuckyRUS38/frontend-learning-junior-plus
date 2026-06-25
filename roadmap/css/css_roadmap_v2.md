@@ -856,4 +856,3 @@ Modules, Tailwind, styled-components · день 4-5
 *Запрос ментору:* Сравни CSS Modules vs Tailwind для React — плюсы и минусы
 
 ---
-

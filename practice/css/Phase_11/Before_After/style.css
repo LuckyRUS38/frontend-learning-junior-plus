@@ -1,12 +1,12 @@
 .quote::before {
-    content: "«";
+  content: "«";
 }
 
 .quote::after {
-    content: "»";
+  content: "»";
 }
 
 .required::after {
-    content: "*";
-    color: red;
+  content: "*";
+  color: red;
 }

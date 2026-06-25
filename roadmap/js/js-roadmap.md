@@ -889,4 +889,3 @@ Node.js Package Manager · день 1
 *Запрос ментору:* Объясни Git workflow с ветками и Pull Request для разработчика
 
 ---
-

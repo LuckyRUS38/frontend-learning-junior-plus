@@ -1,8 +1,8 @@
 h1 {
-    font-size: clamp(16px, 5vw, 48px);
+  font-size: clamp(16px, 5vw, 48px);
 }
 
 .block {
-    background-color: yellow;
-    width: min(600px, 100%);
+  background-color: yellow;
+  width: min(600px, 100%);
 }

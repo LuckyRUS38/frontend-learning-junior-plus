@@ -783,4 +783,3 @@ tsc, ts-node, tsx, type-checking в CI · день 2
 *Запрос ментору:* Объясни стратегию миграции JavaScript проекта на TypeScript
 
 ---
-

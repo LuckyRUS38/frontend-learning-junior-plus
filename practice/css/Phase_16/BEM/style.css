@@ -1,55 +1,55 @@
 body {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    min-height: 600px;
-    min-width: 300px;
-    background-color: burlywood;
-    border-radius: 30px;
-    padding: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  min-width: 300px;
+  background-color: burlywood;
+  border-radius: 30px;
+  padding: 15px;
 }
 
 .card--feature {
-    border: 1px brown solid;
+  border: 1px brown solid;
 }
 
 .card__text {
-    font-size: 20px;
-    color: black;
+  font-size: 20px;
+  color: black;
 }
 
 .card__btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    transition: transform 1s ease-out;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  transition: transform 1s ease-out;
 }
 
 .card__btn:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .card__btn:active {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 .card__btn--primary {
-    background: brown;
-    color: white;
+  background: brown;
+  color: white;
 }
 
 .card__btn--primary:active {
-    background-color: rosybrown;
+  background-color: rosybrown;
 }
 
 .card__image {
-    height: 50px;
-    width: 100%;
+  height: 50px;
+  width: 100%;
 }

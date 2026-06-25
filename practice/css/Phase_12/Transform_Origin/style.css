@@ -1,25 +1,25 @@
 div {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    background-color: red;
-    transform: rotate(45deg);
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background-color: red;
+  transform: rotate(45deg);
 }
 
 .default {
-    transform-origin: center;
+  transform-origin: center;
 }
 
 .default-scn {
-    transform-origin: center;
-    transform: translateX(100px) rotate(45deg);
+  transform-origin: center;
+  transform: translateX(100px) rotate(45deg);
 }
 
 .top-left-scn {
-    transform: rotate(45deg) translateX(100px);
-    transform-origin: top left;
+  transform: rotate(45deg) translateX(100px);
+  transform-origin: top left;
 }
 
 .top-left {
-    transform-origin: top left;
+  transform-origin: top left;
 }

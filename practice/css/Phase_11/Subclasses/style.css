@@ -1,16 +1,16 @@
 #submit:hover {
-    background-color: green;
+  background-color: green;
 }
 
 #submit:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 input:focus {
-    outline: none;
-    border: 2px solid greenyellow;
+  outline: none;
+  border: 2px solid greenyellow;
 }
 
 input:disabled {
-    opacity: 0.6;
+  opacity: 0.6;
 }
