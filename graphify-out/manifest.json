@@ -1,0 +1,502 @@
+{
+  "practice/js/Phase_0/operators.js": {
+    "mtime": 1781934566.6246629,
+    "ast_hash": "824966018e289efde6643e0c9953bd4e",
+    "semantic_hash": "824966018e289efde6643e0c9953bd4e"
+  },
+  "practice/js/Phase_0/templates.js": {
+    "mtime": 1781935674.5777748,
+    "ast_hash": "d3b352ff44338a6645e1c840c2f9cb49",
+    "semantic_hash": "d3b352ff44338a6645e1c840c2f9cb49"
+  },
+  "practice/js/Phase_0/variables.js": {
+    "mtime": 1781847798.9071288,
+    "ast_hash": "1ed045706dfa594d6079c2f6d0e7d388",
+    "semantic_hash": "1ed045706dfa594d6079c2f6d0e7d388"
+  },
+  "practice/js/Phase_1/conditions.js": {
+    "mtime": 1781938121.9614618,
+    "ast_hash": "b494a8cbccb1a7bc4a2e438178cdb1f0",
+    "semantic_hash": "b494a8cbccb1a7bc4a2e438178cdb1f0"
+  },
+  "practice/js/Phase_1/errors.js": {
+    "mtime": 1781939035.6685288,
+    "ast_hash": "acec1158d94e9c380b141cc1e55b7d59",
+    "semantic_hash": "acec1158d94e9c380b141cc1e55b7d59"
+  },
+  "practice/js/Phase_1/loops.js": {
+    "mtime": 1781938414.38214,
+    "ast_hash": "00200e861cf8a2d802943dd55ee2b142",
+    "semantic_hash": "00200e861cf8a2d802943dd55ee2b142"
+  },
+  "practice/js/Phase_2/closures.js": {
+    "mtime": 1781944239.6307645,
+    "ast_hash": "ff9aac75026f25e1f2ceb2c878acd1b9",
+    "semantic_hash": "ff9aac75026f25e1f2ceb2c878acd1b9"
+  },
+  "practice/js/Phase_2/functions.js": {
+    "mtime": 1781940497.1775424,
+    "ast_hash": "36158c4e3a208d18dd1bb092bf7e463d",
+    "semantic_hash": "36158c4e3a208d18dd1bb092bf7e463d"
+  },
+  "practice/js/Phase_2/params.js": {
+    "mtime": 1781941376.8920422,
+    "ast_hash": "cf188eb2dd2eeaf458e83e62d97b321d",
+    "semantic_hash": "cf188eb2dd2eeaf458e83e62d97b321d"
+  },
+  "practice/js/Phase_2/recursion.js": {
+    "mtime": 1782029074.6146102,
+    "ast_hash": "c771341c9860e2a76f50089b7fb559ba",
+    "semantic_hash": "c771341c9860e2a76f50089b7fb559ba"
+  },
+  "practice/js/Phase_3/getters.js": {
+    "mtime": 1782039175.42573,
+    "ast_hash": "ea8d3b2db4802af646f078b2e0c0c154",
+    "semantic_hash": "ea8d3b2db4802af646f078b2e0c0c154"
+  },
+  "practice/js/Phase_3/methods.js": {
+    "mtime": 1782035568.606081,
+    "ast_hash": "dadbeb092f9fbce9509cfcc5123de4b6",
+    "semantic_hash": "dadbeb092f9fbce9509cfcc5123de4b6"
+  },
+  "practice/js/Phase_3/object-utils.js": {
+    "mtime": 1782037547.7240412,
+    "ast_hash": "5dd972511035f781f1f7eeb3db7b2fb8",
+    "semantic_hash": "5dd972511035f781f1f7eeb3db7b2fb8"
+  },
+  "practice/js/Phase_3/objects.js": {
+    "mtime": 1782034220.7562943,
+    "ast_hash": "3a357e0ac9341dbee61a67b7d088bab3",
+    "semantic_hash": "3a357e0ac9341dbee61a67b7d088bab3"
+  },
+  "practice/js/Phase_4/array-advanced.js": {
+    "mtime": 1782046284.8233485,
+    "ast_hash": "e429f16f7f2cec6f86e1899cdbd56fb4",
+    "semantic_hash": "e429f16f7f2cec6f86e1899cdbd56fb4"
+  },
+  "practice/js/Phase_4/array-basics.js": {
+    "mtime": 1782042043.6005719,
+    "ast_hash": "b45738ea608be2af879836b4f8ad3b7b",
+    "semantic_hash": "b45738ea608be2af879836b4f8ad3b7b"
+  },
+  "practice/js/Phase_4/array-iteration.js": {
+    "mtime": 1782044707.877782,
+    "ast_hash": "049100cd724e350aff855678c6e300c6",
+    "semantic_hash": "049100cd724e350aff855678c6e300c6"
+  },
+  "practice/js/Phase_5/numbers.js": {
+    "mtime": 1782111597.7010293,
+    "ast_hash": "f69f6ff31a85d6d96942a6b4f8718667",
+    "semantic_hash": "f69f6ff31a85d6d96942a6b4f8718667"
+  },
+  "practice/js/Phase_5/strings.js": {
+    "mtime": 1782109736.7844956,
+    "ast_hash": "2760906f33ad3508f97cfeb845672e4b",
+    "semantic_hash": "2760906f33ad3508f97cfeb845672e4b"
+  },
+  "practice/js/Phase_6/dom-select.js": {
+    "mtime": 1782351192.9633005,
+    "ast_hash": "c90ac8b957ab478b39e498959bf124eb",
+    "semantic_hash": "c90ac8b957ab478b39e498959bf124eb"
+  },
+  "projects/js/calculator/calc.js": {
+    "mtime": 1782033216.5690393,
+    "ast_hash": "77bff6dfd5d795fb66e930bfb7403cad",
+    "semantic_hash": "77bff6dfd5d795fb66e930bfb7403cad"
+  },
+  "projects/js/phase-0-5-mini/expenses.js": {
+    "mtime": 1782295994.0643523,
+    "ast_hash": "3f0f981447d3b3c6347414bb79a5f720",
+    "semantic_hash": "3f0f981447d3b3c6347414bb79a5f720"
+  },
+  "projects/js/phase-0-5-mini/students.js": {
+    "mtime": 1782117298.5162816,
+    "ast_hash": "2a75d474e1dae02c1464dee4b8b870fb",
+    "semantic_hash": "2a75d474e1dae02c1464dee4b8b870fb"
+  },
+  "projects/js/phase-0-5-mini/text-analyzer.js": {
+    "mtime": 1782302386.571154,
+    "ast_hash": "c1327c02e49766c31ef0046bca024539",
+    "semantic_hash": "c1327c02e49766c31ef0046bca024539"
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1782042308.4942327,
+    "ast_hash": "0613af1b37aac7ee441ea1bbb9ff23a8",
+    "semantic_hash": "0613af1b37aac7ee441ea1bbb9ff23a8"
+  },
+  "README.en.md": {
+    "mtime": 1781837784.0749564,
+    "ast_hash": "dd5e1a8f34999a664281bbbbb12eeb37",
+    "semantic_hash": "dd5e1a8f34999a664281bbbbb12eeb37"
+  },
+  "README.md": {
+    "mtime": 1781837760.872262,
+    "ast_hash": "a31158167d953adc775d87bec7ba86ea",
+    "semantic_hash": "a31158167d953adc775d87bec7ba86ea"
+  },
+  "practice/css/Phase_10/CSS_Variables/index.html": {
+    "mtime": 1781500816.4206407,
+    "ast_hash": "e7655278c2a98781fb15cf940325e15b",
+    "semantic_hash": "e7655278c2a98781fb15cf940325e15b"
+  },
+  "practice/css/Phase_10/Dark_Theme_via_Variables/index.html": {
+    "mtime": 1781502562.572253,
+    "ast_hash": "9e9f73ee1917ab9007318fabb2d4fb41",
+    "semantic_hash": "9e9f73ee1917ab9007318fabb2d4fb41"
+  },
+  "practice/css/Phase_11/Before_After/index.html": {
+    "mtime": 1781683269.0853112,
+    "ast_hash": "fbc1d76a26e51b0556fb6f4e1ec367b7",
+    "semantic_hash": "fbc1d76a26e51b0556fb6f4e1ec367b7"
+  },
+  "practice/css/Phase_11/Structured_Subclasses/index.html": {
+    "mtime": 1781682552.647554,
+    "ast_hash": "7ef13c28787cba2950b9044067fa8c8e",
+    "semantic_hash": "7ef13c28787cba2950b9044067fa8c8e"
+  },
+  "practice/css/Phase_11/Subclasses/index.html": {
+    "mtime": 1781680426.0417202,
+    "ast_hash": "0fa2e6fc49c70a1085410d577a21b6e7",
+    "semantic_hash": "0fa2e6fc49c70a1085410d577a21b6e7"
+  },
+  "practice/css/Phase_12/2d_transformation/index.html": {
+    "mtime": 1781683812.7340586,
+    "ast_hash": "c14be32a17f7690453aa4809e213a36f",
+    "semantic_hash": "c14be32a17f7690453aa4809e213a36f"
+  },
+  "practice/css/Phase_12/3d_transformations/index.html": {
+    "mtime": 1781686739.934316,
+    "ast_hash": "dc21889215eecb3e3163504b5450bd02",
+    "semantic_hash": "dc21889215eecb3e3163504b5450bd02"
+  },
+  "practice/css/Phase_12/Transform_Origin/index.html": {
+    "mtime": 1781686439.6392875,
+    "ast_hash": "3ff4cdd93831f38be0f3cadc4278bdec",
+    "semantic_hash": "3ff4cdd93831f38be0f3cadc4278bdec"
+  },
+  "practice/css/Phase_13/Timing_functions/index.html": {
+    "mtime": 1781692535.651604,
+    "ast_hash": "e6792c463fab3d66b2b402e2ba40a10e",
+    "semantic_hash": "e6792c463fab3d66b2b402e2ba40a10e"
+  },
+  "practice/css/Phase_13/Transitions/index.html": {
+    "mtime": 1781687540.986907,
+    "ast_hash": "1fff35e592b1eb63b235ce03d6e84f66",
+    "semantic_hash": "1fff35e592b1eb63b235ce03d6e84f66"
+  },
+  "practice/css/Phase_14/Animation_Properties/index.html": {
+    "mtime": 1781751779.8335881,
+    "ast_hash": "8ef94031b2b0cb354c5581fe33d1c491",
+    "semantic_hash": "8ef94031b2b0cb354c5581fe33d1c491"
+  },
+  "practice/css/Phase_14/Basic_Patterns_and_Reduces_Motion/index.html": {
+    "mtime": 1781753164.6953783,
+    "ast_hash": "3ad3b306f14d28a8f62a8ea7b78e1534",
+    "semantic_hash": "3ad3b306f14d28a8f62a8ea7b78e1534"
+  },
+  "practice/css/Phase_14/Keyframes/index.html": {
+    "mtime": 1781751173.5838487,
+    "ast_hash": "1dd5fe83b87f96a0b2a40c612e3ab114",
+    "semantic_hash": "1dd5fe83b87f96a0b2a40c612e3ab114"
+  },
+  "practice/css/Phase_15/Filters/index.html": {
+    "mtime": 1781772999.1078105,
+    "ast_hash": "3f5e6e7c276904c720c9cd544d4bf3f1",
+    "semantic_hash": "3f5e6e7c276904c720c9cd544d4bf3f1"
+  },
+  "practice/css/Phase_15/Modern_CSS_Attributes/index.html": {
+    "mtime": 1781774194.143788,
+    "ast_hash": "a585d983d5b19210a39b35d2b4c76319",
+    "semantic_hash": "a585d983d5b19210a39b35d2b4c76319"
+  },
+  "practice/css/Phase_16/BEM/index.html": {
+    "mtime": 1781779267.874727,
+    "ast_hash": "e88ef4d6304ff50988ffc3119bc7a063",
+    "semantic_hash": "e88ef4d6304ff50988ffc3119bc7a063"
+  },
+  "practice/css/Phase_1/Attribute-selectors/index.html": {
+    "mtime": 1780131952.6957276,
+    "ast_hash": "7e2e4bad9a728abc69375b0cfc237767",
+    "semantic_hash": "7e2e4bad9a728abc69375b0cfc237767"
+  },
+  "practice/css/Phase_1/DevTools-Basics/index.html": {
+    "mtime": 1780029230.3769686,
+    "ast_hash": "6f9e7be4425dcb89cc87bee8032b9e7b",
+    "semantic_hash": "6f9e7be4425dcb89cc87bee8032b9e7b"
+  },
+  "practice/css/Phase_1/Important-antipattern/index.html": {
+    "mtime": 1780133500.5788467,
+    "ast_hash": "7d12faf9ea9d4d82c86ec510f10f0d92",
+    "semantic_hash": "7d12faf9ea9d4d82c86ec510f10f0d92"
+  },
+  "practice/css/Phase_1/Inheritance/index.html": {
+    "mtime": 1780034903.3278935,
+    "ast_hash": "7d08f3da31b2afa9c867985bfaf4f63e",
+    "semantic_hash": "7d08f3da31b2afa9c867985bfaf4f63e"
+  },
+  "practice/css/Phase_1/Selector/index.html": {
+    "mtime": 1780131663.7674289,
+    "ast_hash": "3415319467b974588528b3f32de78c92",
+    "semantic_hash": "3415319467b974588528b3f32de78c92"
+  },
+  "practice/css/Phase_1/Selectors-ids/index.html": {
+    "mtime": 1780034921.8613763,
+    "ast_hash": "d7bf3e95f9eff9735b1cd57651fab11b",
+    "semantic_hash": "d7bf3e95f9eff9735b1cd57651fab11b"
+  },
+  "practice/css/Phase_1/Specifity/index.html": {
+    "mtime": 1780034917.0845115,
+    "ast_hash": "0473dbd39b98e4e16393162a1290dd3c",
+    "semantic_hash": "0473dbd39b98e4e16393162a1290dd3c"
+  },
+  "practice/css/Phase_2/Border/index.html": {
+    "mtime": 1780134902.0124233,
+    "ast_hash": "d78652ced42d02d74d93ef0dd5507e8d",
+    "semantic_hash": "d78652ced42d02d74d93ef0dd5507e8d"
+  },
+  "practice/css/Phase_2/Boxing/Box-Model/index.html": {
+    "mtime": 1780036813.52593,
+    "ast_hash": "c08ebe8ca404dc8f2ee6311f9e25946a",
+    "semantic_hash": "c08ebe8ca404dc8f2ee6311f9e25946a"
+  },
+  "practice/css/Phase_2/Boxing/Box-sizing/index.html": {
+    "mtime": 1780037046.568599,
+    "ast_hash": "3d51eec4a9c5f1ff333f996f3419f6b9",
+    "semantic_hash": "3d51eec4a9c5f1ff333f996f3419f6b9"
+  },
+  "practice/css/Phase_2/Margin/index.html": {
+    "mtime": 1780134242.0982873,
+    "ast_hash": "d9856639f5227f464798b9e360ae88c2",
+    "semantic_hash": "d9856639f5227f464798b9e360ae88c2"
+  },
+  "practice/css/Phase_3/Font-Family/index.html": {
+    "mtime": 1780038269.6646461,
+    "ast_hash": "274c2415bdf0727868e9efbfe14d7f81",
+    "semantic_hash": "274c2415bdf0727868e9efbfe14d7f81"
+  },
+  "practice/css/Phase_3/Font-Sizing/index.html": {
+    "mtime": 1780039500.4025688,
+    "ast_hash": "5cc194177b929148ffa794b2f3e4e689",
+    "semantic_hash": "5cc194177b929148ffa794b2f3e4e689"
+  },
+  "practice/css/Phase_3/Font-facing/index.html": {
+    "mtime": 1780044665.9589224,
+    "ast_hash": "3d35ffe25f149d8eec7e101432a82d6b",
+    "semantic_hash": "3d35ffe25f149d8eec7e101432a82d6b"
+  },
+  "practice/css/Phase_3/Font-variant/index.html": {
+    "mtime": 1780045122.8938475,
+    "ast_hash": "79f94f254737eb9c8f2a05b066f3b1f0",
+    "semantic_hash": "79f94f254737eb9c8f2a05b066f3b1f0"
+  },
+  "practice/css/Phase_3/Line-height_intervals/index.html": {
+    "mtime": 1780039919.688054,
+    "ast_hash": "b8a96e07b1b48a657be2fec653ceebef",
+    "semantic_hash": "b8a96e07b1b48a657be2fec653ceebef"
+  },
+  "practice/css/Phase_3/Pattern-Ellipsis/index.html": {
+    "mtime": 1780045932.435992,
+    "ast_hash": "83081c739d39f9ee0a531f218f6a5209",
+    "semantic_hash": "83081c739d39f9ee0a531f218f6a5209"
+  },
+  "practice/css/Phase_3/Text-operations/index.html": {
+    "mtime": 1780040486.8563104,
+    "ast_hash": "2c0bf1135fb359a718f43b33dd60ba41",
+    "semantic_hash": "2c0bf1135fb359a718f43b33dd60ba41"
+  },
+  "practice/css/Phase_4/Background/index.html": {
+    "mtime": 1780043325.0842237,
+    "ast_hash": "2fee43cc1d0b676dbe7dade509e9c13f",
+    "semantic_hash": "2fee43cc1d0b676dbe7dade509e9c13f"
+  },
+  "practice/css/Phase_4/Format-Colors/index.html": {
+    "mtime": 1780041327.3973243,
+    "ast_hash": "8cdcab1e38dbf59378c968f73e0e0615",
+    "semantic_hash": "8cdcab1e38dbf59378c968f73e0e0615"
+  },
+  "practice/css/Phase_4/Gradients/index.html": {
+    "mtime": 1780043708.1157334,
+    "ast_hash": "7df1ef4a22f625cf0045faa0900ab25d",
+    "semantic_hash": "7df1ef4a22f625cf0045faa0900ab25d"
+  },
+  "practice/css/Phase_5/Displaying/index.html": {
+    "mtime": 1780037473.4526136,
+    "ast_hash": "1189daf373e411c7d6bafa14c175bd71",
+    "semantic_hash": "1189daf373e411c7d6bafa14c175bd71"
+  },
+  "practice/css/Phase_5/Normal-flow/index.html": {
+    "mtime": 1780150367.6133692,
+    "ast_hash": "a508b587d796fe3e9bbdfcdf7f2d45bb",
+    "semantic_hash": "a508b587d796fe3e9bbdfcdf7f2d45bb"
+  },
+  "practice/css/Phase_5/Overflow/index.html": {
+    "mtime": 1780203600.9481514,
+    "ast_hash": "1f41f2fba1adb40e18dc5ee8fe013249",
+    "semantic_hash": "1f41f2fba1adb40e18dc5ee8fe013249"
+  },
+  "practice/css/Phase_6/Align-items/index.html": {
+    "mtime": 1780206848.4478939,
+    "ast_hash": "aaa38d6a7a2928881cd4be815b4d5f23",
+    "semantic_hash": "aaa38d6a7a2928881cd4be815b4d5f23"
+  },
+  "practice/css/Phase_6/Flex-attributes/index.html": {
+    "mtime": 1780209658.065981,
+    "ast_hash": "7b815b70dfd50c9a7d9231a487a173cf",
+    "semantic_hash": "7b815b70dfd50c9a7d9231a487a173cf"
+  },
+  "practice/css/Phase_6/Flex-gaps-wrap/index.html": {
+    "mtime": 1780208508.2802017,
+    "ast_hash": "0601e9ac9381d1e9aacd081fb645a8f3",
+    "semantic_hash": "0601e9ac9381d1e9aacd081fb645a8f3"
+  },
+  "practice/css/Phase_6/Flex/index.html": {
+    "mtime": 1780205044.2506952,
+    "ast_hash": "d74e31d5069f768d02a54db36402ca50",
+    "semantic_hash": "d74e31d5069f768d02a54db36402ca50"
+  },
+  "practice/css/Phase_6/Justify-content/index.html": {
+    "mtime": 1780205348.3065302,
+    "ast_hash": "ff99a68742b65c1b8897d93b81121dbe",
+    "semantic_hash": "ff99a68742b65c1b8897d93b81121dbe"
+  },
+  "practice/css/Phase_7/AutoFit_AutoFill/index.html": {
+    "mtime": 1780296010.672755,
+    "ast_hash": "8bed6dcf80b41a28addb1e0e1774826f",
+    "semantic_hash": "8bed6dcf80b41a28addb1e0e1774826f"
+  },
+  "practice/css/Phase_7/GridAttributes_On_Child/index.html": {
+    "mtime": 1780300100.982854,
+    "ast_hash": "9d23ca5b8484864a8fe1dc10b641140d",
+    "semantic_hash": "9d23ca5b8484864a8fe1dc10b641140d"
+  },
+  "practice/css/Phase_7/Grid/index.html": {
+    "mtime": 1780218738.6066642,
+    "ast_hash": "3688624ce6da42b926df02925ba8edb3",
+    "semantic_hash": "3688624ce6da42b926df02925ba8edb3"
+  },
+  "practice/css/Phase_7/Template_Areas/index.html": {
+    "mtime": 1780308108.1807048,
+    "ast_hash": "792d833522a6e65af8e56dd9610f73e4",
+    "semantic_hash": "792d833522a6e65af8e56dd9610f73e4"
+  },
+  "practice/css/Phase_8/Absolute_Fixed/Practice/index.html": {
+    "mtime": 1780893837.7171583,
+    "ast_hash": "50c52c054f5b33b9a58899262ee81dca",
+    "semantic_hash": "50c52c054f5b33b9a58899262ee81dca"
+  },
+  "practice/css/Phase_8/Absolute_Fixed/Sample/index.html": {
+    "mtime": 1780809363.5753226,
+    "ast_hash": "08516ce460d239fd15482c04765247cb",
+    "semantic_hash": "08516ce460d239fd15482c04765247cb"
+  },
+  "practice/css/Phase_8/Static_Relative/index.html": {
+    "mtime": 1780809363.5753226,
+    "ast_hash": "617868721469aaa750e33b41578e4ddf",
+    "semantic_hash": "617868721469aaa750e33b41578e4ddf"
+  },
+  "practice/css/Phase_8/Sticky_Zindex/Practice/index.html": {
+    "mtime": 1780896671.618162,
+    "ast_hash": "50c5f105330545998325ac5a932feee7",
+    "semantic_hash": "50c5f105330545998325ac5a932feee7"
+  },
+  "practice/css/Phase_8/Sticky_Zindex/Sample/index.html": {
+    "mtime": 1780894007.988792,
+    "ast_hash": "2452f5f88b9315d1029a9b96097035bb",
+    "semantic_hash": "2452f5f88b9315d1029a9b96097035bb"
+  },
+  "practice/css/Phase_9/Calc_Clamp_etc/index.html": {
+    "mtime": 1781495003.081372,
+    "ast_hash": "336e7037e3e8eacb4748dc57f177c9fd",
+    "semantic_hash": "336e7037e3e8eacb4748dc57f177c9fd"
+  },
+  "practice/css/Phase_9/Media_Queries/index.html": {
+    "mtime": 1780899677.5162117,
+    "ast_hash": "836115f401c3a2b1a4c0584aee4f2e99",
+    "semantic_hash": "836115f401c3a2b1a4c0584aee4f2e99"
+  },
+  "practice/css/Phase_9/Units/index.html": {
+    "mtime": 1780898264.2763236,
+    "ast_hash": "73aa0bd77d53aecc4dcbc3c22aa244ad",
+    "semantic_hash": "73aa0bd77d53aecc4dcbc3c22aa244ad"
+  },
+  "practice/js/Phase_6/index.html": {
+    "mtime": 1782307684.6348708,
+    "ast_hash": "c3bb33272deea7a57340c04b93cf0fec",
+    "semantic_hash": "c3bb33272deea7a57340c04b93cf0fec"
+  },
+  "projects/html-css/album-card/index.html": {
+    "mtime": 1780903161.1761417,
+    "ast_hash": "8ec801596b6f785a8f30e1e2fb84178f",
+    "semantic_hash": "8ec801596b6f785a8f30e1e2fb84178f"
+  },
+  "projects/html-css/profile-card/index.html": {
+    "mtime": 1781749496.0398862,
+    "ast_hash": "45314b8669c82b27152d3ac47560739f",
+    "semantic_hash": "45314b8669c82b27152d3ac47560739f"
+  },
+  "projects/html-css/sleep-token-landing/index.html": {
+    "mtime": 1780991092.1153653,
+    "ast_hash": "51af5d00d789a1ffdd56b3b20568f28f",
+    "semantic_hash": "51af5d00d789a1ffdd56b3b20568f28f"
+  },
+  "roadmap/css/css_roadmap_v2.html": {
+    "mtime": 1780025674.914628,
+    "ast_hash": "db7c51dd2e01b50f06e5f0b04d86002d",
+    "semantic_hash": "db7c51dd2e01b50f06e5f0b04d86002d"
+  },
+  "roadmap/css/css_roadmap_v2.md": {
+    "mtime": 1782042279.230501,
+    "ast_hash": "da84307c1e013c9e0cc81dd3513eb076",
+    "semantic_hash": "da84307c1e013c9e0cc81dd3513eb076"
+  },
+  "roadmap/js/js-roadmap.html": {
+    "mtime": 1781056034.1071334,
+    "ast_hash": "5680d7b32df930db72e2fcfec5013807",
+    "semantic_hash": "5680d7b32df930db72e2fcfec5013807"
+  },
+  "roadmap/js/js-roadmap.md": {
+    "mtime": 1782042279.2335453,
+    "ast_hash": "06ac4da31969b7fbc6b93e63070f1313",
+    "semantic_hash": "06ac4da31969b7fbc6b93e63070f1313"
+  },
+  "roadmap/react/react-roadmap.html": {
+    "mtime": 1780994144.7724268,
+    "ast_hash": "6bcc318513a71e34c9cedeca2aa984ad",
+    "semantic_hash": "6bcc318513a71e34c9cedeca2aa984ad"
+  },
+  "roadmap/react/react-roadmap.md": {
+    "mtime": 1782042279.242869,
+    "ast_hash": "82e16a05117ccc173fc8274270af2234",
+    "semantic_hash": "82e16a05117ccc173fc8274270af2234"
+  },
+  "roadmap/ts/ts-roadmap.html": {
+    "mtime": 1781056032.1990342,
+    "ast_hash": "76dde5089e4d3f7d862acf35e565f26d",
+    "semantic_hash": "76dde5089e4d3f7d862acf35e565f26d"
+  },
+  "roadmap/ts/ts-roadmap.md": {
+    "mtime": 1782042279.241802,
+    "ast_hash": "cfbf2e7cb64a31da6658daee8c10ebcf",
+    "semantic_hash": "cfbf2e7cb64a31da6658daee8c10ebcf"
+  },
+  "templates/clearest-html.html": {
+    "mtime": 1780036673.00779,
+    "ast_hash": "34327595f117ff635b6028ba1b2d62f7",
+    "semantic_hash": "34327595f117ff635b6028ba1b2d62f7"
+  },
+  "assets/images/first-project.png": {
+    "mtime": 1780217013.5081813,
+    "ast_hash": "497ef1420a2edda7a806e2509913be13",
+    "semantic_hash": "497ef1420a2edda7a806e2509913be13"
+  },
+  "assets/images/second-project.png": {
+    "mtime": 1780923906.6107626,
+    "ast_hash": "b170cc1a6d1a6caf906750c4b9133d80",
+    "semantic_hash": "b170cc1a6d1a6caf906750c4b9133d80"
+  },
+  "projects/html-css/profile-card/assets/avatar.png": {
+    "mtime": 1781496175.192365,
+    "ast_hash": "488b843d6a5c5a4c5637b589a8d34812",
+    "semantic_hash": "488b843d6a5c5a4c5637b589a8d34812"
+  }
+}

@@ -3,3 +3,5 @@ projects/PET_PROJECTS.md
 projects/plans/COOL-VISUAL-PROJECTS.md
 projects/plans/JS-TS-PROJECTS.md
 .env
+graphify-out/cost.json
+graphify-out/cache/stat-index.json
