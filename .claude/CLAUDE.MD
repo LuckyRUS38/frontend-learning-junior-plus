@@ -17,6 +17,14 @@ CSS, HTML, JavaScript, TypeScript, React, Vite, Node.js, Git
 
 ---
 
+## Response rules
+- Before finishing any answer about a topic, do a self-audit:
+  list what subtopics exist → check which ones you covered → cover the rest
+- Never say "I covered everything" without explicitly listing what was included
+- If the topic has edge cases — mention them, even briefly
+
+---
+
 ## Ответ на "Тема: [название]"
 
 Дай ровно четыре блока:
