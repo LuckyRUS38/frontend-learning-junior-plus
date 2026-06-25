@@ -1,0 +1,16 @@
+:root {
+  --accent: #ff00ff;
+}
+
+.done::after {
+  content: " ✔";
+}
+
+.todo {
+  width: 300px;
+}
+
+.highlight {
+  border: 3px solid gold;
+  background-color: yellow;
+}
