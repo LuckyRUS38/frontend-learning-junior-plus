@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Базовые стили под кнопки-варианты — допилишь по ходу */
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #161b22;
+  color: #e6edf3;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.option:hover {
+  border-color: #58a6ff;
+}
+
+.option.correct {
+  border-color: #3fb950;
+  background: #12261a;
+}
+
+.option.wrong {
+  border-color: #f85149;
+  background: #2a1416;
+}
+
+.btn {
+  margin: auto;
+  width: 20%;
+  text-align: center;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #161b22;
+  color: #e6edf3;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.btn:hover {
+  border-color: #58a6ff;
+}
