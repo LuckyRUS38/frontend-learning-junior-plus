@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: lightgoldenrodyellow;
+  border-radius: 10px;
+  border: 2px solid palegoldenrod;
+}
+
+input {
+  border: 2px solid palegoldenrod;
+  padding: 5px;
+}
+
+button {
+  border-radius: 10px;
+  border: 2px solid palegoldenrod;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: peachpuff;
+  transition: 0.3s ease-in;
+}
+
+button:hover {
+  background-color: #ffe2bc;
+  position: relative;
+  transform: scale(1.1);
+  opacity: 0.9;
+  cursor: pointer;
+}
