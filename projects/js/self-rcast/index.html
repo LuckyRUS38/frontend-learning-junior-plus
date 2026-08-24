@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self Raycast</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="openSearch">Search ⌘K</button>
+    <div class="backdrop" hidden>
+      <div class="searcher-pallete" id="searchPalette">
+        <div class="search-input-row">
+            <div class="icon">🔍</div>
+            <div class="input-wrap">
+                <input type="text" id="searchInput" placeholder="Type a title, artist, album..." />
+                <button id="clearInput" hidden>X</button>
+            </div>
+
+        </div>
+        <hr />
+        <div class="p-text center-in-fix" id="status" hidden>Nothing found by your query</div>
+        <div class="center-in-fix p-text">TIPS: ↑↓ navigation <span class="dot">•</span> ↵ choose <span class="dot">•</span> esc close</div>
+        <div class="container-finded">
+          <div class="item-container" id="itemTemplate">
+            <div class="track-cover"><img class="track-cover-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xn43cAitg30uBGHgoJpdKF8MkfavMXysN-hsDrOQNIukD3YacMLJikgw&s=10" /></div>
+            <div class="item-info">
+              <h3 class="track-title-artist">Name • Artist</h3>
+              <h3 class="track-album">Album • year</h3>
+              <div class="genre-duration">
+                  <div class="track-genre p-text">Genre</div>
+                  <div class="track-duration p-text">Duration</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js" defer></script>
+  </body>
+</html>
