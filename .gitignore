@@ -5,3 +5,5 @@ projects/plans/JS-TS-PROJECTS.md
 .env
 graphify-out/cost.json
 graphify-out/cache/stat-index.json
+.DS_Store
+roadmap/.DS_Store
