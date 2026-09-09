@@ -69,9 +69,9 @@ The goal is not just syntax — it's systematic understanding of Frontend and pr
 - [ ] Tailwind CSS
 
 ### JavaScript
-- [ ] Fundamentals & ES6+
-- [ ] DOM & Events
-- [ ] Async / Promises / Fetch
+- [X] Fundamentals & ES6+
+- [X] DOM & Events
+- [X] Async / Promises / Fetch
 - [ ] Modules
 
 ### React

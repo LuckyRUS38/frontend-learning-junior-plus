@@ -69,9 +69,9 @@ Sleep Token landing page — практический результат пер�
 - [ ] Tailwind CSS
 
 ### JavaScript
-- [ ] Основы и ES6+
-- [ ] DOM & Events
-- [ ] Async / Promises / Fetch
+- [X] Основы и ES6+
+- [X] DOM & Events
+- [X] Async / Promises / Fetch
 - [ ] Модули
 
 ### React
